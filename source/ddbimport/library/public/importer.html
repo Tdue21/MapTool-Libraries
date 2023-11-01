@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Import from D&amp;D Beyond</title>
+    <link rel="stylesheet" type="text/css" href="./importer.css">
+</head>
+
+<body>
+    <section id="inputSection">
+        <form id="importForm" name="importForm" action="" method="GET">
+            <div id="container">
+                <label style="grid-area: header" for="data">Source Text</label>
+                <Textarea id="data" name="data"></Textarea>
+
+                <label style="grid-area: label; grid-row: 3" for="importType">Import Type</label>
+                <select style="grid-area: input; grid-row: 3" id="importType" name="importType">
+                    <option>Monster</option>
+                    <option selected>Spell</option>
+                </select>
+
+                <label style="grid-area: label; grid-row: 4" for="sourceLabel">Source</label>
+                <input style="grid-area: input; grid-row: 4" id="source" type="text" name="source" value="DDBI" />
+
+                <button style="grid-area: button; grid-row: 3" type="button"
+                    onclick="processImport(this.form)">Save</button>
+                <button style="grid-area: button; grid-row: 4" type="reset">Clear</button>
+            </div>
+
+            <div id="help">
+                <ul>
+                    <li>Copy everything from the title to the description.</li>
+                    <li>Paste it in the box below, select <i>import type</i> and click <i>Save</i>.</li>
+                    <li>Make sure the title is correct, everything else can be changed later.</li>
+                </ul>
+                <p style="text-align: right;">
+                    Version: <span id="version"></span>
+                </p>
+            </div>
+        </form>
+    </section>
+
+    <section id="outputSection" hidden="true">
+        <h3>JSON</h3>
+        <div id="output" style="border: 1px solid black; background-color: lightgray; overflow: scroll;">
+
+        </div>
+
+        <button id="editEntry" type="button" onclick="">Edit</button>
+        <button id="back" type="button" onclick="resetForm()">Back</button>
+    </section>
+
+    <script type="text/javascript">
+
+        function resetForm(form) {
+            document.getElementById("inputSection").hidden = false;
+            document.getElementById("outputSection").hidden = true;
+            document.getElementById('importForm').reset();
+        }
+
+        function processImport(form) {
+            document.getElementById("inputSection").hidden = true;
+            document.getElementById("outputSection").hidden = false;
+
+            const data = form.data.value + "\n";
+            const type = form.importType.value;
+            const source = form.source.value;
+
+            switch (type) {
+                case "Spell":
+                    console.log("Processing spell");
+                    processSpellData(data, source);
+                    break;
+                case "Monster":
+                    console.log("Processing monster");
+                    processMonsterData(data, source);
+                    break;
+                default:
+                    console.log("Nothing to process")
+                    break;
+            }
+        }
+
+        function processSpellData(data, source) {
+            const spellPattern = /(?<name>.*)\nlevel\n(?<level>.*?)\ncasting.time\n(?<casttime>.*?)\nrange.area\n(?<range>.*?)\ncomponents\n(?<comps>.*?)\nduration\n(?<duration>.*?)\nschool\n(?<school>.*?)\nattack.save\n(?<save>.*?)\ndamage.effect\n(?<effect>.*?)\n(?<description>[\d\s\w\D\S\W]*)\n(\*\s*-\s*(?<materials>\(.*?\)))?/i;
+            const processed = data.match(spellPattern);
+
+            console.log(processed);
+            const spellData = {
+                name: processed.groups.name.replace("Concentration", "").replace("Ritual", "").trim(),
+                level: processed.groups.level,
+                castTime: processed.groups.casttime.replace("Ritual", "").trim(),
+                range: processed.groups.range,
+                components: processed.groups.comps.replace("*", processed.groups.materials),
+                duration: processed.groups.duration.replace("Concentration", "").trim(),
+                school: processed.groups.school,
+                save: processed.groups.save,
+                effect: processed.groups.effect,
+                description: processed.groups.description.replace(/\sat higher levels.\s/i, "**At Higher Levels.** "),
+                concentration: processed.groups.name.includes("Concentration"),
+                ritual: processed.groups.name.includes("Ritual"),
+                source: source.split(",")
+            };
+
+            let realName = prompt("Confirm spell name?", spellData.name);
+            if (null != realName) {
+                spellData.name = realName;
+            }
+
+            console.log(spellData);
+            console.log("<pre>" + JSON.stringify(spellData) + "</pre>");
+            let output = document.getElementById("output");
+            console.log(output);
+
+            output.innerHTML = "<pre>" + JSON.stringify(spellData, undefined, 4) + "</pre>";
+
+            /*
+[h:id=strfind(description,"(\\d+d\\d+)[\\w\\W]*?[Aa]t [Hh]igher [Ll]evels.\\s*.*?(\\d+d\\d+)")]
+[h,count(getFindCount(id)),code:{
+    [h:group1=getGroup(id,roll.count+1,1)]
+    [h:group2=getGroup(id,roll.count+1,2)]
+    [h:description=replace(description,group2,'['+group2+'](roll "'+group1+'+'+group2+'*slot'+substring(level,0,1)+'")',1)]	
+}]
+
+[h:fields=json.fields(props)]	
+[h:overwrite=listFind(fields,name)]
+[h,if(overwrite==-1):"";res=input("var|"+name+" already exists, replace?||label|span=true")]
+[h:abort(res)]
+*/
+        }
+
+        function processMonsterData(data, source) {
+            // https://regex101.com/r/7RGW3V/1
+            
+
+
+
+/*
+
+[h:value=replace(value,"ACTIONS","Actions")]
+[h:value=replace(value,"REACTIONS","Reactions")]
+[h:value=replace(value,"LEGENDARY","Legendary")]
+[h:value=replace(value,"LAIR","Lair")]
+
+[dialog("Import from D&D Beyond", "width=650; height=550; temporary=1; input=1; noframe=0"): {
+
+	[h:id=strfind(value,"^(.*?)\\s(?=[Gg]argantuan|[Hh]uge|[Ll]arge|[Mm]edium|[Ss]mall|[Tt]iny|[A-Za-z]+\\s*p\\d+)")]
+	[h:name=getGroup(id,1,1)]
+
+	[h:id=strfind(value,"([Gg]argantuan|[Hh]uge|[Ll]arge|[Mm]edium|[Ss]mall|[Tt]iny) ([\\w\\s]*\\([\\w\\s]*\\)|\\w*)")]
+	[h:size=getGroup(id,1,1)]
+	[h:type=getGroup(id,1,2)]
+
+	[h:id=strfind(value,",\\s(.*?)(?:Armor Class)")]
+	[h:alignment=getGroup(id,1,1)]
+
+	[h:id=strfind(value,"(?:Armor Class)\\s(.*?)\\s(?:Hit Points)\\s(.*?)\\s(?:Speed)\\s(.*?)\\s(?:STR)")]
+	[h:ac=getGroup(id,1,1)]
+	[h:hp=getGroup(id,1,2)]
+	[h:speed=getGroup(id,1,3)]
+
+	[h:id=strfind(value,"(\\d*)\\s\\([+-]\\d*\\)")]
+	[h:str=getGroup(id,1,1)]
+	[h:dex=getGroup(id,2,1)]
+	[h:con=getGroup(id,3,1)]
+	[h:int=getGroup(id,4,1)]
+	[h:wis=getGroup(id,5,1)]
+	[h:cha=getGroup(id,6,1)]
+
+	[h:id=strfind(value,"(?:STR.*\\d*\\s\\([+-]\\d*\\))(.*?)(?:Languages)")]
+	[h:other=getGroup(id,1,1)]
+	[h:save=if(matches(other,".*Saving Throws.*")==1,replace(other,".*Saving Throws\\s*",""),"0")]
+	[h:save=replace(save,"\\w{4,}.*","")]
+	[h:save=replace(save,";","SEMICOLONPLACEHOLDER")]
+	[h:save=capitalize(lower(save))]
+
+	[h,if(matches(other,".*Skills.*")==1),code:{
+		[h:skill=replace(other,".*Skills\\s*","")]
+		[h:id=strfind(skill,"(^.*[+-]\\d+)")]
+		[h:skill=getGroup(id,1,1)]
+		[h:skill=replace(skill,";","SEMICOLONPLACEHOLDER")]
+	};{
+		[h:skill=0]
+	}]
+
+	[h,if(matches(other,".*Damage Vulnerabilities.*")==1),code:{
+		[h:vulnerabilities=replace(other,".*Damage Vulnerabilities\\s*","")]
+		[h:id=strfind(vulnerabilities,"(.*?)(?:Damage|Condition|Senses)")]
+		[h:vulnerabilities=getGroup(id,1,1)]
+		[h:vulnerabilities=replace(vulnerabilities,";","SEMICOLONPLACEHOLDER")]
+	};{
+		[h:vulnerabilities=0]
+	}]
+
+	[h,if(matches(other,".*Damage Resistances.*")==1),code:{
+		[h:resistances=replace(other,".*Damage Resistances\\s*","")]
+		[h:id=strfind(resistances,"(.*?)(?:Damage|Condition|Senses)")]
+		[h:resistances=getGroup(id,1,1)]
+		[h:resistances=replace(resistances,";","SEMICOLONPLACEHOLDER")]
+	};{
+		[h:resistances=0]
+	}]
+
+	[h,if(matches(other,".*Damage Immunities.*")==1),code:{
+		[h:DMGimmunities=replace(other,".*Damage Immunities\\s*","")]
+		[h:id=strfind(DMGimmunities,"(.*?)(?:Damage|Condition|Senses)")]
+		[h:DMGimmunities=getGroup(id,1,1)]
+		[h:DMGimmunities=replace(DMGimmunities,";","SEMICOLONPLACEHOLDER")]
+	};{
+		[h:DMGimmunities=0]
+	}]
+
+	[h,if(matches(other,".*Condition Immunities.*")==1),code:{
+		[h:CONimmunities=replace(other,".*Condition Immunities\\s*","")]
+		[h:id=strfind(CONimmunities,"(.*?)(?:Damage|Condition|Senses)")]
+		[h:CONimmunities=getGroup(id,1,1)]
+		[h:CONimmunities=replace(CONimmunities,";","SEMICOLONPLACEHOLDER")]
+	};{
+		[h:CONimmunities=0]
+	}]
+
+	[h:save]
+	[h:skill]
+	[h:vulnerabilities]
+	[h:resistances]
+	[h:DMGimmunities]
+	[h:CONimmunities]
+
+	[h:id=strfind(value,"(?:Senses)\\s(.*?)\\s(?:Languages)\\s(.*?)\\s(?:Challenge)\\s(.*?XP\\))")]
+	[h:senses=getGroup(id,1,1)]
+	[h:languages=getGroup(id,1,2)]
+	[h:cr=getGroup(id,1,3)]
+
+	[h:senses=replace(senses,";","SEMICOLONPLACEHOLDER")]
+	[h:languages=replace(languages,";","SEMICOLONPLACEHOLDER")]
+	[h:cr=replace(cr,";","SEMICOLONPLACEHOLDER")]
+	
+	
+	[h:feats=replace(value,".*?(?:Challenge)\\s(.*?XP\\))","")]
+	[h:feats=replace(feats,"\\s*(?:Actions).*","")]
+	[h:feats="."+feats]
+	[h:feats=replace(feats,";","SEMICOLONPLACEHOLDER")]
+	[h:feats]
+
+	[h:id=strfind(feats,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*")]
+	[h,count(getFindCount(id)),code:{
+	
+		[h:group0=getGroup(id,roll.count+1,0)]
+		[h:group1=replace(group0,"^\\.\\s*" ,"")]
+		[h:group1=replace(group1,"\\.\\s*" ,".")]
+		
+		[h:feats=replace(feats,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*","
+
+***"+group1+"*** ",1)]
+
+	}]
+	[h:feats=replace(feats,"\\s\\s","  
+")]
+	[h:feats=replace(feats,"\\s\\*\\*\\*","
+
+***")]
+	[h:feats=replace(feats,"^\\.\\s*","")]
+	
+
+	
+	[h:actions=replace(value,".*?(?<!Legendary |Lair )(?:Actions)\\s(.*?)\\s*","")]
+	[h:actions=replace(actions,"\\s*(?:Legendary Actions).*","")]
+	[h:actions=replace(actions,"\\s*(?:Reactions).*","")]
+	[h:actions=replace(actions,"\\s*(?:Lair Actions).*","")]
+	[h:actions=replace(actions,"\\s*(?:Regional Effects).*","")]
+	[h:actions="."+actions]
+	[h:actions=replace(actions,";","SEMICOLONPLACEHOLDER")]
+	[h:actions]
+
+	[h:id=strfind(actions,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*")]
+	[h,count(getFindCount(id)),code:{
+	
+		[h:group0=getGroup(id,roll.count+1,0)]
+		[h:group1=replace(group0,"^\\.\\s*" ,"")]
+		[h:group1=replace(group1,"\\.\\s*" ,".")]
+		[h:actions=replace(actions,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*","
+
+***"+group1+"*** ",1)]
+
+	}]
+	[h:actions=replace(actions,"^\\.\\s*","")]
+	
+	
+	[r,if(matches(value,".*Reactions.*")),code:{
+		[h:id=0]
+		[h:reactions=replace(value,".*?(?:Reactions)\\s(.*?)\\s*","")]
+		[h:reactions=replace(reactions,"\\s*(?:Legendary Actions).*","")]
+		[h:reactions=replace(reactions,"\\s*(?:Lair Actions).*","")]
+		[h:reactions=replace(reactions,"\\s*(?:Regional Effects).*","")]
+		[h:reactions="."+reactions]
+	
+	};{
+	
+	[h:reactions=0]
+
+	}]
+	[h:reactions=replace(reactions,";","SEMICOLONPLACEHOLDER")]
+	[h:reactions]
+
+	[h:id=strfind(reactions,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*")]
+	[h,count(getFindCount(id)),code:{
+	
+		[h:group0=getGroup(id,roll.count+1,0)]
+		[h:group1=replace(group0,"^\\.\\s*" ,"")]
+		[h:group1=replace(group1,"\\.\\s*" ,".")]
+		[h:reactions=replace(reactions,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*","
+
+***"+group1+"*** ",1)]
+
+	}]
+	[h:reactions=replace(reactions,"^\\.\\s*","")]
+
+
+	[r,if(matches(value,".*Legendary Actions.*")),code:{
+		[h:id=0]
+		[h:legendary=replace(value,".*?(?:Legendary Actions)\\s(.*?)\\s*","")]
+		[h:legendary=replace(legendary,"\\s*(?:Lair Actions).*","")]
+		[h:legendary=replace(legendary,"\\s*(?:Regional Effects).*","")]
+		[h:legendary="."+legendary]
+	
+	};{
+
+		[h:legendary=0]
+	
+	}]
+	[h:legendary=replace(legendary,";","SEMICOLONPLACEHOLDER")]
+	[h:legendary]
+
+	[h:id=strfind(legendary,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*")]
+	[h,count(getFindCount(id)),code:{
+	
+		[h:group0=getGroup(id,roll.count+1,0)]
+		[h:group1=replace(group0,"^\\.\\s*" ,"")]
+		[h:group1=replace(group1,"\\.\\s*" ,".")]
+		[h:legendary=replace(legendary,"\\.\\s*([A-Z][\\w\\d/()\\s]{0,40}?\\.)\\s*","
+
+***"+group1+"*** ",1)]
+
+	}]
+	[h:legendary=replace(legendary,"^\\.\\s*","")]
+
+	[r,if(matches(value,".*Lair Actions.*")),code:{
+		[h:id=0]
+		[h:lair=replace(value,".*?(?:Lair Actions)\\s(.*?)\\s*","")]
+		[h:lair=replace(lair,"\\s*(?:Regional Effects).*","")]
+		[h:lair="#### Lair Actions
+
+"+lair]
+	};{
+		[h:lair=0]
+	}]
+	
+	[h:lair=replace(lair,";","SEMICOLONPLACEHOLDER")]
+	[h:lair]
+
+	[r,if(matches(value,".*Regional Effects.*")),code:{
+		[h:id=0]
+		[h:regional=replace(value,".*?(?:Regional Effects)\\s(.*?)\\s*","")]
+		[h:regional="#### Regional Effects
+
+"+regional]
+	};{
+		[h:regional=0]
+	}]
+	
+	[h:regional=replace(regional,";","SEMICOLONPLACEHOLDER")]
+	[h:regional]
+
+	
+	[h,if(matches(value,".*spellcasting ability is .*")==1):spellcasting=replace(value,".*spellcasting ability is ","");spellcasting="-"]
+	[h,if(matches(value,".*spellcasting ability is .*")==1):spellcasting=lower(substring(spellcasting,0,3))]
+
+
+	[h:props=getLibProperty("Bestiary","Lib:Compendium")]
+	
+
+	
+
+	[h:res=input("name|"+name+"|Confirm Name?")]
+	[h:abort(res)]
+	
+	[h:fields=json.fields(props)]	
+	[h:overwrite=listFind(fields,name)]
+
+	[h,if(overwrite==-1):"";res=input("var|"+name+" already exists, replace?||label|span=true")]
+	[h:abort(res)]
+
+
+	[h:json=json.set("{}","name",name)]
+	[h:json=json.set(json,"settings",encode("size="+size+";spellcasting="+spellcasting))]
+	[h:json=json.set(json,"type",type)]
+	[h:json=json.set(json,"alignment",alignment)]
+	[h:json=json.set(json,"ac",ac)]
+	[h:json=json.set(json,"hp",hp)]
+	[h:json=json.set(json,"speed",speed)]
+	[h:json=json.set(json,"str",str)]
+	[h:json=json.set(json,"dex",dex)]
+	[h:json=json.set(json,"con",con)]
+	[h:json=json.set(json,"int",int)]
+	[h:json=json.set(json,"wis",wis)]
+	[h:json=json.set(json,"cha",cha)]
+	[h:json=json.set(json,"save",save)]
+	[h:json=json.set(json,"skill",skill)]
+	[h:json=json.set(json,"DamageVulnerabilities",vulnerabilities)]
+	[h:json=json.set(json,"DamageResistences",resistances)]
+	[h:json=json.set(json,"DamageImmunities",DMGimmunities)]
+	[h:json=json.set(json,"ConditionImmunities",CONimmunities)]
+	[h:json=json.set(json,"senses",senses)]
+	[h:json=json.set(json,"languages",languages)]
+	[h:json=json.set(json,"challenge",cr)]
+
+	[h:jsonFeatures=json.set("{}","Features",feats)]
+	[h:json=json.set(json,"feats",jsonFeatures)]
+	
+	[h:jsonActions=json.set("{}","Actions",actions)]
+	[h,if(reactions!=0):jsonActions=json.set(jsonActions,"Rections",reactions)]
+	[h,if(legendary!=0):jsonActions=json.set(jsonActions,"Legendary Actions",legendary)]
+
+	[h:info=0]
+	[h,if(lair!=0):info=lair]
+	[h,if(regional!=0):info=info+"
+
+"+regional]
+	[h,if(info!=0):json=json.set(json,"info",'{"Info":"'+info+'"}')]
+	
+	[h:json=json.set(json,"actions",jsonActions)]
+	[h:json=json.set(json,"sources",json.fromList(source))]
+	
+
+	<h1>JSON</h1>
+	
+	<pre>[r:json.indent(json)]</pre>
+
+}]
+
+[h:props=json.set(props,lower(name),json)]
+
+[h:setLibProperty("Bestiary",props,"Lib:Compendium")]
+
+*/
+        }
+
+    </script>
+</body>
+
+</html>
