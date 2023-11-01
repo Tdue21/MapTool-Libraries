@@ -22,8 +22,9 @@ body {
 	background-color: #dddddd;
 	border-radius: 8px;
 	position: absolute;
-	top: calc(100% - 70px);
+	top: calc(100% - 110px);
 	box-shadow: 5px 5px 5px rgba(128, 128, 128, 128);
+    margin:10px;
 
     display: flex;
     flex-flow: row nowrap;
@@ -31,9 +32,9 @@ body {
 }
 
 #overlay img {
-	opacity: 50%;
-	width: 16px;
-	height: 16px;
+	opacity: 65%;
+	width: 20px;
+	height: 20px;
 	margin-left:2px;
 	margin-right:2px;
 }
