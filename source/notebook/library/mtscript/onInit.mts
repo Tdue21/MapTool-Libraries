@@ -11,6 +11,7 @@
 
 [h:defineFunction(prefix + "getUserOption", "GetUserOption@lib:" + namespace)]
 [h:defineFunction(prefix + "setUserOption", "SetUserOption@lib:" + namespace)]
+[h:defineFunction(prefix + "compareVersions", "CompareVersions@lib:" + namespace)]
 
 [h:nb.showWelcome()]
 [h:nb.showOverlay()]
