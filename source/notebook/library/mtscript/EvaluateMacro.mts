@@ -1,2 +1,2 @@
-[h:'broadcast("EvaluateMacro: " + macro.args)']
+[h:log.debug("EvaluateMacro: " + macro.args)]
 [r:evalMacro(macro.args)]

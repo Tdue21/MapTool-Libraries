@@ -1,7 +1,6 @@
-[h:namespace="net.dovesoft.notebook"]
-[h:js.createNS(namespace)]
-[h:js.evalURI(namespace, "lib://" + namespace + "/server/MTShims.js?cachelib=false")]
-[h:js.evalURI(namespace, "lib://" + namespace + "/server/functions.js?cachelib=false")]
+[r:namespace="net.dovesoft.notebook"]
 
-[h:js.initLibrary()]
+[h:data = data.getStaticData(namespace, "/public/data/userguide.json")]
+[h:setLibProperty("notebooks", data, namespace)]
+
 [h:broadcast("onFirstInit loaded")] 

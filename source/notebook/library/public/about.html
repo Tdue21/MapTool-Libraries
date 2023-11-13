@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./notebook.css?cachelib=false">
+    <!-- [h,if(false), code: {};{ -->
+    <script src="./mocks/maptool-mocks.js?cachelib=false"></script>
+    <script>
+        mockUserData = "0.0.2";
+    </script>
+    <!-- }] -->
+    <script src="./notebook.js?cachelib=false"></script>
+</head>
+
+<body>
+    <h2>About</h2>
+
+    <div style="float:left;background-color:transparent;">
+        <img src="./images/quill-paper.png" style="width:100px">
+    </div>
+    <p>
+        The concept of this library is based on the
+        <a href="https://github.com/rtakehara/5e-Framework/tree/master/Resources">Notebook library</a>
+        from Rod Takehara.
+    </p>
+    <p>
+        It is an almost complete rewrite though, utilitizing functionality from the latest version of MapTool, as of
+        this writing 1.12.
+    </p>
+    <p>
+        <b>Version:</b> <span id="libVersion" />
+    </p>
+    <h3>Open source libraries used</h3>
+    <p>The following open source libraries have been used to create this add-on.</p>
+    <ul>
+        <li><a href="https://bgrins.github.io/TinyColor/">Tiny Color</a></li>
+        <li><a href="https://toolcool.org/toolcool-color-picker/">ToolCool color picker</a></li>
+        <li><a href="https://marked.js.org/">Marked</a></li>
+    </ul>
+
+    <script async>
+        (async () => {
+            const span = document.querySelector("#libVersion");
+            const data = await MapTool.getUserData();
+            span.innerHTML = data;
+        })();
+    </script>
+</body>
+
+</html>

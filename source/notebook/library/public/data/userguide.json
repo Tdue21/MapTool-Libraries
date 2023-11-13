@@ -1,0 +1,28 @@
+[
+    {
+        "title": "User Guide",
+        "summary": "This is the summary of the most awesome user guide in the multiverse. Actually, it is so awesome that even [AO](https://forgottenrealms.fandom.com/wiki/Ao) is in awe of it.",
+        "owner": "net.dovesoft.notebook",
+        "private": false,
+        "accent": "#61003E",
+        "readonly": true,
+        "pages": [
+            {
+                "name": "0. Introduction",
+                "uri": "/public/data/docs/userguide_intro.md"
+            },
+            {
+                "name": "1. Basic Use",
+                "uri": "/public/data/docs/userguide_basics.md"
+            },
+            {
+                "name": "2. Syntax",
+                "uri": "/public/data/docs/userguide_syntax.md"
+            },
+            {
+                "name": "3. Changelog",
+                "uri": "/public/data/docs/userguide_changelog.md"
+            }
+        ]
+    }
+]

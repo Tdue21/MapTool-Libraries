@@ -1,14 +1,16 @@
 {
-    "name": "5e Framework by tdue21",
-    "version": "0.0.1",
-    "website": "",
-    "gitUrl": "",
-    "authors": ["tdue21"],
-    "license": "MIT",
-    "namespace": "net.dovesoft.5e",
-    "description": "",
-    "shortDescription": "",
-    "allowsUriAccess": true,
-    "licenseFile": "license.txt",
-    "readMeFile": "readme.md"
-  }
+  "name": "5e Framework by tdue21",
+  "version": "0.0.1",
+  "website": "",
+  "gitUrl": "",
+  "authors": [
+    "tdue21"
+  ],
+  "license": "MIT",
+  "namespace": "net.dovesoft.5e",
+  "description": "",
+  "shortDescription": "",
+  "allowsUriAccess": true,
+  "licenseFile": "license.txt",
+  "readMeFile": "readme.md"
+}

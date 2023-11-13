@@ -9,25 +9,48 @@
             "type": "shell",
             "command": "${workspaceFolder}/build/build.ps1",
             "args": [
-                "${input:name}",
+                "${input:library}",
                 "${input:version}"
             ],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "New Library",
+            "detail": "Adds a new library with necessary files and folders set up.",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/new-library.ps1",
+            "args": [
+                "${input:name}"
+            ]
         }
     ],
     "inputs": [
         {
-            "description": "Name of the library",
-            "default": "",
             "id": "name",
-            "type": "promptString"
+            "type": "promptString",
+            "description": "Name of the library",
+            "default": ""
+        },
+        {
+            "id":"library",
+            "type": "pickString",
+            "description": "Select library",
+            "default": "",
+            "options": [
+                "5e",
+                "ddbimport",
+                "notebook"
+            ]
         },
         {
             "description": "Version of the library",
             "default": "",
             "id": "version",
             "type": "promptString"
-
         }
     ]
 }

@@ -3,123 +3,111 @@
 
 <head>
     <link rel="stylesheet" href="./notebook.css?cachelib=false">
-    <script defer src="./notebook.js?cachelib=false"></script>
 </head>
 
 <body>
     <div id="overlay">
         <div id="main">
             <div data-tooltip="Open library">
-                <img id="quill" src="./images/quill-paper.png?cachelib=false" onclick="evaluateMacro('[h:js.showLibrary()]');">
+                <a href="macro://ShowLibrary@lib:net.dovesoft.notebook/none/impersonated?">
+                    <img id="quill" src="./images/quill-paper.png?cachelib=false">
+                </a>
             </div>
         </div>
         <div id="options">
             <div data-tooltip="Add new book">
-                <img id="add" src="./images/add.png?cachelib=false" onclick="evaluateMacro('[h:js.editBook()]');">
+                <a href="macro://AddBook@lib:net.dovesoft.notebook/none/impersonated?">
+                    <img id="add" src="./images/add.png?cachelib=false">
+                </a>
             </div>
             <div data-tooltip="About MapTool Notebooks">
-                <img id="about" src="./images/question.png?cachelib=false" onclick="evaluateMacro('[h:js.showAbout()]');">
+                <a href="macro://ShowAbout@lib:net.dovesoft.notebook/none/impersonated?">
+                    <img id="about" src="./images/question.png?cachelib=false">
+                </a>
             </div>
         </div>
     </div>
-    
+
+    <!-- 
     <script>
         // https://javascript.info/mouse-drag-and-drop
-        let isDragging = false;
+        // https://javascript.info/task/drag-heroes
 
-        document.addEventListener('mousedown', function (event) {
-            let coords;
-            let shiftX;
-            let shiftY;
-            let dragElement = event.target.closest('#overlay');
+        // let isDragging = false;
 
-            if (!dragElement) {
-                return;
-            }
-            
-            event.preventDefault();
+        // document.addEventListener('mousedown', function (event) {
 
-            dragElement.ondragstart = function () {
-                return false;
-            };
+        //     let coords, shiftX, shiftY;
+        //     let dragElement = event.target.closest('#overlay');
 
-            startDrag(dragElement, event.clientX, event.clientY);
+        //     if (!dragElement) {
+        //         return;
+        //     }
 
-            function onMouseUp(event) {
-                finishDrag();
-            };
+        //     event.preventDefault();
 
-            function onMouseMove(event) {
-                moveAt(event.clientX, event.clientY);
-            }
+        //     dragElement.ondragstart = function () {
+        //         return false;
+        //     };
 
-            function startDrag(element, clientX, clientY) {
-                if (isDragging) {
-                    return;
-                }
+        //     startDrag(dragElement, event.clientX, event.clientY);
 
-                isDragging = true;
+        //     function onMouseUp(event) {
+        //         finishDrag();
+        //     };
 
-                document.addEventListener('mousemove', onMouseMove);
-                element.addEventListener('mouseup', onMouseUp);
+        //     function onMouseMove(event) {
+        //         moveAt(event.clientX, event.clientY);
+        //     }
 
-                shiftX = clientX - element.getBoundingClientRect().left;
-                shiftY = clientY - element.getBoundingClientRect().top;
+        //     function startDrag(element, clientX, clientY) {
+        //         if (isDragging) {
+        //             return;
+        //         }
 
-                element.style.position = 'fixed';
+        //         isDragging = true;
 
-                moveAt(clientX, clientY);
-            };
+        //         document.addEventListener('mousemove', onMouseMove);
+        //         element.addEventListener('mouseup', onMouseUp);
 
-            function finishDrag() {
-                if (!isDragging) {
-                    return;
-                }
+        //         shiftX = clientX - element.getBoundingClientRect().left;
+        //         shiftY = clientY - element.getBoundingClientRect().top;
 
-                isDragging = false;
+        //         element.style.position = 'fixed';
+        //         moveAt(clientX, clientY);
+        //     };
 
-                dragElement.style.top = parseInt(dragElement.style.top) + window.pageYOffset + 'px';
-                dragElement.style.position = 'absolute';
+        //     function finishDrag() {
+        //         if (!isDragging) {
+        //             return;
+        //         }
+        //         isDragging = false;
 
-                document.removeEventListener('mousemove', onMouseMove);
-                dragElement.removeEventListener('mouseup', onMouseUp);
-            }
+        //         dragElement.style.top = parseInt(dragElement.style.top) + window.pageYOffset + 'px';
+        //         dragElement.style.position = 'absolute';
 
-            function moveAt(clientX, clientY) {
-                let newX = clientX - shiftX;
-                let newY = clientY - shiftY;
+        //         document.removeEventListener('mousemove', onMouseMove);
+        //         dragElement.removeEventListener('mouseup', onMouseUp);
+        //     }
 
-                let newBottom = newY + dragElement.offsetHeight;
+        //     function moveAt(clientX, clientY) {
+        //         let newX = Math.max(0, clientX - shiftX);
+        //         let newY = Math.max(0, clientY - shiftY);
 
-                if (newBottom > document.documentElement.clientHeight) {
-                    let docBottom = document.documentElement.getBoundingClientRect().bottom;
-                    let scrollY = Math.min(docBottom - newBottom, 10);
+        //         if (newY > document.documentElement.clientHeight - dragElement.offsetHeight - 20) {
+        //             newY = document.documentElement.clientHeight - dragElement.offsetHeight - 20;
+        //         }
 
-                    if (scrollY < 0) scrollY = 0;
+        //         if (newX > document.documentElement.clientWidth - dragElement.offsetWidth - 20) {
+        //             newX = document.documentElement.clientWidth - dragElement.offsetWidth - 20;
+        //         }
 
-                    window.scrollBy(0, scrollY);
-
-                    newY = Math.min(newY, document.documentElement.clientHeight - dragElement.offsetHeight);
-                }
-
-                if (newY < 0) {
-                    let scrollY = Math.min(-newY, 10);
-                    if (scrollY < 0) scrollY = 0;
-
-                    window.scrollBy(0, -scrollY);
-                    newY = Math.max(newY, 0); // newY may not be below 0
-                }
-
-                if (newX < 0) newX = 0;
-                if (newX > document.documentElement.clientWidth - dragElement.offsetWidth) {
-                    newX = document.documentElement.clientWidth - dragElement.offsetWidth;
-                }
-
-                dragElement.style.left = newX + 'px';
-                dragElement.style.top = newY + 'px';
-            }
-        });
+        //         dragElement.style.left = newX + 'px';
+        //         dragElement.style.top = newY + 'px';
+        //     }
+        // });
     </script>
+-->
 </body>
 
 </html>

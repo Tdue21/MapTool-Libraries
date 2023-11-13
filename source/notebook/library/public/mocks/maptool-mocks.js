@@ -1,7 +1,7 @@
 /**
  * 
  */
-const mockUserData = {
+let mockUserData = {
     isGM: 1,
     playerName: "Gertrud",
     asFrame:1,
@@ -39,7 +39,6 @@ const mockUserData = {
     ]
 };
 
-
 function fetch(uri, options = null) {
     console.log(`uri: ${uri}; options: ${JSON.stringify(options)}`);
     return new Promise(resolve => resolve(new Response(options?.body)));
@@ -55,7 +54,7 @@ const MapTool = {
      */
     getUserData: function () {
         try {
-            return new Promise(resolve => resolve(btoa(JSON.stringify(mockUserData))));
+            return new Promise(resolve => resolve(mockUserData));
         } catch (error) {
             console.log(error);
         }
@@ -67,6 +66,12 @@ const MapTool = {
      */
     log: function (data) {
         console.log(data);
+    }
+}
+
+const MTScript = {
+    registerMacro : function(macroName, callable) {
+        console.log(`registerMacro: ${macroName}`);
     }
 }
 
