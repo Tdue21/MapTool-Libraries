@@ -1,0 +1,31 @@
+{
+	"Roll Degrees": {
+		"1": {"success":"standard","botch":"embarrashing","difficulty":"standard"},
+		"2": {"success":"superior","botch":"unfortunate","difficulty":"tough"},
+		"3": {"success":"remarkable","botch":"severe","difficulty":"challenging"},
+		"4": {"success":"astonishing","botch":"disastrous","difficulty":"difficult"},
+		"5": {"success":"phenomenal","botch":"catastrophic","difficulty":"critical"}
+	}, 
+	
+	"Roll Color": {
+		"Botch": { "From": 1, "To": 1, "Color": "red" },
+		"Fail" : { "From": 2, "To": 6, "Color": "white" },
+		"Success": { "From": 7, "To": 19, "Color": "lime" }
+	},
+
+	"Images": [
+		{ "value":  1, "name": "Metallic Frame", "id": "2bb4c28b7f5485ee91cff4018995c8e0" },
+		{ "value":  2, "name": "Blank Die", "id": "0a22a8b2a599f83a202b467d03a1394e" },
+		{ "value":  3, "name": "Aeon Logo", "id": "bb8d0573f497b884b0dfca04817ca180" },
+		{ "value":  4, "name": "Chevron", "id": "8e20eb965fbde14b61740130fba25650" },
+		{ "value":  5, "name": "Globe", "id": "0fcfa25c7bce6c353f089fa6baa111aa" },
+		{ "value":  6, "name": "Hidden", "id": "61e39352577f520b29590ce224bfbaf9" },
+		{ "value":  7, "name": "Trashcan", "id": "3ffa1814abd72ee0f64c6e76a101f8b9" },
+		{ "value":  8, "name": "Aberrant Logo", "id": "ca951f4e98fcc2894008331b51e18546" },
+		{ "value":  9, "name": "Empty Dot", "id": "c4be573fbcc98c9b3f47011103a7feb0" },
+		{ "value": 10, "name": "Greyed Dot", "id": "b6fb90ba05ab7c9a7e7e0c086b87dc3e" },
+		{ "value": 11, "name": "Filled Dot", "id": "a0ed7e847aef2623e639f3d1eadcc69c" },
+		{ "value": 12, "name": "Edit", "id": "a45a840fdfee19208aa83cab22fd6221" },
+		{ "value": 13, "name": "Trinity Continuum", "id": "627b2daea7c76cbfcc93aa7913a84ace" }
+	]
+}

@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "authors": [
+    "tdue21"
+  ],
+  "website": "",
+  "namespace": "net.dovesoft.trinity-continuum",
+  "allowsUriAccess": true,
+  "license": "MIT",
+  "readMeFile": "readme.md",
+  "shortDescription": "A short description of your add-on library",
+  "gitUrl": "",
+  "licenseFile": "license.txt",
+  "description": "A longer description of your add-on library",
+  "name": "trinity-continuum"
+}

@@ -43,7 +43,8 @@
             "options": [
                 "5e",
                 "ddbimport",
-                "notebook"
+                "notebook",
+                "trinity-continuum"
             ]
         },
         {

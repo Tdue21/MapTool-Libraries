@@ -1,0 +1,997 @@
+{
+    "attributes": {
+        "Composure": {
+            "description": "",
+            "group": "social",
+            "source": "TCC"
+        },
+        "Cunning": {
+            "description": "",
+            "group": "mental",
+            "source": "TCC"
+        },
+        "Dexterity": {
+            "description": "",
+            "group": "physical",
+            "source": "TCC"
+        },
+        "Intellect": {
+            "description": "",
+            "group": "mental",
+            "source": "TCC"
+        },
+        "Manipulation": {
+            "description": "",
+            "group": "social",
+            "source": "TCC"
+        },
+        "Might": {
+            "connections": [],
+            "description": "Might is raw physical power. It covers lifting or moving heavy objects, including the character themselves. While some fighting styles may require skill and speed over brute strength, a simple punch in the nose requires Might behind it. A high Might score is useful for characters who engage in handto-hand combat on a regular basis, such as police officers, professional boxers, soldiers, and criminal thugs. It is also useful for athletes, from power lifters to baseball players: anywhere where the application of physical force is necessary. A character with a low Might may have suffered an injury so they can\u2019t use their strength without harming themselves further. A character with a high Might may be strong or simply very good at using what strength they do have to maximum effect.  \n\nMight can be used to: forge a sword, lift or throw objects, intimidate, climb walls, or muscle through pain.\n\n|  |  |\n| :--- | :--- |\n| * | Weak as a kitten. |\n| ** | You aren\u2019t much help when people move. |\n| *** | You go to the gym pretty regularly. |\n| **** | Professional bodybuilder or athlete. |\n| ***** | Olympic-level weightlifter. |\n| ****** | World-record holder, you are quite possibly the strongest person in the world. |",
+            "edges": [],
+            "group": "physical",
+            "name": "Might",
+            "skills": [],
+            "source": "TCC",
+            "type": ""
+        },
+        "Presence": {
+            "description": "",
+            "group": "social",
+            "source": "TCC"
+        },
+        "Resolve": {
+            "description": "",
+            "group": "mental",
+            "source": "TCC"
+        },
+        "Stamina": {
+            "description": "",
+            "group": "physical",
+            "source": "TCC"
+        }
+    },
+    "edges": {
+        "Adrenaline Spike": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Alternate Identity": {
+            "cost": "1-2",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Always Prepared": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Ambidextrous": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Amphibious Conversion": {
+            "cost": "2",
+            "source": "AEON",
+            "type": "Augmentation Edges"
+        },
+        "Animal Ken": {
+            "cost": "1-2",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Anonymous": {
+            "cost": "0",
+            "source": "TCC",
+            "type": "Enhanced Edges"
+        },
+        "Aquatic Conversion": {
+            "cost": "2",
+            "source": "AEON",
+            "type": "Augmentation Edges"
+        },
+        "Armor Expert": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Advanced Combat Maneuvers"
+        },
+        "Armory": {
+            "cost": "0",
+            "source": "TCC",
+            "type": "Enhanced Edges"
+        },
+        "Artifact": {
+            "cost": "1-5",
+            "source": "TCC",
+            "type": "Powered Edges"
+        },
+        "Artistic Talent": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Big Hearted": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Breath Control": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Computer": {
+            "cost": "1-2",
+            "source": "AEON",
+            "type": "Augmentation Edges"
+        },
+        "Cool Under Fire": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Advanced Combat Maneuvers"
+        },
+        "Covert": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Danger Sense": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Deflection Adept": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Advanced Combat Maneuvers"
+        },
+        "Demolitions Training": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Style"
+        },
+        "Detached": {
+            "cost": "2",
+            "source": "AEON",
+            "type": "Psionic"
+        },
+        "Direction Sense": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Dual Citizenship": {
+            "cost": "1",
+            "source": "AEON",
+            "type": "Social"
+        },
+        "Endurance": {
+            "cost": "3",
+            "source": "TCC",
+            "type": "Powered Edges"
+        },
+        "Enhanced Attunement": {
+            "cost": "2",
+            "source": "AEON",
+            "type": "Psionic"
+        },
+        "Fame": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Fast Draw": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Favored Mode": {
+            "cost": "2",
+            "source": "AEON",
+            "type": "Psionic"
+        },
+        "Forceful Martial Arts": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Style"
+        },
+        "Free Running": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Style"
+        },
+        "Hair Trigger Reflexes": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Hardy": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Increased Tolerance": {
+            "cost": "1-3",
+            "source": "AEON",
+            "type": "Augmentation Edges"
+        },
+        "Indomitable": {
+            "cost": "0",
+            "source": "TCC",
+            "type": "Enhanced Edges"
+        },
+        "Iron Will": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Keen Sense": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Library": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Loaded": {
+            "cost": "0",
+            "source": "TCC",
+            "type": "Enhanced Edges"
+        },
+        "Low-Gravity Adaptation": {
+            "cost": "1-2",
+            "source": "AEON",
+            "type": "Augmentation Edges"
+        },
+        "Mars Adaptation": {
+            "cost": "1",
+            "source": "AEON",
+            "type": "Augmentation Edges"
+        },
+        "Ms. Fix It": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "One Against an Ocean": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Advanced Combat Maneuvers"
+        },
+        "Patron": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Photographic Memory": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Precise Martial Arts": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Style"
+        },
+        "Respected Authority": {
+            "cost": "0",
+            "source": "TCC",
+            "type": "Enhanced Edges"
+        },
+        "Safe House": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Skilled Liar": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Small Unit Tactics": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Sniper": {
+            "cost": "1-3",
+            "source": "TCC",
+            "type": "Style"
+        },
+        "Speed Reading": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Mental"
+        },
+        "Striking": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Superior Trait": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Powered Edges"
+        },
+        "Swift": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Telepathic Resistance": {
+            "cost": "3",
+            "source": "AEON",
+            "type": "Social"
+        },
+        "Tough Cookie": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Waiting to Greet the Storm": {
+            "cost": "2",
+            "source": "TCC",
+            "type": "Advanced Combat Maneuvers"
+        },
+        "Weak Spots": {
+            "cost": "1",
+            "source": "TCC",
+            "type": "Physical"
+        },
+        "Wealth": {
+            "cost": "1-5",
+            "source": "TCC",
+            "type": "Social"
+        },
+        "Wondrous Item": {
+            "cost": "0",
+            "source": "TCC",
+            "type": "Enhanced Edges"
+        }
+    },
+    "paths": {
+        "Æon Trinity": {
+            "connections": [
+                "Æon Council",
+                "Humanitarian Group",
+                "Political Allies",
+                "Psi Order"
+            ],
+            "description": "The character is closely affiliated with the Æon Trinity and aligned with its goals: making the world a better place, helping people achieve their potential and protecting humanity. She may be a normal human, psion or Talent, serving Æon Trinity as an operative and familiar with the organization's inner workings. Whether a part of Neptune Division (communications and administration), Triton Division (scientific and data) or Proteus Division (operations and security), she has chosen to be part of this optimistic, idealistic agency.",
+            "edges": [
+                "Fame",
+                "Far-Reaching Influence",
+                "Library",
+                "Superior Trait",
+                "Wealth"
+            ],
+            "skills": [
+                "Humanities",
+                "Persuasion",
+                "Science",
+                "Technology"
+            ],
+            "source": "AEON",
+            "type": "society"
+        },
+        "Æon Trinity Section Minerva": {
+            "connections": [
+                "Æon Council",
+                "Criminal Organization",
+                "Mercenary Company",
+                "Spy Agency"
+            ],
+            "description": "The character is closely affiliated not just with the Æon Trinity, but with a part of it that does not officially exist: Section Minerva. She is one of Proteus Division's deniable covert operatives and intelligence agents, selected not just for her skills but for her unflinching moral character. She has no uniform, no rank, and only her fellow Section Minerva operatives will recognize the lighthouse pin that she wears as indicating her allegiance.",
+            "edges": [
+                "Alternate Identity",
+                "Always Prepared",
+                "Covert",
+                "Danger Sense",
+                "Iron Will",
+                "Self-Reliance"
+            ],
+            "skills": [
+                "Empathy",
+                "Integrity",
+                "Larceny",
+                "Persuasion"
+            ],
+            "source": "AEON",
+            "type": "society"
+        },
+        "Adventurer": {
+            "connections": [
+                "High-risk Hobbyists (Divers",
+                "Mountain Climbers",
+                "Stunt Drivers",
+                "etc.)",
+                "Bomb Disposal Experts",
+                "Travel Enthusiasts"
+            ],
+            "description": "Your character grew up constantly seeking the next thrill, always chasing an adrenaline rush, and never considering the consequences. As a kid, she broke more bones than she knew she had, but it never stopped her from making the next leap. Into adulthood, she stays connected to the various thrill-seeking communities that fed her addictions growing up. She still seeks out fellow adventurers, but now her tastes are more refined.",
+            "edges": [
+                "Breath Control",
+                "Cool Under Fire",
+                "Demolitions Training",
+                "Direction Sense",
+                "Fast Draw",
+                "Free Running",
+                "Hardy",
+                "Swift"
+            ],
+            "name": "Adventurer",
+            "skills": [
+                "Aim",
+                "Athletics",
+                "Pilot",
+                "Survival"
+            ],
+            "source": "TCC",
+            "type": "origin"
+        },
+        "Charismatic Leader": {
+            "connections": [
+                "Corporate Board",
+                "Megachurch",
+                "Political Allies"
+            ],
+            "description": "The character is capable of winning the affection and loyalty of those around her with minimal effort. Her personality draws people to her and she surrounds herself with those willing to do anything to please her. She gravitates to high-level positions, maybe being the CEO of a corporation, or simply the leader of her unit. When a social situation gets tricky, people look to her to smooth talk her way out of it.",
+            "edges": [
+                "Fame",
+                "Iron Will",
+                "Skilled Liar",
+                "Striking",
+                "Wealth"
+            ],
+            "skills": [
+                "Command",
+                "Empathy",
+                "Humanities",
+                "Persuasion"
+            ],
+            "source": "TCC",
+            "type": "role"
+        },
+        "Combat Specialist": {
+            "connections": [
+                "Military Unit",
+                "Police Officers",
+                "Training Master"
+            ],
+            "description": "The character is capable of amazing feats of athleticism, hand-to-hand combat, or marksmanship. She is the physical force of the group, trained to deal with threats quickly, if not quietly. She may have military training in warfare, or simply combat training in various martial arts. Either way, when the shit hits the fan, those around her expect her to not only take care of herself, but help out others around her.",
+            "edges": [
+                "Alternate Identity",
+                "Any One Style Edge",
+                "Armor Expert",
+                "Breath Control",
+                "Fast Draw",
+                "Hair-Trigger Reflexes",
+                "Small Unit Tactics",
+                "Trick Shooter",
+                "Weak Spots"
+            ],
+            "skills": [
+                "Aim",
+                "Athletics",
+                "Close Combat",
+                "Integrity"
+            ],
+            "source": "TCC",
+            "type": "role"
+        },
+        "Detective": {
+            "connections": [
+                "Police Officers",
+                "Paid Informant",
+                "News Reporter",
+                "Friendly Neighborhood Watch"
+            ],
+            "description": "A detective notices small details, remembers facts, and can take small bits of circumstantial evidence and piece them together into one logical conclusion. He works for the police, or is maybe a private investigator. He is always on a case, and is the one most likely to spot discrepancies in stories or evidence. People depend on him to get to the bottom of a situation, while they concentrate on the more physical aspects of the problem.",
+            "edges": [
+                "Alternate Identity",
+                "Any One Style Edge",
+                "Fast Draw",
+                "Library",
+                "Photographic Memory",
+                "Swift",
+                "Tough Cookie"
+            ],
+            "skills": [
+                "Aim",
+                "Enigmas",
+                "Integrity",
+                "Persuasion"
+            ],
+            "source": "TCC",
+            "type": "role"
+        },
+        "Freelance Psion": {
+            "connections": [
+                "Æon Trinity",
+                "Criminal Organization",
+                "Psi Order",
+                "Thankful Client"
+            ],
+            "description": "The character is a freelance psion. She does not owe allegiance to any psi order and is a free agent, answering only to her own goals and beliefs. She may choose to work for a major government or organization, contracting out her abilities to a patron for a handsome reward; or she may be a fugitive or free spirit who is always on the move. She may have psi orders seeking to court her into joining their ranks, or she may be on the run from an order for which she has caused trouble or that refuses to take no for an answer.",
+            "edges": [
+                "Adrenaline Spike",
+                "Always Prepared",
+                "Covert",
+                "Danger Sense",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Inner Reserve",
+                "Patron"
+            ],
+            "skills": [
+                "Empathy",
+                "Integrity",
+                "Larceny",
+                "Persuasion"
+            ],
+            "source": "AEON",
+            "type": "society"
+        },
+        "Life of Privilege": {
+            "connections": [
+                "School Alumni",
+                "College Club Membership",
+                "Local Political Affiliates"
+            ],
+            "description": "Your character grew up with far more than those around her. Maybe her parents were rich, or she had a trust fund from a wealthy distant relative. Either way, she had every opportunity handed to her and was rarely told no. She went to the best schools available, and completed college at the top of her class. She may have worked to earn her keep, but she never really needed to. With this privilege comes confidence, and she makes her way easily through the world.",
+            "edges": [
+                "Fame",
+                "Patron",
+                "Skilled Liar",
+                "Wealth"
+            ],
+            "name": "Life of Privilege",
+            "skills": [
+                "Command",
+                "Culture",
+                "Integrity",
+                "Persuasion"
+            ],
+            "source": "TCC",
+            "type": "origin"
+        },
+        "Medical Practitioner": {
+            "connections": [
+                "Surgeon",
+                "Pharmacists",
+                "Thankful Patient",
+                "EMTs"
+            ],
+            "description": "The character is a medical genius. She can set broken limbs and patch gunshot wounds in the field, or perform complicated lifesaving surgeries with the right equipment. Maybe she is an emergency responder, or maybe she works in a hospital. She is the one who gets her hands dirty when everything goes sideways and people get hurt. She keeps up with the latest technologies, and even if she isn't capable of surgery herself, she knows someone who is.",
+            "edges": [],
+            "skills": [
+                "Empathy",
+                "Medicine",
+                "Science",
+                "Survival"
+            ],
+            "source": "TCC",
+            "type": "role"
+        },
+        "Military Brat": {
+            "connections": [
+                "Past Teacher",
+                "Military Commander",
+                "Steadfast Friend"
+            ],
+            "description": "Your character grew up with strong military influences. Maybe his parents were in a branch of the military, or maybe he was a troubled youth and had to attend a military academy. Either way, he had a strict upbringing with a lot of guidance and structure. He learned about respect, loyalty, and how to defend himself. He may have decided to join the military himself or he went to college in an attempt to leave that life behind. Either way, he is still connected to that life.",
+            "edges": [
+                "Adrenaline Spike",
+                "Any One Style Edge",
+                "Danger Sense",
+                "Fast Draw",
+                "Iron Will",
+                "Patron",
+                "Small Unit Tactics"
+            ],
+            "name": "Military Brat",
+            "skills": [
+                "Command",
+                "Enigmas",
+                "Integrity",
+                "Technology"
+            ],
+            "source": "TCC",
+            "type": "origin"
+        },
+        "Nihonjin Agent": {
+            "connections": [
+                "Criminal Organization",
+                "Double Agent",
+                "Government Official",
+                "Nippon Intelligence Agency"
+            ],
+            "description": "The character is closely affiliated with the government of Nippon, a nation possessing cutting-edge technology, but that is intensely distrustful of the psi orders and where bioware is banned. She serves as an agent or asset for the Nihonjin beyond the country’s shores, granting them the reach to meddle in the affairs of other regions without compromising their official distance and the isolation of much of their population. She may be an infiltrator, information gatherer, or even an assassin; whatever her role, she benefits from the incredible technology that her powerful patron provides.\n\nA Nihonjin agent is either a neutral or a Talent; she cannot be a psion.",
+            "edges": [
+                "Alternative Identity",
+                "Computer Enhancement",
+                "Covert",
+                "Cyberware Access",
+                "Danger Sense",
+                "Skilled Liar",
+                "Superior Trait"
+            ],
+            "skills": [
+                "Athletics",
+                "Enigmas",
+                "Larceny",
+                "Technology"
+            ],
+            "source": "AEON",
+            "type": "society"
+        },
+        "Oceania": {
+            "connections": [
+                "Artists", 
+                "Scientists", 
+                "Boat or Submarine Pilot", 
+                "Genetic Engineer", 
+                "Undersea Miner"
+            ],
+            "description": "Your character grew up on a floating or undersea city and is now a citizen of Earth's newest and most unusual nation, Oceania. You are likely to have been born, or become, a phib or aqua and grew up in a high-tech city surrounded by an environment deadly to unmodified humans. However, the close-knit cities of Oceania are also some of the most creative and technologically advanced on the planet.",
+            "edges": [],
+            "skills": [
+                "Culture", 
+                "Empathy", 
+                "Survival", 
+                "Technology"
+            ],
+            "source": "AEON",
+            "type": "origin"
+        },
+        "Off-Earth Colonist": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "role"
+        },
+        "Pilot": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "TCC",
+            "type": "role"
+        },
+        "Space Military": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "role"
+        },
+        "Spacer": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "role"
+        },
+        "Street Rat": {
+            "connections": [
+                "Street Gangs",
+                "Street Mentor",
+                "Helpful Family Member",
+                "Store Clerks"
+            ],
+            "description": "Whatever the circumstances, your character grew up on the streets. Maybe she was orphaned at an early age, or maybe her home life was just bad enough to drive her to the streets. She made friends with other street kids, maybe even joined a gang. She knew the homeless people just as well as she did her own neighborhood kids, and school was always a second thought to the immediate drama of the streets.",
+            "edges": [
+                "Adrenaline Spike",
+                "Alternate Identity",
+                "Always Prepared",
+                "Danger Sense",
+                "Hair Trigger Reflexes",
+                "Hardy",
+                "Ms. Fix-It",
+                "Tough Cookie"
+            ],
+            "name": "Street Rat",
+            "skills": [
+                "Athletics",
+                "Enigmas",
+                "Larceny",
+                "Survival"
+            ],
+            "source": "TCC",
+            "type": "origin"
+        },
+        "Suburbia": {
+            "connections": [
+                "Favorite Professor",
+                "Neighbor Friend",
+                "Influential Teacher"
+            ],
+            "description": "Your character's parents were well-off enough to afford a comfortable living. He wasn't part of the upper class, but firmly middle class. He went to public school, and they vacationed to Disney World every summer. He never saw his parents struggle with money, if only because they were good at hiding it from the kids. He had the chance to go to college, and maybe even went on a scholarship, or went to trade school instead. He might not have gotten everything he always asked for, but he never knew what it was like to need anything.",
+            "edges": [
+                "Artistic Talent",
+                "Big Hearted",
+                "Library",
+                "Patron",
+                "Wealth"
+            ],
+            "name": "Suburbia",
+            "skills": [
+                "Culture",
+                "Empathy",
+                "Humanities",
+                "Technology"
+            ],
+            "source": "TCC",
+            "type": "origin"
+        },
+        "Survivalist": {
+            "connections": [
+                "Park Ranger",
+                "Conspiracy Groups",
+                "RV Neighborhood"
+            ],
+            "description": "You character always had an escape plan, even when very young. Maybe her parents were conspiracy theorists, and did weekly drills to ensure she knew how to get to the shelter if the bombs ever fell. Maybe her parents simply preferred to live off the land, teaching her how to hunt, fish, farm, and strike a clean campsite. She has trained her whole life in the outdoors, and she is more comfortable there than anywhere else.",
+            "edges": [
+                "Always Prepared",
+                "Animal Ken",
+                "Covert",
+                "Direction Sense",
+                "Hardy",
+                "Iron Will",
+                "Keen Sense",
+                "Swift"
+            ],
+            "name": "Survivalist",
+            "skills": [
+                "Aim",
+                "Close Combat",
+                "Medicine",
+                "Survival"
+            ],
+            "source": "TCC",
+            "type": "origin"
+        },
+        "Technology Expert": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "TCC",
+            "type": "role"
+        },
+        "The Æsculapian Order Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The ISRA Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Legions Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Ministry Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Nor\u00e7a Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Orgotek Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Sneak": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "TCC",
+            "type": "role"
+        },
+        "The Upeo wa Macho Path": {
+            "connections": [],
+            "description": "",
+            "edges": [],
+            "skills": [],
+            "source": "AEON",
+            "type": "society"
+        }
+    },
+    "skills": {
+        "Aim": {
+            "description": "Aim is the ability to use ranged weapons, whether a pistol, bow, rocket launcher, or even just a thrown rock. In addition to accurately hitting a target, the Aim Skill also covers knowledge related to shooting and ranged weapons, such as angles of fire, bullet drop and wind speed, and the specific details of different weapons.",
+            "source": "TCC",
+            "tricks": {
+                "Gun Tool": "The character can use her gun for any action, no matter how unreasonable it may seem. Once per scene, the player may spend a Momentum to add the character's Aim to any single die roll.",
+                "Hidden Arsenal": "In a situation where the character has apparently been disarmed, the player can activate this Trick and declare that he had a backup weapon somewhere. This can be anything from an ankle holster to a derringer on a spring-loaded device up the character's sleeve.",
+                "I Wasn't Aiming at You": "If the character misses a target, her player can spend 1 Momentum and roll an attack with the same number of dice on another target in her field of fire. It could be another enemy, or possibly some inanimate target. Suggested inanimate targets might be: security panels, lights, or a convenient pipe full of something unpleasant for the target.",
+                "Shoot to Injure": "The character is trained to incapacitate, but not kill, his target. When the character would otherwise inflict an Injury Condition on his target with a gunshot, the player can spend a point of Momentum to immediately cause the target to be Taken Out. The target does not gain any Injury Conditions, though cannot act again in the combat."
+            }
+        },
+        "Athletics": {
+            "description": "Athletics can represent training in a sport or physical discipline, such as basketball, football, or ballet. It can also represent the general fitness and coordination required to run a marathon or climb a wall. Just about any exercise or movement that requires the use of the full body is covered by Athletics, whether it's weightlifting, gymnastics, or diving out of the way of a runaway truck.",
+            "source": "TCC",
+            "tricks": {
+                "It's All in the Reflexes": "The character has remarkably quick hands and a fast response. When the character is attacked by someone with a thrown weapon, and is aware of the attack, her player may spend 1 Momentum to activate this Skill Trick. Increase the Difficulty to inflict an Injury by her Athletics score (as if she had spent successes on a Dodge Stunt). If the attack misses, the character successfully snatched the weapon out of the air. On her own turn, she may do what she wants with the weapon: drop it, break it, or even throw it back.",
+                "Mighty Lifter": "The character can perform astonishing feats of strength and power. Your character is attempting to lift or push something, spend 2 points of Momentum to increase her effective Size by 1 for a single action (see Scale for more information on Size).",
+                "No Barrier": "When the character gets moving, nothing seems to slow her down. When using this Skill Trick, the character automatically ignores all barriers and difficult terrain between her and her destination for a single action.",
+                "Physical Actor": "The character's control of her body and physical presence is phenomenal. She can adjust her posture, movement, and presence until even her family would have trouble recognizing her. Before making a Larceny roll to disguise or pass herself off as someone else, the character may spend 1 point of Momentum to add dice to her roll equal to her Athletics Skill."
+            }
+        },
+        "Close Combat": {
+            "description": "Close Combat is the skill used for physical combat, with or without melee weapons. Characters learn Close Combat by paying for martial arts classes, enlisting in the military or police force, or by years of street fighting. High ratings in the Skill mean the character not only knows how to throw a punch or kick, but also how to hit for maximum efficiency, and just where to land that punch. A high rating in this Skill could mean that the character is a multiple black belt in a single martial art or that they've picked up pieces here and there of a dozen different styles and integrated them into a single fluid package of violence.",
+            "source": "TCC",
+            "tricks": {
+                "Deadly Strike": "Whenever the character engages in a mixed action in combat at close range, she can use her highest dice pool for the action instead of the lowest.",
+                "Fast Planning": "When the unexpected happens, the character has a knack for responding quickly and decisively, and getting his allies to go along with him. The character can activate this Skill Trick to give a brief order, such as \"Lose them in the festival crowd,\" or \"Cover me while I move up to flank them.\" The first action taken by an ally of the character that follows this order has the target number for the roll reduced by 1.",
+                "Sucker Punch": "Your character has been in his fair share of brawls, and knows when to throw a punch to take his opponent off guard. If the character is using an unarmed attack on an opponent as a standard action (not a mixed action) he can reduce the number of successes needed to overcome his opponent's Dodge Stunt by his Close Combat Skill. Additionally, the player may spend a Momentum to add the character's Close Combat Skill to his initiative tick rating if he is in close range of an opponent."
+            }
+        },
+        "Command": {
+            "description": "Command is the skill used to get people to follow your will. It is different from Persuasion, in that Command is delivering orders \u2014 \"Don't open that door!\" \u2014 vs. convincing someone that something is a good idea \u2014 \"You shouldn't open that door because there's a tiger on the other side of it.\"\n\nHaving an actual position of authority over another person certainly aids in a Command roll to get them to follow orders, but it is not required. A sufficiently strong force of personality (meaning, a high Command Skill) can often accomplish what rank fails to do.",
+            "source": "TCC",
+            "tricks": {
+                "Inspiring Example": "The character's presence and skill at organization inspire her allies to new heights. The player may spend 2 Momentum to increase by 1 the Scale of an organization or group of Storyguide characters under her command for an action. The character does not have to be officially or permanently in command \u2014 a group of soldiers who are looking to her as an expert advisor are just as valid a target for this Skill Trick as an office that she officially manages.",
+                "Motivational Speaker": "Sometimes, you must understand when to cajole, and when to yell orders. This character understands how to motivate people, and uses this to her advantage in a variety of situations. Before making a Persuasion roll to convince a friendly or neutral target, the player may spend 1 Momentum to add the character's Command Skill to her roll.",
+                "Top Dog": "The character has the confidence to be in charge, and is hard to rattle. Activate this Skill Trick to increase the target number of any attempts to Intimidate this character by 1."
+            }
+        },
+        "Culture": {
+            "description": "Culture represents a character's knowledge of religious practices, pop culture, and other cultural touchstones. It covers knowledge of the sort of cultural \"background noise\" necessary to understand literary or music references, avoid offending a subculture or religious group, and to see the common links between the practices of groups halfway around the world from each other. The Culture Skill can equally represent someone with formal training in religious studies, art, or communications, or someone who is a keen observer who has gained their knowledge from television, books, and the internet.",
+            "source": "TCC",
+            "tricks": {
+                "Grain of Truth": "The character recalls a bit of urban legend or cultural story and uses it to correlate current events. The player spends a point of Momentum and gains a Clue to further the current story (see Procedurals, p. 81, for more information).",
+                "Members Only": "The character understands how groups come together and support each other, and can use that knowledge to great effect. The character may spend 1 Momentum to gain the effects of a bond with another character. This temporary bond only lasts for one action.",
+                "That's My Favorite, Too!": "The character uses his knowledge of a culture's interests and values to fit in. Before making an Empathy roll to charm someone or put them at ease, the character may activate this Skill Trick to add dice equal to his Culture Skill to the roll."
+            }
+        },
+        "Empathy": {
+            "description": "Empathy reflects a character's ability to read and understand other people's emotions and behaviors. Empathy allows a character to not only know and understand a person's emotions, but to also manipulate them based on social cues. Characters may have formal training as social workers or psychologists, or may have an innate ability born of manipulating others.",
+            "source": "TCC",
+            "tricks": {
+                "Cold Reader": "Sometimes, the smallest detail can be the first step to winning someone's confidence. Use this Skill Trick to ask the Storyguide for a small personal detail about a target: where they grew up, the name of a relative, or their regular coffee order, for example.",
+                "Rumor Has It": "A character with this trick knows exactly how to push someone's buttons, and what it takes to drive a wedge between friends. Spend 1 Momentum to increase a character's negative Attitude (or reduce their positive Attitude) by 1 towards another character for the remainder of the Scene. See p. 85 for more information on Attitude.",
+                "Six Degrees": "Finding the right person to make introductions is an art in itself. Using this Skill Trick and observing your target, you can spend 1 Momentum to learn who he has the highest rated Attitude with, and whether it is positive or negative. For 1 additional Momentum, you can also learn if he has any bonds, who that bond is with, and what the bond is.",
+                "The Crack in the Ice": "The character finds one insignificant fact about his opponent and is able to use that to hammer through her mental defenses. The player may add the character's Empathy Skill as bonus dice to his next Persuasion Skill to interrogate the subject."
+            }
+        },
+        "Enimas": {
+            "description": "Enigmas reflects a character's ability to use logic to solve problems. A character may be able to solve difficult riddles or puzzles, or even find the solutions to complex mathematical equations. Some characters are naturally talented in solving difficult puzzles and riddles, though solving complex mathematical problems or cryptology requires formal training. Characters with high Enigmas are good problem-solvers, the first to finish a test, and do the crossword puzzle in pen.",
+            "source": "TCC",
+            "tricks": {
+                "Connecting the Dots": "When confronted with a pattern, set of circumstantial clues, or incomplete evidence, the player can spend 1 Momentum for her character to make a logical leap, which allows her to gain the results of a single Research action immediately, as though she spent the required time to take the action and fulfilled all the milestones.",
+                "Did the Math": "The character can perform remarkably complex calculations on the fly, allowing them to calculate the safest place to be at a given moment. Spend 1 Momentum to add 1 Enhancement to your defensive action.",
+                "Elite Hacker": "Your character can hack into any system not protected by software created by another Talent. Spend a Momentum to have an action to hack into any non-Talent created computer system automatically succeed without a roll. The use of this Skill Trick allows her to overcome one Complication associated with the action as well.",
+                "Instant Solution": "Your character has seen this puzzle before, probably in a training class or maybe in a manual. It isn't easy, but once you know the trick, you can solve it every time. Spend 1 Momentum to automatically solve a single puzzle or mathematical equation without rolling."
+            }
+        },
+        "Humanities": {
+            "description": "The Humanities Skill represents a character's background and general knowledge in everything that is usually covered by a liberal arts education. Training in Humanities covers knowledge of art, history, literature, philosophy, law, and so on. Characters with a high Humanities score are generally well educated, and often have a degree (or several) in related topics. However, some characters can have an astonishing amount of knowledge in the humanities without ever taking a formal class or setting a foot on campus, and many extremely educated people with degrees in science or engineering may still have a low score in Humanities, as they are uninterested in these topics. As always, a character's Paths should inform how they arrived at the rating they have in a Skill.",
+            "source": "TCC",
+            "tricks": {
+                "Befuddling Jargon": "The character knows a whole lot of 10-dollar words, and when best to use them. Before rolling a Social Skill that involves impressing or confusing someone, the player may activate this Skill Trick to add dice equal to the character's Humanities Skill to the roll.",
+                "Everything in Context": "Sometimes knowing the circumstances of when and where something was created is the key to understanding it. Before rolling an Enigmas roll to decipher an ancient or historical code or puzzle, activate this Skill Trick to add dice to the roll equal to the character's Humanities Skill.",
+                "Legal Authority": "Your character is a lawyer, or plays one convincingly on TV. Before making a Social roll in a non-courtroom context where legal knowledge would be helpful (such as convincing a security guard you should be somewhere), spend 1 Momentum to decrease the target number for the roll by 1."
+            }
+        },
+        "Integrity": {
+            "description": "Integrity is the Skill used in opposition to Persuasion and Command. A person with a strong Composure Attribute is naturally resistant to being convinced, commanded, tricked, or intimidated, but the Integrity Skill measures how experienced they are at resisting attempts to influence them.\n\n Integrity reflects a character's emotional fortitude against outside influence. A character uses Integrity to resist emotional swaying and to hide her own emotions and intentions from others. Integrity can be represented by some training techniques in military, special operations, or performing arts, or it could be an innate Skill of certain characters.",
+            "source": "TCC",
+            "tricks": {
+                "Meditative Stance": "When taking an unarmed attack, the player may spend a Momentum to add the character's Integrity Skill as bonus dice to her defensive action.",
+                "Poker Face": "People just can't tell when this character is bluffing, no matter how hard they try. Activate this Skill Trick to increase the target number of any roll to tell if you are lying by 1.",
+                "Strength of Conviction": "People follow this character for his confidence and will, as much as for his ability to command. Before making a Command roll, activate this Skill Trick to add dice equal to your Integrity Skill to the roll.",
+                "Tough Nut": "Cops, mobsters, CIA \u2014 it doesn't seem to matter who questions this character, they never crack. Activate this Skill Trick to increase the target number of any roll to interrogate this character by 1."
+            }
+        },
+        "Larceny": {
+            "description": "Larceny reflects a character's knowledge of misdirection and deception. The Skill encompasses everything from stealth and sleight of hand to breaking and entering. Levels in Larceny may represent training from underground organizations or special operatives, or could represent many years of making it on the street.",
+            "source": "TCC",
+            "tricks": {
+                "Always Have an Exit": "Your character always knows that she may have to run, and is aware of the quickest route out. Before making an Athletics roll to run away or avoid someone chasing you, activate this Skill Trick to add dice equal to your Larceny Skill to the roll.",
+                "Handcuff Houdini": "Spend 1 Momentum to slip out of any kind of binding: handcuffs, zip ties, manacles, even duct tape. The character can spend 1 additional Momentum to place the binding on another person at the same time as he escapes.",
+                "Set a Thief": "The line between criminal and detective can get very thin sometimes. Spend a Momentum to add your Larceny Skill as bonus dice to an Enigmas or other relevant Skill roll for preventing or detecting uses of Larceny or other methods of stealthy intrusion.",
+                "That Was Already Mine": "The character is so adept at theft, that she's nearly impossible to spot doing it, even if the item is much larger than something she could palm in her hand. Spend a Momentum to overcome a single Complication associated with a theft, no matter the rating"
+            }
+        },
+        "Medicine": {
+            "description": "The Medicine Skill represents a character's knowledge of human anatomy and physiology and how to manage and treat injury and illness. Characters with this Skill know first aid, emergency and field medicine, and may even have an advanced medical specialty such as surgery, pharmacology, or pathology. Levels of Medicine almost always represent training in formal medical care \u2014 almost no one is going to learn how to perform surgery effectively by watching medical dramas. Make sure to see appropriate Paths to represent how a character received his training, and his access to medication and medical facilities.",
+            "source": "TCC",
+            "tricks": {
+                "Diagnostic Expert": "The character has extensive medical knowledge and a knack for diagnosis. Once per scene, the character can make a roll to examine a character and diagnose their illness or ailment without the usual medical instruments. They do not even need instruments such as x-rays or tests for internal medical issues that would normally require them.",
+                "Medical Advantage": "Your character knows how to hit them where they are weak. Any time the character would be able to know about an enemy's medical condition or history (if he treated the enemy before, had access to his medical records, saw the enemy suffer a significant wound, etc.), the character may spend 1 Momentum before making an attack roll using Close Combat to add dice equal to his Medicine Skill to the roll.",
+                "Quick Aid": "The character is trained in field medicine and can treat basic wounds in the middle of combat. By spending a Momentum, the character can reduce the time it takes to perform a First Aid action to a single combat round. This action takes up the character's entire action, she cannot take a complex action while performing First Aid.",
+                "Walking Wounded": "Sometimes the world won't wait around while you are injured. The character with this Skill Trick can apply temporary dressings or care to patch up a wound and allow an injured character to keep going. You can treat a character with an Injury, spending 1 Momentum for Bruised or Injured Complications, and 2 Momentum for Maimed-level Injuries. After being treated with this Skill Trick, a character may take actions without any penalty from that Injury for one scene."
+            }
+        },
+        "Persuasion": {
+            "description": "Persuasion reflects a character's ability to convince others to do things for her. A persuasive character can get others to perform tasks without giving direct commands, but instead convincing them it is a good idea, either through the threat of force or the enticement of reward. Levels of Persuasion usually represent a character's experience in dealing with other people and convincing them to give her what she wants.",
+            "source": "TCC",
+            "tricks": {
+                "Captivating Personality": "When the character turns on the charm, it's like she's the only thing in the room. Activate this Skill Trick to ignore the effect of Atmosphere on one Influence roll (see p. 86 for more on Atmosphere).",
+                "Devilishly Good Looking": "When you look this good, no one ignores you. Activate this Skill Trick to shift a target's Attitude toward you by 1 toward the positive for a scene.",
+                "Easy to Love": "Sometimes, it's more important to build strong, lasting relationships than to convince someone in the short term. When making a Skill roll for a complex action to build a bond, activate this Skill Trick to overcome one milestone for free (see p. 87 for more information on bonds)."
+            }
+        },
+        "Pilot": {
+            "description": "Pilot represents a character's ability to properly operate and control vehicles in stressful situations. The Skill covers all kinds of vehicles, from cars, motorcycles, and snowmobiles to unusual or specialized vehicles like tanks, 747s, and cargo ships. A character won't generally need to make a Pilot check to get across town (even in rush hour), but he will if he needs to get to the hospital before a friend bleeds to death in the back seat while someone tries to run him off the road.",
+            "source": "TCC",
+            "tricks": {
+                "Backseat Driver": "Flying a plane by remote control and video camera, using the rearview mirror to see while hiding from gunfire, or leaning out the window and steering with her feet \u2014 the character is comfortable piloting a vehicle in a number of unusual ways. Activate this Skill Trick to eliminate any Difficulty or Complication to a Pilot roll caused by unfamiliar controls or restrictions on the pilot's vision or movement. This Trick has no effect on a Difficulty or Complication caused by the actual complexity or Difficulty of the maneuver the character is attempting.",
+                "Collision Artist": "The character has an amazing knack for running vehicles off the road. When ramming another vehicle, spend 1 Momentum to automatically hit the other vehicle in such a way that it is disabled, but no one in either vehicle is hurt. For 1 additional Momentum (for a total of 2), the driver and passengers of the other vehicle are either battered (suffering a +1 Difficulty to any actions they attempt for the rest of the scene) or knocked unconscious, Storyguide's choice. In either case, they do not suffer any lasting injury.",
+                "Fighter Pilot": "Handling a vehicle is second nature to the pilot. When in combat, rolls to maneuver a vehicle do not count against the character's maximum number of actions for a complex action.",
+                "I Can Figure It Out": "It's got two pedals and a steering wheel, how difficult can it be? Spend 1 Momentum to allow the character to Pilot any vehicle for one scene, even if that vehicle normally requires a Specialty that the character does not possess."
+            }
+        },
+        "Science": {
+            "description": "The Science Skill reflects a character's knowledge of the natural sciences. It covers biology and life sciences, chemistry, physics, geology, some engineering, and similar topics. The Humanities Skill covers social sciences such as anthropology, economics, or archaeology. Some mathematics can reasonably be said to fall under Science, but many applications of it would require the Enigmas Skill instead.\n\nThe Science Skill covers both theoretical knowledge and the ability to make practical applications of those theories. This can be used to make the best of limited resources, or to set up the use of other Skills, such as Technology. While the Science Skill reflects a character's knowledge, her access to resources is generally covered by an appropriate Path.",
+            "source": "TCC",
+            "tricks": {
+                "R&D Expert": "The character carefully develops her theories before putting them into practical use in an invention. When crafting a new technology, you may spend a Momentum to reduce the Complication caused by the Rank of the invention by an amount equal to the character's Science Skill (see p. 90 for more information on crafting)",
+                "Scientific Method": "The character's methodical approach gives her an edge when dealing with complex systems and confusing codes. Before rolling an Enigmas roll to decipher a mathematical problem, code, or logic puzzle, activate this Skill Trick to add dice equal to the character's Science Skill to the roll.",
+                "Scientific Polymath": "While this character doesn't have the depth of knowledge that a specialist would, she always seems to know exactly the right details to move forward with her work. When creating an Invention (see p. 90 for more information), Spend 1 Momentum to ignore the requirement for a Science Specialty in developing that particular device."
+            }
+        },
+        "Survival": {
+            "description": "Survival is the Skill used to live and thrive in wilderness settings. It covers all the basic necessities needed to get by without the assistance of grocery stores, air conditioning, and GPS systems. A character would use the Survival Skill to find safe food to eat and water to drink, as well as building fires and shelters. It is also used to navigate in the wilderness, possibly with the assistance of maps and compasses, or just using the sun and the stars.\n\nSurvival helps a character notice or otherwise avoid natural hazards, such as quicksand or poisonous snakes. It can also be used in place of Social Skills when a character is attempting to influence an animal instead of a human (or other sentient being). Use the same goals for Social interaction, but replace Persuasion, Empathy, or Command with Survival.",
+            "source": "TCC",
+            "tricks": {
+                "King of Beasts": "This character has always gotten along better with animals than with people. When making a Skill roll to calm, befriend, or train an animal, spend 1 Momentum to decrease the target number of that action by 1.",
+                "Tricky Situation": "Spend a Momentum to have an action to escape from a dangerous non-Talent-created situation succeed automatically without rolling. The use of this Skill Trick allows her to overcome one Complication associated with the action as well. This may not include the use of any Gifts.",
+                "Versus Wild": "This character has extensive experience allowing him to survive in the harshest of climates. Activate this Skill Trick when in a wilderness location to automatically find enough food and water for one person to survive one day.",
+                "Without a Trace": "The character not only knows how to hunt \u2014 she knows how to avoid other hunters. Activate this Skill Trick to inflict a Complication rating equal to your character's Survival Skill to anyone attempting to track her."
+            }
+        },
+        "Technology": {
+            "description": "Technology reflects the character's familiarity with a variety of technical devices, their use, maintenance, and manufacturing. This does not have to be complex technology \u2014 even a loom is a piece of equipment. The character is skilled in crafting, repair, and manufacturing items as well as their use. Levels in Technology generally represent formal training in the manufacture and use of a device, but may represent personal training by taking things apart and putting them back together again.",
+            "source": "TCC",
+            "tricks": {
+                "Ahead of Your Time": "The character has always been able to anticipate new technologies, and is on the very cutting edge of development. Activate this Skill Trick when crafting a new invention to reduce the number of milestones needed by 1 (see p. 90 for more information on inventions).",
+                "Engineer's Eye": "The character's in-depth knowledge of technology gives him an edge when trying to break it. Spend a Momentum to increase your character's Scale for 1 action when acting to damage a vehicle or high-tech device.",
+                "It's Not a Bug&comma; It's a Feature": "After successfully crafting an item of any Rank, the player may spend a Momentum to give the item a +1 Enhancement rating per Flaw accumulated during the crafting process.",
+                "Overwatch": "This character is always there to watch out for his teammates. When he is monitoring security feeds, cameras, or other sensors at a location, spend a Momentum to reduce the target number of a single roll for an ally at that location he is in contact with."
+            }
+        }
+    },
+    "sources": {
+        "AEON": "Trinity Continuum: Æon",
+        "TCC": "Trinity Continuum Core Rulebook",
+        "DW": "Trinity Continuum: Distant Worlds",
+        "ABR": "Trinity Continuum: Aberrant"
+    }
+}

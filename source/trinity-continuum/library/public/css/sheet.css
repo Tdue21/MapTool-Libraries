@@ -1,0 +1,316 @@
+body {
+  margin: auto;
+  width: 60%;
+  font-size: 14pt;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+h1,
+h2 {
+  background-color: darkred;
+  color: white;
+  text-align: center;
+  font-family: var(--header-font);
+}
+
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+.dot {
+  cursor: pointer;
+  content: "&#x26AA";
+}
+.dot .filled {
+  content: "&#x26AB";
+}
+.dot .disabled {
+  content: "&#x26AB";
+  color: #ccc;
+}
+
+.container {
+  display: grid;
+  gap: 5px;
+}
+
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid #ddd;
+}
+
+input[type=text]:hover {
+  border: 2px solid #ddd;
+}
+
+.r2 {
+  top: 4px;
+}
+
+.square {
+  position: relative;
+}
+.square label {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 15%;
+  cursor: pointer;
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 18px;
+}
+.square label:after {
+  border: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+.square input[type=checkbox] {
+  visibility: hidden;
+}
+.square input[type=checkbox]:checked + label {
+  background-color: #000;
+  border-color: #000;
+}
+.square input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+.square input[type=checkbox]:disabled + label {
+  background-color: #ccc;
+  border-color: rgba(68, 68, 68, 0.2666666667);
+}
+.square input[type=checkbox]:disabled + label:after {
+  opacity: 1;
+}
+
+.round {
+  position: relative;
+}
+.round label {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 18px;
+}
+.round label:after {
+  border: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+.round input[type=checkbox] {
+  visibility: hidden;
+}
+.round input[type=checkbox]:checked + label {
+  background-color: #000;
+  border-color: #000;
+}
+.round input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+.round input[type=checkbox]:disabled + label {
+  background-color: #ccc;
+  border-color: rgba(68, 68, 68, 0.2666666667);
+}
+.round input[type=checkbox]:disabled + label:after {
+  opacity: 1;
+}
+
+.general {
+  grid-template-columns: [label1] 1fr [input1] 3fr [label2] 1fr [input2] 2fr [dots2] 1fr;
+}
+
+.skills {
+  grid-template-columns: [label1] 1fr [input1] 2fr [dots1] 1fr [label2] 1fr [input2] 2fr [dots2] 1fr;
+}
+
+.attributes {
+  grid-template-columns: [approach] 2fr [mental] 3fr [physical] 3fr [social] 3fr;
+}
+.attributes .approach {
+  grid-column-start: approach;
+  grid-template-columns: [check] 20px [label] 2fr;
+  grid-template-rows: [force] 1fr [finesse] 1fr [resilience] 1fr;
+  border: 1px solid silver;
+}
+.attributes .arena {
+  border: 1px solid darkred;
+  padding: 5px;
+  grid-template-columns: [label1] 1fr [dots1] 2fr;
+  grid-template-rows: [force] 1fr [finesse] 1fr [resilience] 1fr;
+}
+.attributes .mental {
+  grid-column-start: mental;
+}
+.attributes .physical {
+  grid-column-start: physical;
+}
+.attributes .social {
+  grid-column-start: social;
+}
+
+.advantages {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+.advantages .misc {
+  grid-template-columns: 1fr 4fr;
+}
+
+.injury {
+  grid-template-columns: 20px 1fr 3fr;
+  padding-right: 10px;
+}
+.injury input {
+  min-height: 22px;
+}
+
+.aptitude {
+  grid-template-columns: 1fr 5fr 3fr;
+}
+
+.row1 {
+  grid-row-start: 1;
+  align-self: stretch;
+}
+
+.row2 {
+  grid-row-start: 2;
+  align-self: stretch;
+}
+
+.row3 {
+  grid-row-start: 3;
+  align-self: stretch;
+}
+
+.row4 {
+  grid-row-start: 4;
+  align-self: stretch;
+}
+
+.row5 {
+  grid-row-start: 5;
+  align-self: stretch;
+}
+
+.row6 {
+  grid-row-start: 6;
+  align-self: stretch;
+}
+
+.row7 {
+  grid-row-start: 7;
+  align-self: stretch;
+}
+
+.row8 {
+  grid-row-start: 8;
+  align-self: stretch;
+}
+
+.col1-label {
+  grid-column-start: label1;
+}
+
+.col1-input {
+  grid-column-start: input1;
+}
+
+.col1-dots {
+  grid-column-start: dots1;
+}
+
+.col2-label {
+  grid-column-start: label2;
+}
+
+.col2-input {
+  grid-column-start: input2;
+}
+
+.col2-dots {
+  grid-column-start: dots2;
+}
+
+.col1 {
+  grid-column-start: 1;
+}
+
+.col2 {
+  grid-column-start: 2;
+}
+
+.col3 {
+  grid-column-start: 3;
+}
+
+.col4 {
+  grid-column-start: 4;
+}
+
+.col5 {
+  grid-column-start: 5;
+}
+
+.col6 {
+  grid-column-start: 6;
+}
+
+.col7 {
+  grid-column-start: 7;
+}
+
+.col8 {
+  grid-column-start: 8;
+}
+
+.col1-2 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.col2-3 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tac {
+  text-align: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.taj {
+  text-align: justify;
+}
+
+/*# sourceMappingURL=sheet.css.map */

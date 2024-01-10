@@ -1,0 +1,3 @@
+[h:goto(0,0)]
+[h:setZoom(1)]
+

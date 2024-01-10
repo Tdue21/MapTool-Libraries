@@ -1,0 +1,1 @@
+[r:replace(getMacroLocation(), "lib:", "")]

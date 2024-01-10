@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@font-face {
+  font-family: blinddate;
+  src: url(../fonts/Blinddate.otf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: blinddate;
+  src: url(../fonts/Blinddate.otf);
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: blinddate;
+  src: url(../fonts/Blinddate.otf);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: blinddate;
+  src: url(../fonts/Blinddate.otf);
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+body {
+  background-color: white;
+  font-family: "Philosopher", "Ubuntu", sans-serif;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  line-height: 1.5;
+  margin: 0px;
+  padding: 0px;
+}
+
+.showTrait {
+  padding: 5px;
+}
+
+.showTrait h3 {
+  background-color: var(--background-color);
+  color: var(--header-color);
+  text-align: left;
+  font-weight: bold;
+  padding: 5px;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.showTrait h3 span {
+  text-align: right;
+  float: right;
+  font-size: 0.9em;
+}
+
+.showTrait p {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 5px;
+}
+
+.table {
+  margin-top: 5px;
+  font-size: 1rem;
+  font-family: "Philosopher", "Ubuntu", sans-serif;
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: var(--background-color);
+  color: var(--header-color);
+  text-align: left;
+  cursor: pointer;
+}
+
+.table th:last-child {
+  text-align: center;
+  cursor: default;
+}
+
+.table tr:nth-child(odd) {
+  background-color: var(--row-color);
+}
+
+.table tr:last-child {
+  border-bottom: 2px solid var(--background-color);
+}
+
+.table td:last-child {
+  text-align: center;
+}
+
+table.settings {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-family: "Philosopher", "Ubuntu", sans-serif;
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+table.settings caption {
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--header-color);
+  padding: 2px;
+  font-size: 1.2rem;
+}
+
+table.settings tr:nth-child(even) {
+  background-color: var(--row-color);
+}
+
+table.settings tr:last-child {
+  border-bottom: 2px solid var(--background-color);
+}
+
+table.settings td {
+  padding: 3px;
+}
+
+table.settings td:last-child {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: #274CBC;
+}
+
+ul.menu {
+  border-bottom: 1px solid gray;
+  padding: 0px;
+  margin: 0px;
+  font-family: sans;
+  font-size: 1em;
+  background-color: #f3f4f4;
+}
+
+ul.menu > li {
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.floating {
+  border: 2px solid grey;
+  float: right;
+}
+
+.overflow {
+  margin: auto;
+  padding-left: 5px;
+  padding-right: 10px;
+  border: 0;
+  background-color: #ffffff;
+  height: 92%;
+  width: 98%;
+  overflow: auto;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  text-align: left;
+  border-radius: 4px;
+  padding: 4px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -20px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#editForm > #data {
+  padding: 5px;
+  padding-right: 10px;
+  width: 100%;
+}
+
+#editForm label {
+  font-weight: bold;
+}
+
+#editForm input {
+  width: 100%;
+  font-size: 1em;
+  border: 1px solid #bababa;
+  height: 23px;
+}
+
+#editForm textarea {
+  width: 100%;
+  height: 40%;
+  box-sizing: border-box;
+}
+
+#editForm select {
+  padding: 2px;
+  padding-left: 0px;
+  font-size: 1em;
+  border: 1px solid #bababa;
+}
+
+
+
+/*# sourceMappingURL=main.css.map */

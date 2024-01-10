@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/aeon.css" />
+    <link rel="stylesheet" href="./css/sheet.css" />
+
+</head>
+
+<body>
+    <!-- Logo -->
+    <div id="Logo" style="text-align: center;">
+        <img src="images/Aeon Logo.png">
+    </div>
+
+    <!-- General Character Concept -->
+    <div id="General">
+        <h1>Character</h1>
+        <div class="container general">
+            <label id="charNameLabel" for="charNameInput" class="col1-label row1">Character</label>
+            <input id="charNameInput" type="text" class="col1-input row1" placeholder="Enter name of character" />
+
+            <label id="playerNameLabel" for="playerNameInput" class="col1-label row2">Player</label>
+            <input id="PlayerNameInput" type="text" class="col1-input row2" placeholder="Enter name of player" />
+
+            <label id="conceptLabel" for="conceptInput" class="col1-label row3">Concept</label>
+            <input id="conceptInput" type="text" class="col1-input row3" placeholder="Short description of concept" />
+
+            <label id="psiOrderLabel" for="psiOrderInput" class="col1-label">Psi Order</label>
+            <input id="psiOrderInput" type="text" class="col1-input row4" style="grid-column-end: span dots2;"
+                placeholder="The character's psi order" />
+
+            <label id="pathPathLabel" for="pathPathInput" class="col2-label row1">path Path</label>
+            <input id="pathPathInput" type="text" class="col2-input row1" placeholder="Enter path path" />
+            <span id="pathPathDots" class="col2-dots row1">
+                <span class="round">
+                    <input id="path1" type="checkbox" />
+                    <label for="path1"></label>
+                </span>
+                <span class="round">
+                    <input id="path2" type="checkbox" />
+                    <label for="path2"></label>
+                </span>
+                <span class="round">
+                    <input id="path3" type="checkbox" />
+                    <label for="path3"></label>
+                </span>
+                <span class="round">
+                    <input id="path4" type="checkbox" />
+                    <label for="path4"></label>
+                </span>
+                <span class="round">
+                    <input id="path5" type="checkbox" />
+                    <label for="path5"></label>
+                </span>
+            </span>
+
+            <label id="rolePathLabel" for="rolePathInput" class="col2-label row2">Role Path</label>
+            <input id="rolePathInput" type="text" class="col2-input row2" placeholder="Enter role path" />
+            <span id="rolePathDots" class="col2-dots row2">
+                <span class="round">
+                    <input id="path1" type="checkbox" />
+                    <label for="path1"></label>
+                </span>
+                <span class="round">
+                    <input id="path2" type="checkbox" />
+                    <label for="path2"></label>
+                </span>
+                <span class="round">
+                    <input id="path3" type="checkbox" />
+                    <label for="path3"></label>
+                </span>
+                <span class="round">
+                    <input id="path4" type="checkbox" />
+                    <label for="path4"></label>
+                </span>
+                <span class="round">
+                    <input id="path5" type="checkbox" />
+                    <label for="path5"></label>
+                </span>
+            </span>
+
+            <label id="societyPathLabel" for="societyPathInput" class="col2-label row3">Society Path</label>
+            <input id="societyPathInput" type="text" class="col2-input row3" placeholder="Enter society path" />
+            <span id="societyPathDots" class="col2-dots row3">
+                <span class="round">
+                    <input id="aim1" type="checkbox" />
+                    <label for="aim1"></label>
+                </span>
+                <span class="round">
+                    <input id="aim2" type="checkbox" />
+                    <label for="aim2"></label>
+                </span>
+                <span class="round">
+                    <input id="aim3" type="checkbox" />
+                    <label for="aim3"></label>
+                </span>
+                <span class="round">
+                    <input id="aim4" type="checkbox" />
+                    <label for="aim4"></label>
+                </span>
+                <span class="round">
+                    <input id="aim5" type="checkbox" />
+                    <label for="aim5"></label>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <div id="Skills">
+        <h1>Skills</h1>
+        <div class="container skills">
+
+            <label class="col1-label row1">Aim</label>
+            <input class="col1-input row1" type="text" />
+            <span class="col1-dots row1">
+                <span class="round">
+                    <input id="aim1" type="checkbox" />
+                    <label for="aim1"></label>
+                </span>
+                <span class="round">
+                    <input id="aim2" type="checkbox" />
+                    <label for="aim2"></label>
+                </span>
+                <span class="round">
+                    <input id="aim3" type="checkbox" />
+                    <label for="aim3"></label>
+                </span>
+                <span class="round">
+                    <input id="aim4" type="checkbox" />
+                    <label for="aim4"></label>
+                </span>
+                <span class="round">
+                    <input id="aim5" type="checkbox" />
+                    <label for="aim5"></label>
+                </span>
+            </span>
+            <label class="col1-label row2">Athletics</label>
+            <input class="col1-input row2" type="text" />
+            <span class="col1-dots row2">
+                <span class="round">
+                    <input id="athletics1" type="checkbox" />
+                    <label for="athletics1"></label>
+                </span>
+                <span class="round">
+                    <input id="athletics2" type="checkbox" />
+                    <label for="athletics2"></label>
+                </span>
+                <span class="round">
+                    <input id="athletics3" type="checkbox" />
+                    <label for="athletics3"></label>
+                </span>
+                <span class="round">
+                    <input id="athletics4" type="checkbox" />
+                    <label for="athletics4"></label>
+                </span>
+                <span class="round">
+                    <input id="athletics5" type="checkbox" />
+                    <label for="athletics5"></label>
+                </span>
+            </span>
+            <label class="col1-label row3">Close Combat</label>
+            <input class="col1-input row3" type="text" />
+            <span class="col1-dots row3">
+                <span class="round">
+                    <input id="closeCombat1" type="checkbox" />
+                    <label for="closeCombat1"></label>
+                </span>
+                <span class="round">
+                    <input id="closeCombat2" type="checkbox" />
+                    <label for="closeCombat2"></label>
+                </span>
+                <span class="round">
+                    <input id="closeCombat3" type="checkbox" />
+                    <label for="closeCombat3"></label>
+                </span>
+                <span class="round">
+                    <input id="closeCombat4" type="checkbox" />
+                    <label for="closeCombat4"></label>
+                </span>
+                <span class="round">
+                    <input id="closeCombat5" type="checkbox" />
+                    <label for="closeCombat5"></label>
+                </span>
+            </span>
+            <label class="col1-label row4">Command</label>
+            <input class="col1-input row4" type="text" />
+            <span class="col1-dots row4">
+                <span class="round">
+                    <input id="command1" type="checkbox" />
+                    <label for="command1"></label>
+                </span>
+                <span class="round">
+                    <input id="command2" type="checkbox" />
+                    <label for="command2"></label>
+                </span>
+                <span class="round">
+                    <input id="command3" type="checkbox" />
+                    <label for="command3"></label>
+                </span>
+                <span class="round">
+                    <input id="command4" type="checkbox" />
+                    <label for="command4"></label>
+                </span>
+                <span class="round">
+                    <input id="command5" type="checkbox" />
+                    <label for="command5"></label>
+                </span>
+            </span>
+            <label class="col1-label row5">Culture</label>
+            <input class="col1-input row5" type="text" />
+            <span class="col1-dots row5">
+                <span class="round">
+                    <input id="culture1" type="checkbox" />
+                    <label for="culture1"></label>
+                </span>
+                <span class="round">
+                    <input id="culture2" type="checkbox" />
+                    <label for="culture2"></label>
+                </span>
+                <span class="round">
+                    <input id="culture3" type="checkbox" />
+                    <label for="culture3"></label>
+                </span>
+                <span class="round">
+                    <input id="culture4" type="checkbox" />
+                    <label for="culture4"></label>
+                </span>
+                <span class="round">
+                    <input id="culture5" type="checkbox" />
+                    <label for="culture5"></label>
+                </span>
+            </span>
+            <label class="col1-label row6">Empathy</label>
+            <input class="col1-input row6" type="text" />
+            <span class="col1-dots row6">
+                <span class="round">
+                    <input id="empathy1" type="checkbox" />
+                    <label for="empathy1"></label>
+                </span>
+                <span class="round">
+                    <input id="empathy2" type="checkbox" />
+                    <label for="empathy2"></label>
+                </span>
+                <span class="round">
+                    <input id="empathy3" type="checkbox" />
+                    <label for="empathy3"></label>
+                </span>
+                <span class="round">
+                    <input id="empathy4" type="checkbox" />
+                    <label for="empathy4"></label>
+                </span>
+                <span class="round">
+                    <input id="empathy5" type="checkbox" />
+                    <label for="empathy5"></label>
+                </span>
+            </span>
+            <label class="col1-label row7">Enigmas</label>
+            <input class="col1-input row7" type="text" />
+            <span class="col1-dots row7">
+                <span class="round">
+                    <input id="enigmas1" type="checkbox" />
+                    <label for="enigmas1"></label>
+                </span>
+                <span class="round">
+                    <input id="enigmas2" type="checkbox" />
+                    <label for="enigmas2"></label>
+                </span>
+                <span class="round">
+                    <input id="enigmas3" type="checkbox" />
+                    <label for="enigmas3"></label>
+                </span>
+                <span class="round">
+                    <input id="enigmas4" type="checkbox" />
+                    <label for="enigmas4"></label>
+                </span>
+                <span class="round">
+                    <input id="enigmas5" type="checkbox" />
+                    <label for="enigmas5"></label>
+                </span>
+            </span>
+            <label class="col1-label row8">Humanities</label>
+            <input class="col1-input row8" type="text" />
+            <span class="col1-dots row8">
+                <span class="round">
+                    <input id="humanities1" type="checkbox" />
+                    <label for="humanities1"></label>
+                </span>
+                <span class="round">
+                    <input id="humanities2" type="checkbox" />
+                    <label for="humanities2"></label>
+                </span>
+                <span class="round">
+                    <input id="humanities3" type="checkbox" />
+                    <label for="humanities3"></label>
+                </span>
+                <span class="round">
+                    <input id="humanities4" type="checkbox" />
+                    <label for="humanities4"></label>
+                </span>
+                <span class="round">
+                    <input id="humanities5" type="checkbox" />
+                    <label for="humanities5"></label>
+                </span>
+            </span>
+
+            <label class="col2-label row1">Integrity</label>
+            <input class="col2-input row1" type="text" />
+            <span class="col2-dots row1">
+                <span class="round">
+                    <input id="integrity1" type="checkbox" />
+                    <label for="integrity1"></label>
+                </span>
+                <span class="round">
+                    <input id="integrity2" type="checkbox" />
+                    <label for="integrity2"></label>
+                </span>
+                <span class="round">
+                    <input id="integrity3" type="checkbox" />
+                    <label for="integrity3"></label>
+                </span>
+                <span class="round">
+                    <input id="integrity4" type="checkbox" />
+                    <label for="integrity4"></label>
+                </span>
+                <span class="round">
+                    <input id="integrity5" type="checkbox" />
+                    <label for="integrity5"></label>
+                </span>
+            </span>
+            </label>
+            <label class="col2-label row2">Larceny</label>
+            <input class="col2-input row2" type="text" />
+            <span class="col2-dots row2">
+                <span class="round">
+                    <input id="larceny1" type="checkbox" />
+                    <label for="larceny1"></label>
+                </span>
+                <span class="round">
+                    <input id="larceny2" type="checkbox" />
+                    <label for="larceny2"></label>
+                </span>
+                <span class="round">
+                    <input id="larceny3" type="checkbox" />
+                    <label for="larceny3"></label>
+                </span>
+                <span class="round">
+                    <input id="larceny4" type="checkbox" />
+                    <label for="larceny4"></label>
+                </span>
+                <span class="round">
+                    <input id="larceny5" type="checkbox" />
+                    <label for="larceny5"></label>
+                </span>
+            </span>
+            <label class="col2-label row3">Medicine</label>
+            <input class="col2-input row3" type="text" />
+            <span class="col2-dots row3">
+                <span class="round">
+                    <input id="medicine1" type="checkbox" />
+                    <label for="medicine1"></label>
+                </span>
+                <span class="round">
+                    <input id="medicine2" type="checkbox" />
+                    <label for="medicine2"></label>
+                </span>
+                <span class="round">
+                    <input id="medicine3" type="checkbox" />
+                    <label for="medicine3"></label>
+                </span>
+                <span class="round">
+                    <input id="medicine4" type="checkbox" />
+                    <label for="medicine4"></label>
+                </span>
+                <span class="round">
+                    <input id="medicine5" type="checkbox" />
+                    <label for="medicine5"></label>
+                </span>
+            </span>
+            <label class="col2-label row4">Persuasion</label>
+            <input class="col2-input row4" type="text" />
+            <span class="col2-dots row4">
+                <span class="round">
+                    <input id="persuasion1" type="checkbox" />
+                    <label for="persuasion1"></label>
+                </span>
+                <span class="round">
+                    <input id="persuasion2" type="checkbox" />
+                    <label for="persuasion2"></label>
+                </span>
+                <span class="round">
+                    <input id="persuasion3" type="checkbox" />
+                    <label for="persuasion3"></label>
+                </span>
+                <span class="round">
+                    <input id="persuasion4" type="checkbox" />
+                    <label for="persuasion4"></label>
+                </span>
+                <span class="round">
+                    <input id="persuasion5" type="checkbox" />
+                    <label for="persuasion5"></label>
+                </span>
+            </span>
+            <label class="col2-label row5">Pilot</label>
+            <input class="col2-input row5" type="text" />
+            <span class="col2-dots row5">
+                <span class="round">
+                    <input id="pilot1" type="checkbox" />
+                    <label for="pilot1"></label>
+                </span>
+                <span class="round">
+                    <input id="pilot2" type="checkbox" />
+                    <label for="pilot2"></label>
+                </span>
+                <span class="round">
+                    <input id="pilot3" type="checkbox" />
+                    <label for="pilot3"></label>
+                </span>
+                <span class="round">
+                    <input id="pilot4" type="checkbox" />
+                    <label for="pilot4"></label>
+                </span>
+                <span class="round">
+                    <input id="pilot5" type="checkbox" />
+                    <label for="pilot5"></label>
+                </span>
+            </span>
+            <label class="col2-label row6">Science</label>
+            <input class="col2-input row6" type="text" />
+            <span class="col2-dots row6">
+                <span class="round">
+                    <input id="science1" type="checkbox" />
+                    <label for="science1"></label>
+                </span>
+                <span class="round">
+                    <input id="science2" type="checkbox" />
+                    <label for="science2"></label>
+                </span>
+                <span class="round">
+                    <input id="science3" type="checkbox" />
+                    <label for="science3"></label>
+                </span>
+                <span class="round">
+                    <input id="science4" type="checkbox" />
+                    <label for="science4"></label>
+                </span>
+                <span class="round">
+                    <input id="science5" type="checkbox" />
+                    <label for="science5"></label>
+                </span>
+            </span>
+            <label class="col2-label row7">intellect</label>
+            <input class="col2-input row7" type="text" />
+            <span class="col2-dots row7">
+                <span class="round">
+                    <input id="intellect1" type="checkbox" />
+                    <label for="intellect1"></label>
+                </span>
+                <span class="round">
+                    <input id="intellect2" type="checkbox" />
+                    <label for="intellect2"></label>
+                </span>
+                <span class="round">
+                    <input id="intellect3" type="checkbox" />
+                    <label for="intellect3"></label>
+                </span>
+                <span class="round">
+                    <input id="intellect4" type="checkbox" />
+                    <label for="intellect4"></label>
+                </span>
+                <span class="round">
+                    <input id="intellect5" type="checkbox" />
+                    <label for="intellect5"></label>
+                </span>
+            </span>
+            <label class="col2-label row8">Technology</label>
+            <input class="col2-input row8" type="text" />
+            <span class="col2-dots row8">
+                <span class="round">
+                    <input id="technology1" type="checkbox" />
+                    <label for="technology1"></label>
+                </span>
+                <span class="round">
+                    <input id="technology2" type="checkbox" />
+                    <label for="technology2"></label>
+                </span>
+                <span class="round">
+                    <input id="technology3" type="checkbox" />
+                    <label for="technology3"></label>
+                </span>
+                <span class="round">
+                    <input id="technology4" type="checkbox" />
+                    <label for="technology4"></label>
+                </span>
+                <span class="round">
+                    <input id="technology5" type="checkbox" />
+                    <label for="technology5"></label>
+                </span>
+            </span>
+
+        </div>
+    </div>
+
+    <!-- Attributes -->
+    <div id="Attributes">
+        <h1>Attributes</h1>
+        <div class="container attributes">
+            <div class="container approach">
+                <span class="square r2">
+                    <input id="force" style="grid-column-start: check; grid-row-start: force" type="checkbox" />
+                    <label for="force"></label>
+                </span>
+                <label for="force" style="grid-column-start: label; grid-row-start: force">Force</label>
+
+                <span class="square r2">
+                    <input id="finesse" style="grid-column-start: check; grid-row-start: finesse" type="checkbox" />
+                    <label for="finesse"></label>
+                </span>
+                <label for="finesse" style="grid-column-start: label; grid-row-start: finesse">Finesse</label>
+
+                <span class="square r2">
+                    <input id="resilience" style="grid-column-start: check; grid-row-start: resilience"
+                        type="checkbox" />
+                    <label for="resilience"></label>
+                </span>
+                <label for="resilience" style="grid-column-start: label; grid-row-start: resilience">Resilience</label>
+            </div>
+            <div class="container arena mental">
+                <label class="row1 col1-label">Intellect</label>
+                <!-- <input class="row1 col1-input" type="text" /> -->
+                <span class="row1 col1-dots">
+                    <span class="round">
+                        <input id="intellect1" type="checkbox" checked />
+                        <label for="intellect1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="intellect2" type="checkbox" />
+                        <label for="intellect2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="intellect3" type="checkbox" />
+                        <label for="intellect3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="intellect4" type="checkbox" />
+                        <label for="intellect4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="intellect5" type="checkbox" />
+                        <label for="intellect5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="intellect6" type="checkbox" disabled />
+                        <label for="intellect6"></label>
+                    </span>
+                </span>
+                <label class="row2 col1-label">Cunning</label>
+                <!-- <input class="row2 col1-input" type="text" /> -->
+                <span class="row2 col1-dots">
+                    <span class="round">
+                        <input id="cunning1" type="checkbox" checked />
+                        <label for="cunning1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="cunning2" type="checkbox" />
+                        <label for="cunning2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="cunning3" type="checkbox" />
+                        <label for="cunning3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="cunning4" type="checkbox" />
+                        <label for="cunning4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="cunning5" type="checkbox" />
+                        <label for="cunning5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="cunning6" type="checkbox" disabled />
+                        <label for="cunning6"></label>
+                    </span>
+                </span>
+                <label class="row3 col1-label">Resolve</label>
+                <!-- <input class="row3 col1-input" type="text" /> -->
+                <span class="row3 col1-dots">
+                    <span class="round">
+                        <input id="resolve1" type="checkbox" checked />
+                        <label for="resolve1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="resolve2" type="checkbox" />
+                        <label for="resolve2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="resolve3" type="checkbox" />
+                        <label for="resolve3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="resolve4" type="checkbox" />
+                        <label for="resolve4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="resolve5" type="checkbox" />
+                        <label for="resolve5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="resolve6" type="checkbox" disabled />
+                        <label for="resolve6"></label>
+                    </span>
+                </span>
+            </div>
+            <div class="container arena physical">
+                <label class="row1 col1-label">Might</label>
+                <!-- <input class="row1 col1-input" type="text" /> -->
+                <span class="row1 col1-dots">
+                    <span class="round">
+                        <input id="might1" type="checkbox" checked />
+                        <label for="might1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="might2" type="checkbox" />
+                        <label for="might2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="might3" type="checkbox" />
+                        <label for="might3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="might4" type="checkbox" />
+                        <label for="might4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="might5" type="checkbox" />
+                        <label for="might5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="might6" type="checkbox" disabled />
+                        <label for="might6"></label>
+                    </span>
+                </span>
+
+                <label class="row2 col1-label">Dexterity</label>
+                <!-- <input class="row2 col1-input" type="text" /> -->
+                <span class="row2 col1-dots">
+                    <span class="round">
+                        <input id="dexterity1" type="checkbox" checked />
+                        <label for="dexterity1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="dexterity2" type="checkbox" />
+                        <label for="dexterity2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="dexterity3" type="checkbox" />
+                        <label for="dexterity3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="dexterity4" type="checkbox" />
+                        <label for="dexterity4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="dexterity5" type="checkbox" />
+                        <label for="dexterity5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="dexterity6" type="checkbox" disabled />
+                        <label for="dexterity6"></label>
+                    </span>
+                </span>
+                <label class="row3 col1-label">Stamina</label>
+                <!-- <input class="row3 col1-input" type="text" /> -->
+                <span class="row3 col1-dots">
+                    <span class="round">
+                        <input id="stamina1" type="checkbox" checked />
+                        <label for="stamina1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="stamina2" type="checkbox" />
+                        <label for="stamina2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="stamina3" type="checkbox" />
+                        <label for="stamina3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="stamina4" type="checkbox" />
+                        <label for="stamina4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="stamina5" type="checkbox" />
+                        <label for="stamina5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="stamina6" type="checkbox" disabled />
+                        <label for="stamina6"></label>
+                    </span>
+                </span>
+            </div>
+
+            <div class="container arena social">
+                <label class="row1 col1-label">Presence</label>
+                <!-- <input class="row1 col1-input" type="text" /> -->
+                <span class="row1 col1-dots">
+                    <span class="round">
+                        <input id="presence1" type="checkbox" checked />
+                        <label for="presence1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="presence2" type="checkbox" />
+                        <label for="presence2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="presence3" type="checkbox" />
+                        <label for="presence3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="presence4" type="checkbox" />
+                        <label for="presence4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="presence5" type="checkbox" />
+                        <label for="presence5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="presence6" type="checkbox" disabled />
+                        <label for="presence6"></label>
+                    </span>
+                </span>
+
+                <label class="row2 col1-label">Manipulation</label>
+                <!-- <input class="row2 col1-input" type="text" /> -->
+                <span class="row2 col1-dots">
+                    <span class="round">
+                        <input id="manipulation1" type="checkbox" checked />
+                        <label for="manipulation1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="manipulation2" type="checkbox" />
+                        <label for="manipulation2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="manipulation3" type="checkbox" />
+                        <label for="manipulation3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="manipulation4" type="checkbox" />
+                        <label for="manipulation4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="manipulation5" type="checkbox" />
+                        <label for="manipulation5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="manipulation6" type="checkbox" disabled />
+                        <label for="manipulation6"></label>
+                    </span>
+                </span>
+
+                <label class="row3 col1-label">Composure</label>
+                <!-- <input class="row3 col1-input" type="text" /> -->
+                <span class="row3 col1-dots">
+                    <span class="round">
+                        <input id="composure1" type="checkbox" checked />
+                        <label for="composure1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="composure2" type="checkbox" />
+                        <label for="composure2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="composure3" type="checkbox" />
+                        <label for="composure3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="composure4" type="checkbox" />
+                        <label for="composure4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="composure5" type="checkbox" />
+                        <label for="composure5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="composure6" type="checkbox" disabled />
+                        <label for="composure6"></label>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="Advantages" class="container advantages">
+        <div id="health" style="grid-column-start: 1;">
+            <h2>Injury Conditions</h2>
+            <div id="injury" class="container injury">
+
+                <span class="col1 row1 square r2">
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row1">Bruised</span>
+                <input class="col3 row1" type="text" />
+                <span class="col4 row1 tar">+1</span>
+
+<!--
+                <span class="col1 row2 square r2">
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row2">Bruised</span>
+                <input class="col3 row2" type="text" />
+                <span class="col4 row2 tar">+1</span>
+
+                <span class="col1 row3 square r2">
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row3">Bruised</span>
+                <input class="col3 row3" type="text" />
+                <span class="col4 row3 tar">+1</span>
+-->                
+                <span class="col1 row4 square r2">
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row4">Injured</span>
+                <input class="col3 row4" type="text" />
+                <span class="col4 row4 tar">+2</span>
+
+<!--
+                <span class="col1 row5 square r2">
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row5">Injured</span>
+                <input class="col3 row5" type="text" />
+                <span class="col4 row5 tar">+2</span>
+
+                <span class="col1 row6 square r2">
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row6">Injured</span>
+                <input class="col3 row6" type="text" />
+                <span class="col4 row6 tar">+2</span>
+-->                
+                <span class="col1 row7 square r2" >
+                    <input type="checkbox" />
+                    <label></label>
+                </span>
+                <span class="col2 row7">Maimed</span>
+                <input class="col3 row7" type="text" />
+                <span class="col4 row7 tar">+4</span>
+
+                <span class="col1 row8" style="grid-column-end: span 4;text-align: center">Taken Out</span>
+
+            </div>
+            <div id="misc" class="container misc" style="margin-top:20px">
+                <span class="col1 row1" style="grid-column-end: span 3;">Defense = Appropriate Resilience
+                    Attribute</span>
+
+                <span class="col1 row2">Armor</span>
+                <input class="col2 row2" type="text" />
+
+                <span class="col1 row3">Experiences</span>
+                <input class="col2 row3" type="text" />
+
+            </div>
+
+        </div>
+
+        <div id="aptitude" style="grid-column-start: 2;">
+            <h2>Aptitude</h2>
+            <div class="container aptitude">
+
+                <label class="row1 col1">Name</label>
+                <input class="row1 col2-3" type="text" style="grid-column-end: 4;" />
+
+                <label class="row2 col1">Basic</label>
+                <input class="row2 col2-3" type="text" style="grid-column-end: 4;" />
+
+                <input class="row3 col1-2" type="text" placeholder="First mode" />
+                <span  class="row3 col3 tar">
+                    <span class="round">
+                        <input id="firstMode1" type="checkbox" checked />
+                        <label for="firstMode1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="firstMode2" type="checkbox" />
+                        <label for="firstMode2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="firstMode3" type="checkbox" />
+                        <label for="firstMode3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="firstMode4" type="checkbox" />
+                        <label for="firstMode4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="firstMode5" type="checkbox" />
+                        <label for="firstMode5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="firstMode6" type="checkbox" disabled />
+                        <label for="firstMode6"></label>
+                    </span>
+                </span>
+
+                <input class="row4 col1-2" type="text" placeholder="Second mode"/>
+                <span  class="row4 col3 tar">
+                    <span class="round">
+                        <input id="secondMode1" type="checkbox" checked />
+                        <label for="secondMode1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="secondMode2" type="checkbox" />
+                        <label for="secondMode2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="secondMode3" type="checkbox" />
+                        <label for="secondMode3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="secondMode4" type="checkbox" />
+                        <label for="secondMode4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="secondMode5" type="checkbox" />
+                        <label for="secondMode5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="secondMode6" type="checkbox" disabled />
+                        <label for="secondMode6"></label>
+                    </span>
+                </span>
+
+                <input class="row5 col1-2" type="text" placeholder="Third mode"/>
+                <span  class="row5 col3 tar">
+                    <span class="round">
+                        <input id="thirdMode1" type="checkbox" checked />
+                        <label for="thirdMode1"></label>
+                    </span>
+                    <span class="round">
+                        <input id="thirdMode2" type="checkbox" />
+                        <label for="thirdMode2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="thirdMode3" type="checkbox" />
+                        <label for="thirdMode3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="thirdMode4" type="checkbox" />
+                        <label for="thirdMode4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="thirdMode5" type="checkbox" />
+                        <label for="thirdMode5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="thirdMode6" type="checkbox" disabled />
+                        <label for="thirdMode6"></label>
+                    </span>
+                </span>
+
+                <label class="row6 col1">Proxy</label>
+                <input class="row6 col2-3" type="text" style="grid-column-end: 4;" />
+
+            </div>
+
+            <h2>Psi & Tolerance</h2>
+            <div class="container">
+                <label class="row1 col1">Psi</label>
+                <div class="row1 col2"
+                    style="width: 100%; display:flex; flex-flow: row; flex-direction: row; justify-content: space-between;">
+                    <span class="round">
+                        <input id="psi1" type="checkbox" />
+                        <label for="psi2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="psi2" type="checkbox" />
+                        <label for="psi2"></label>
+                    </span>
+                    <span class="round">
+                        <input id="psi3" type="checkbox" />
+                        <label for="psi3"></label>
+                    </span>
+                    <span class="round">
+                        <input id="psi4" type="checkbox" />
+                        <label for="psi4"></label>
+                    </span>
+                    <span class="round">
+                        <input id="psi5" type="checkbox" />
+                        <label for="psi5"></label>
+                    </span>
+                    <span class="round">
+                        <input id="psi6" type="checkbox" />
+                        <label for="psi6"></label>
+                    </span>
+                    <span class="round">
+                        <input id="psi7" type="checkbox" />
+                        <label for="psi7"></label>
+                    </span>
+                </div>
+
+                <label class="row2 col1">Tolerance</label>
+                <span class="row2 col2"
+                    style="width: 100%; display:flex; flex-flow: row; flex-direction: row; justify-content: space-between;">
+                    <span class="square">
+                        <input id="tolerance1" type="checkbox" />
+                        <label for="tolerance1"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance2" type="checkbox" />
+                        <label for="tolerance2"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance3" type="checkbox" />
+                        <label for="tolerance3"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance4" type="checkbox" />
+                        <label for="tolerance4"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance5" type="checkbox" />
+                        <label for="tolerance5"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance6" type="checkbox" />
+                        <label for="tolerance6"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance7" type="checkbox" />
+                        <label for="tolerance7"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance8" type="checkbox" />
+                        <label for="tolerance8"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance9" type="checkbox" />
+                        <label for="tolerance9"></label>
+                    </span>
+                    <span class="square">
+                        <input id="tolerance10" type="checkbox" />
+                        <label for="tolerance10"></label>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+.focus { 
+	font-weight:bold; 
+}
+
+label {
+	margin-top:2px;
+}
+
+input[type=text] {
+	width:100%;
+} 
