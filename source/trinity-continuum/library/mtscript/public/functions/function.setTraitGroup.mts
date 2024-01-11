@@ -3,6 +3,6 @@
 
 [h:traitGroup = arg(0)]
 [h:traitData = arg(1)]
-[h:libData = getLibProperty("traits", getMacroLocation())]
+[h:libData = getLibProperty("Traits", getMacroLocation())]
 [h:libData = json.set(libData, lower(traitGroup), traitData)]
-[h:setLibProperty("traits",libData,getMacroLocation())]
+[h:setLibProperty("Traits",libData,getMacroLocation())]

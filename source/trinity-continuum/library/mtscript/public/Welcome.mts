@@ -2,8 +2,7 @@
 [h:welcome    = decode(tcc.readSetting("welcomeMessage"))]
 [h:playerName = getPlayerName()]
 [h:mtVersion  = json.get(getInfo("client"),"version")]
-[h:libInfo    = library.getInfo(ns)]
-[h:fwVersion  = json.get(libInfo, "version")]
+[h:fwVersion  = tcc.getVersion()]
 [h:image      = "lib://" + ns + "/images/TrinityContinuum.png"]
 
 

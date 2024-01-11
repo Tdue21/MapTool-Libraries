@@ -9,6 +9,7 @@
 [h:defineFunction(prefix+"dicePool",     "functions/function.dicePool@"+this)]
 [h:defineFunction(prefix+"getTheme",     "functions/function.getTheme@"+this)]
 [h:defineFunction(prefix+"getTraits",    "functions/function.getTraitGroup@"+this)]
+[h:defineFunction(prefix+"getVersion",   "functions/function.getVersion@"+this)]
 [h:defineFunction(prefix+"readSetting",  "functions/function.readSetting@"+this)]
 [h:defineFunction(prefix+"rollDicePool", "functions/function.rollDicePool@"+this)]
 [h:defineFunction(prefix+"selectMap",    "functions/function.selectMap@"+this)]
@@ -33,7 +34,7 @@
 [macro("Welcome@this"):""]
 
 <!-- Setting up deferred macro calls -->
-[h:link = macroLinkText("events/deferredCalls@this")]
+[h:link = macroLinkText("events/deferredCalls@" + this)]
 [h:execLink(link,1)]
 
 <!-- All done. Closing up -->

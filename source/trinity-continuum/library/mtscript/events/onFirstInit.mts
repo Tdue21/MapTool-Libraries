@@ -2,6 +2,7 @@
 
 [h:setLibProperty("Settings", data.getStaticData(ns, "/public/data/settings.json"), getMacroLocation())]
 [h:setLibProperty("Themes", data.getStaticData(ns, "/public/data/themes.json"), getMacroLocation())]
+[h:setLibProperty("Traits", data.getStaticData(ns, "/public/data/traits.json"), getMacroLocation())]
 
 [h:screenImage = "lib://" + ns + "/images/StoryGuideScreen.png")]
 [h: screenId = createMap("00. Storyteller\'s Screen", 
