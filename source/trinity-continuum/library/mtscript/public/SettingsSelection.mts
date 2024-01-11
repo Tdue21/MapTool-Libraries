@@ -4,19 +4,19 @@
 	case "StartMap": {
 		[h:maps=getAllMapNames()]
 		[h:maps=listsort(maps,"N")]
-		[h:start=aeon.readSetting("startMap")]
+		[h:start=tcc.readSetting("startMap")]
 		[h:res=input("start|"+maps+"|Start map|list|value=string select="+listfind(maps,start))]
 		[h:abort(res)]
-		[h:aeon.writeSetting("startMap",start)]
+		[h:tcc.writeSetting("startMap",start)]
 	};	
 	case "Theme": {
-		[h:themesJson=getLibProperty("Themes", "Lib:Data")]
+		[h:themesJson=getLibProperty("Themes", tcc.getNamespace())]
 		[h:themes=json.fields(themesJson, ",")]
-		[h:selected=aeon.readSetting("theme")]
+		[h:selected=tcc.readSetting("theme")]
 		[h:index=listFind(themes,selected)]	
 		[h:res=input("selected|"+themes + "|Select theme|list|value=string select="+index)]
 		[h:abort(res)]
-		[h:aeon.writeSetting("theme", selected)]
+		[h:tcc.writeSetting("theme", selected)]
 	};
 	case "Display": {
 
@@ -25,5 +25,5 @@
 	}]
 
 [h,if(isDialogVisible("Settings")==1),code:{
-[macro("Campaign Settings@lib:Core"):""]
+[macro("Campaign Settings@" + getMacroLocation()):""]
 };{}]

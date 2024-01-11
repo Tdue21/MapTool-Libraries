@@ -30,6 +30,7 @@
 
 <!-- Setting start map -->
 [h:startMap=tcc.readSetting("startMap")]
+[h:setCurrentMap(startMap)]
 
 [macro("Welcome@this"):""]
 

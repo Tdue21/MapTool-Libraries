@@ -12,21 +12,24 @@
         "vision distance", 1000,
         "lighting style", "OVERTOP",
         "has fog", json.false,
-        "ai rounding", "None"
+        "ai rounding", "CELL_UNIT",
+        "background paint", "#666666",
+        "grid", json.set("{}", 
+            "type", "None",
+            "color", "#333333"
+        )
     )
 )]
 
-[h:lobbyImage = "lib://" + ns + "/images/LobbyBackground.png")]
-[h: lobbyId = createMap("01. Lobby", 
-    json.set("{}",
-        "player visible", json.true,
-        "vision type", "Off",
-        "vision distance", 1000,
-        "lighting style", "OVERTOP",
-        "has fog", json.false,
-        "ai rounding", "None"
-    )
-)]
+[h:tokenId=createToken(json.set("{}",
+    "name","Image:StoryGuideScreen",
+    "tokenImage", screenImage,
+    "size","Free",
+    "layer", "Background"))]
+
+[h:tokenX = getTokenX(1, tokenId) - (getTokenWidth(tokenId) / 2)]
+[h:tokenY = getTokenY(1, tokenId) - (getTokenHeight(tokenId) / 2)]
+[h:moveToken(tokenX, tokenY, 1, tokenId)]
 
 [h:tokenParams  = json.set("{}", 
     "name", "Lib:TrinityCore", 
@@ -47,5 +50,38 @@
 				    "command", "[h:tcc.showSettings()]")]
 
 [h:createMacro(macroParams, tokenId)]
+
+
+[h:lobbyImage = "lib://" + ns + "/images/LobbyBackground.png")]
+[h: lobbyId = createMap("01. Lobby", 
+    json.set("{}",
+        "player visible", json.true,
+        "vision type", "Off",
+        "vision distance", 1000,
+        "lighting style", "OVERTOP",
+        "has fog", json.false,
+        "ai rounding", "CELL_UNIT",
+        "background paint", "#666666",
+        "grid", json.set("{}", 
+            "type", "None",
+            "color", "#333333"
+        )
+    )
+)]
+[setCurrentMap("01. Lobby")]
+[h:tokenId=createToken(json.set("{}",
+    "name","Image:LobbyBackground",
+    "tokenImage", lobbyImage,
+    "size","Free",
+    "layer", "Background"))]
+
+[h:tokenX = getTokenX(1, tokenId) - (getTokenWidth(tokenId) / 2)]
+[h:tokenY = getTokenY(1, tokenId) - (getTokenHeight(tokenId) / 2)]
+[h:moveToken(tokenX, tokenY, 1, tokenId)]
+
+
+
+
+
 
 [h:broadcast("OnFirstInit Done")]

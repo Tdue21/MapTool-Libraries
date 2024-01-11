@@ -9,29 +9,30 @@
 
 	[h:value=json.get(macro.args,"value")]
 	[h:value=replace(value,"\\s*\$","")]
-	[h:aeon.writeSetting(fieldName, encode(value))]
+	[h:tcc.writeSetting(fieldName, encode(value))]
 
 	[h,if(isDialogVisible("Settings")==1),code:{
-		[macro("Campaign Settings@lib:Core"):""]
+		[macro("Campaign Settings@this"):""]
 	};{}]
 	[h:return(0)]	
 }]
 
-[h:fieldValue=decode(aeon.readSetting(fieldName))]
+[h:fieldValue=decode(tcc.readSetting(fieldName))]
 
 [dialog5(fieldName + " - Edit", "width=650; height=535; temporary=1; input=1; noframe=0"): {
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
 </head>
 <body>
-	[h: processorLink = macroLinkText("Change Settings Property@Lib:Core", "")]
+	[h: processorLink = macroLinkText("Change Settings Property@this", "")]
 	<form id="propForm" action="[r:processorLink]" method="json">
 		<ul class="menu">
 			<li><input type="submit" name="button" value="Save"></li>
 			<li><input type="submit" name="cancel" value="Cancel"></li>
-			<li><div class="tooltip">[r:macroLink("Help","Help@Lib:Notebook")]
+			<li><div class="tooltip">Help
 				<span class="tooltiptext">
 					<span style="font-size:1.6em"># Heading</span><br>
 					<span style="font-weight:bold">**Bold**</span><br>

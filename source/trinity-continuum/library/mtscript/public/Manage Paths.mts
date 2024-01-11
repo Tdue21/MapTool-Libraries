@@ -9,10 +9,11 @@
 <!-- ##################################################################### -->
 [h:dialogName = "Manage Paths"]
 [h:dialogArgs = "width=500;height=700;temporary=1;input=0;closebutton=0;noframe=0"]
-[h:macroName  = dialogName + "@Lib:Core"]
+[h:macroName  = dialogName + "@this"]
 [h:traitName  = "paths"]
-[h:collection = aeon.getTraits(traitName)]
-[h:sources= aeon.getTraits("sources")]
+[h:collection = tcc.getTraits(traitName)]
+[h:sources    = tcc.getTraits("sources")]
+[h:ns         = tcc.getNamespace()]
 
 [h,if(json.contains(macro.args, "name") == 1): name = json.get(macro.args, "name"); name = ""]
 [h,if(name != ""): selected = json.get(collection, name); selected = "{}"]
@@ -39,7 +40,7 @@
 	[h:abort(res)]
 
 	[h:collection=json.remove(collection, name)]
-	[h:aeon.setTraits(traitName, collection)]
+	[h:tcc.setTraits(traitName, collection)]
 
 	[h,macro(macroName):""]
 }]
@@ -55,8 +56,8 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="[r:aeon.getTheme()].css@Lib:Core">
-		<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
 		<title>Path Details - [r:name]</title>
 	</head>
 	<body>
@@ -86,7 +87,7 @@
 <!-- ##################################################################### -->
 [h,if("EDIT" == dialogState),code:{
 	[h:assert(isGM(), dialogName + ": Only GM may edit entries.",0)]
-	[h:aeon.debugLog("Selected: " + selected)]
+	[h:tcc.debugLog("Selected: " + selected)]
 	[h:type       = if(selected == "", "", json.get(selected, "type"))]
 	[h:description= if(selected == "", "", json.get(selected,"description"))]
 	[h:connections= if(selected == "", "", json.toList(json.get(selected,"connections"),", "))]
@@ -98,8 +99,8 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="[r:aeon.getTheme()].css@Lib:Core">
-		<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
+		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
 		<title>Edit Path - [r:name]</title>
 	</head>
 	<body>
@@ -186,7 +187,7 @@
 		
 	[h,if(oldName != "" && oldName != name):collection = json.remove(collection, oldName)]
 	[h:collection=json.set(collection, name, path)]
-	[h:aeon.setTraits(traitName,collection)]
+	[h:tcc.setTraits(traitName,collection)]
 	
 	[h,if(isDialogVisible(dialogName) == 1),macro(macroName):json.set("{}","dialogState","show","name",name)]
 }]
@@ -205,12 +206,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="[r:aeon.getTheme()].css@Lib:Core">
-	<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
-	<script>
-		[h:indices=getMacroIndexes("sortTable.js","json","Lib:Core")]
-		[r:getMacroCommand(json.get(indices,0),"Lib:Core")]
-	</script>
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+	<script src="lib://[r:tcc.getNamespace()]/js/sortTable.js"></script>
 	<title>Paths List</title>
 </head>
 <body>
@@ -229,7 +227,6 @@
 		</tr>
 		<tr>
 			[h:fields=json.fields(collection)]
-			[h:trash=tableImage("Images", 7, 16)]
 			
 			[r,foreach(field, fields, "</tr><tr>"),code:{
 				[h:path=json.get(collection, field)]
@@ -239,7 +236,7 @@
 				<td>[r:json.get(path,"source")]</td>
 				<td>
 					[h:linkText=macroLinkText(macroName, "", json.set("{}","dialogState","delete","name",field))]
-					<a href="[r:linkText]"><img src="[r:trash]"></a>
+					<a href="[r:linkText]"><img src="lib://[r:tcc.getNamespace()]/images/Trash%20can.png"></a>
 				</td>
 			}]
 		</tr>

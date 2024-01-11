@@ -15,19 +15,19 @@
 	<table class="settings">
 		<caption>General</caption>
 		<tr>
-			<td>[r:macroLink("About", "About@" + getMacroLocation())]</td>
+			<td>[r:macroLink("About", "About@this")]</td>
 			<td>v[r:tcc.getVersion()]</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Starting Map", "SettingsSelection@" + getMacroLocation(),"","StartMap")]</td>
+			<td>[r:macroLink("Starting Map", "SettingsSelection@this","","StartMap")]</td>
 			<td>[r:tcc.readSetting("startMap")]</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Theme", "SettingsSelection@" + getMacroLocation(),"","Theme")]</td>
+			<td>[r:macroLink("Theme", "SettingsSelection@this","","Theme")]</td>
 			<td>[r:tcc.readSetting("theme")]</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Welcome Message", "Change Settings Property@" + getMacroLocation(),"",json.set("{}","field","welcomeMessage"))]</td>
+			<td>[r:macroLink("Welcome Message", "Change Settings Property@this","",json.set("{}","field","welcomeMessage"))]</td>
 			<td>&nbsp;</td>
 		</tr>
 	</table>
@@ -35,28 +35,28 @@
 	<table class="settings">
 		<caption>Character Sheet</caption>
 		<tr>
-			<td>[r:macroLink("Paths", ns + "/Manage%20Paths", "", "")]</td>
+			<td>[r:macroLink("Paths", "Manage Paths@this", "", "")]</td>
 			<td>
 				[h:traits=tcc.getTraits("paths")]
 				[r:listCount(json.toList(json.fields(traits)))]
 			</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Edges", ns + "/Manage%20Edges", "", "")]</td>
+			<td>[r:macroLink("Edges", "Manage Edges@this", "", "")]</td>
 			<td>
 				[h:traits=tcc.getTraits("edges")]
 				[r:listCount(json.toList(json.fields(traits)))]
 			</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Skills", ns + "/Manage%20Skills", "", "")]</td>
+			<td>[r:macroLink("Skills", "Manage Skills@this", "", "")]</td>
 			<td>
 				[h:traits=tcc.getTraits("skills")]
 				[r:listCount(json.toList(json.fields(traits)))]
 			</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Attributes", ns + "/Manage%20Paths", "", "")]</td>
+			<td>[r:macroLink("Attributes", "Manage Paths@this", "", "")]</td>
 			<td>
 				[h:traits=tcc.getTraits("attributes")]
 				[r:listCount(json.toList(json.fields(traits)))]

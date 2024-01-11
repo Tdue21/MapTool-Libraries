@@ -2,7 +2,7 @@
     "outputPC": "all",
     "outputGM": "Self",
     "welcomeMessage": "Thank+you+for+choosing+the+*Trinity+Continuum*+Framework%21%0A%0AThe+Storypath+system+and+Trinity+Continuum+is+copyright+%5BThe+Onyx+Path%5D%28http%3A%2F%2Ftheonyxpath.com%2Fcategory%2Fworlds%2Ftrinitycontinuum%2F%29.%0A%0A-+%5BGetting+Started%5D%28%23%29++%0A-+%5BReport+a+bug+or+request+a+feature%5D%28%23%29++%0A-+%5BRPTools+Forums%5D%28https%3A%2F%2Fforums.rptools.net%2F%29++%0A-+%5BMapTool+Discord%5D%28https%3A%2F%2Fdiscord.gg%2Fcrpk7FM%29",
-    "startMap": "00. Storyteller's Screen",
+    "startMap": "01. Lobby",
     "theme": "Æon",
     "showDebug": 0,
     "defaultTarget": 8
