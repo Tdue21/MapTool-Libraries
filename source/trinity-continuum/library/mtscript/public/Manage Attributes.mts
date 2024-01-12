@@ -56,11 +56,11 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
-		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+		<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/' + tcc.getTheme() + '.css')]">
+		<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/main.css')]">
 		<title>Trait Details - [r:name]</title>
-		<style>
-[r:'
+		
+		<style>[r:'
 		.dots {
 			font-size:1em;
 		}
@@ -121,8 +121,8 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
-		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+		<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/' + tcc.getTheme() + '.css')]">
+		<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/main.css')]">
 		<title>Edit Trait - [r:name]</title>
 	</head>
 	<body>
@@ -237,9 +237,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
-	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
-	<script src="lib://[r:tcc.getNamespace()]/js/sortTable.js"></script>
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/' + tcc.getTheme() + '.css')]">
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/main.css')]">
+	<script src="[r:tcc.getFile('js/sortTable.js')]"></script>
 <title>Traits List</title>
 </head>
 <body>

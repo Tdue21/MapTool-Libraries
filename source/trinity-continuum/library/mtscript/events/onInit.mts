@@ -5,10 +5,11 @@
 [h:defineFunction(prefix+"loading",      "overlay/loading@"+this)]
 [h:defineFunction(prefix+"manageTraits", "Manage Traits@"+this)]
 
-[h:defineFunction(prefix+"getImage",     "functions/function.getImage@"+this)]
-[h:defineFunction(prefix+"getNamespace", "functions/function.getNamespace@"+this)]
 [h:defineFunction(prefix+"debugLog",     "functions/function.debugLog@"+this)]
 [h:defineFunction(prefix+"dicePool",     "functions/function.dicePool@"+this)]
+[h:defineFunction(prefix+"getFile",      "functions/function.getFile@"+this)]
+[h:defineFunction(prefix+"getImage",     "functions/function.getImage@"+this)]
+[h:defineFunction(prefix+"getNamespace", "functions/function.getNamespace@"+this)]
 [h:defineFunction(prefix+"getTheme",     "functions/function.getTheme@"+this)]
 [h:defineFunction(prefix+"getTraits",    "functions/function.getTraitGroup@"+this)]
 [h:defineFunction(prefix+"getVersion",   "functions/function.getVersion@"+this)]

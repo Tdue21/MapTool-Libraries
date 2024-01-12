@@ -23,8 +23,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
-	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/' + tcc.getTheme() + '.css')]">
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/main.css')]">
 </head>
 <body>
 	[h: processorLink = macroLinkText("Change Settings Property@this", "")]

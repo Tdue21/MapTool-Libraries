@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
-	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/' + tcc.getTheme() + '.css')]">
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/main.css')]">
 	<title>Settings</title>
 </head>
 <body>
@@ -37,7 +37,7 @@
 	</table>
 
 	<table class="settings">
-		<caption>Traits</caption>
+		<caption>Manage Traits</caption>
 		<tr>
 			<td>[r:macroLink("Paths", "Manage Paths@this", "", "")]</td>
 			<td>

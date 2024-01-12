@@ -3,419 +3,546 @@
         "Intellect": {
             "description": "Intellect covers the raw computing power of a character's brain. Intellect is used for deduction, problem-solving, and processing information. Anyaction where a character is actively trying to figure out something is usually Intellect based. Characters who frequently use Intellect are scientists, researchers, programmers, tacticians, and librarians. A character with a low Intellect isn't necessarily stupid, though they don't learn as quickly. A high Intellect does not necessarily mean the character is well educated, though they often are.  \n\nIntellect can be used to: recall specific facts, calculate the trajectory of an object, determine how to fix a broken machine, find food and water in the wilderness, or hack a computer. It is important when crafting anything from engines to computer viruses.",
             "arena": "mental",
-            "dotDescriptions":{
-                "1":"Everything goes in one ear and out the other.",
-                "2":"You're not really the intellectual sort.",
-                "3":"You're well-read in subjects that interest you.",
-                "4":"An expert in multiple fields.",
-                "5":"One of the top minds on the planet, you can learn almost anything if you set your mind to it.",
-                "6":"Geniuses and experts come to you for help."
+            "dotDescriptions": {
+                "1": "Everything goes in one ear and out the other.",
+                "2": "You're not really the intellectual sort.",
+                "3": "You're well-read in subjects that interest you.",
+                "4": "An expert in multiple fields.",
+                "5": "One of the top minds on the planet, you can learn almost anything if you set your mind to it.",
+                "6": "Geniuses and experts come to you for help."
             },
             "source": "TCC"
         },
         "Cunning": {
             "description": "Cunning covers mental tasks that require speed over power. A person with high Cunning thinks on his feet, notices details quickly, and comes up with responses before the others. Cunning is similar to Dexterity in that it covers actions that require speed over force. However, Cunning covers the fine motor skills instead of gross movement. Characters that need high Cunning include investigators, snipers, thieves, law-enforcement officials, and pilots. A character with a low Cunning may be the sort of person who “has their head in the clouds” or can't multi-task. A high Cunning character is very aware of her surroundings and can act without hesitation.  \n\nCunning can be used to: hack computers, notice clues, spot a hidden enemy, understand a political situation, solve riddles, apply emergency medical care, act, con, get away from pursuers in a chase, or solve a maze.",
             "arena": "mental",
-            "dotDescriptions":{
-                "1":"If you stuck your hand in a fire, it would take you a minute to notice.",
-                "2":"You don't deal well when forced out of your routine.",
-                "3":"You handle rush-hour traffic well.",
-                "4":"Head on a swivel.",
-                "5":"Top combat pilots, racecar drivers, and others who react in a second.",
-                "6":"You react to things almost before they happen."
+            "dotDescriptions": {
+                "1": "If you stuck your hand in a fire, it would take you a minute to notice.",
+                "2": "You don't deal well when forced out of your routine.",
+                "3": "You handle rush-hour traffic well.",
+                "4": "Head on a swivel.",
+                "5": "Top combat pilots, racecar drivers, and others who react in a second.",
+                "6": "You react to things almost before they happen."
             },
             "source": "TCC"
         },
         "Resolve": {
             "description": "Resolve measures a character's strength of will and resistance to trickery or mental pressure. Characters who need a high Resolve are lawyers, teachers, detectives, or spies. Low Resolve characters are easily fooled and lack mental focus. A character with a high Resolve doesn't miss deadlines, ignores distractions, and is difficult to hypnotize.  \n\nResolve may be used to: study evidence, search archives, move silently, follow animal tracks, resist persuasion, stunt drive, understand scientific theories, stay strong under pressure, or remain focused.",
             "arena": "mental",
-            "dotDescriptions":{
-                "1":"\"Ooh, what's that?\"",
-                "2":"You get flustered easily.",
-                "3":"You meditate about once a week.",
-                "4":"Someone in a very high-stress job or who has been trained to resist interrogation.",
-                "5":"Zen master or expert spy.",
-                "6":"Once you have set your mind to something, no one can deter you."
+            "dotDescriptions": {
+                "1": "\"Ooh, what's that?\"",
+                "2": "You get flustered easily.",
+                "3": "You meditate about once a week.",
+                "4": "Someone in a very high-stress job or who has been trained to resist interrogation.",
+                "5": "Zen master or expert spy.",
+                "6": "Once you have set your mind to something, no one can deter you."
             },
             "source": "TCC"
         },
         "Might": {
             "description": "Might is raw physical power. It covers lifting or moving heavy objects, including the character themselves. While some fighting styles may require skill and speed over brute strength, a simple punch in the nose requires Might behind it. A high Might score is useful for characters who engage in handto-hand combat on a regular basis, such as police officers, professional boxers, soldiers, and criminal thugs. It is also useful for athletes, from power lifters to baseball players: anywhere where the application of physical force is necessary. A character with a low Might may have suffered an injury so they can\u2019t use their strength without harming themselves further. A character with a high Might may be strong or simply very good at using what strength they do have to maximum effect.  \n\nMight can be used to: forge a sword, lift or throw objects, intimidate, climb walls, or muscle through pain.",
             "arena": "physical",
-            "dotDescriptions":{
-                "1":"Weak as a kitten.",
-                "2":"You aren't much help when people move.",
-                "3":"You go to the gym pretty regularly.",
-                "4":"Professional bodybuilder or athlete.",
-                "5":"Olympic-level weightlifter.",
-                "6":"World-record holder, you are quite possibly the strongest person in the world."
+            "dotDescriptions": {
+                "1": "Weak as a kitten.",
+                "2": "You aren't much help when people move.",
+                "3": "You go to the gym pretty regularly.",
+                "4": "Professional bodybuilder or athlete.",
+                "5": "Olympic-level weightlifter.",
+                "6": "World-record holder, you are quite possibly the strongest person in the world."
             },
             "source": "TCC"
         },
         "Dexterity": {
             "description": "Dexterity covers fine and gross motor control. While Might determines how much a character can lift, Dexterity determines how well they can maneuver, either themselves or other objects. A character with a high Dexterity is more likely to catch a ball, walk a tightrope, or dive for cover. Dexterity is useful for acrobats as well as sports where precision is important. A baseball pitcher needs Might to determine the speed of his fastball, but whether or not he keeps it in the strike zone is based on Dexterity. A low Dexterity character may be slow and clumsy. High Dexterity characters are nimble and have good hand-eye coordination.  \n\nDexterity can be used to: jump between buildings, pick a lock, dance, walk over treacherous ground, maintain balance, impress people, or dog fight (in an airplane).",
             "arena": "physical",
-            "dotDescriptions":{
-                "1":"You constantly trip over things that aren't there.",
-                "2":"You can walk and chew gum at the same time.",
-                "3":"You've taught yourself juggling.",
-                "4":"You can make a living as a dancer or stage magician.",
-                "5":"One of the best gymnasts in the world.",
-                "6":"Super-heroic agility."
+            "dotDescriptions": {
+                "1": "You constantly trip over things that aren't there.",
+                "2": "You can walk and chew gum at the same time.",
+                "3": "You've taught yourself juggling.",
+                "4": "You can make a living as a dancer or stage magician.",
+                "5": "One of the best gymnasts in the world.",
+                "6": "Super-heroic agility."
             },
             "source": "TCC"
         },
         "Stamina": {
             "description": "Stamina covers how well a character can resist physical threats. This could be an environmental threat like holding your breath under water, resisting a disease, or not freezing to death in a blizzard. It also determines how well a character can take a punch or how long they'll survive a snake bite before they get treated. A high Stamina score is useful for fighters, endurance runners, and medical practitioners who need to avoid getting sick when surrounded by the diseased. A person with low Stamina is often sick or easily injured. A person with a high Stamina has a great resistance and rarely becomes ill.  \n\nStamina can be used to: run long distances, continue in a fight despite injury, recover faster, meditate, or resist diseases or poison.",
             "arena": "physical",
-            "dotDescriptions":{
-                "1":"You are always the first to get sick, and the last to recover.",
-                "2":"Your job involves a lot of sitting.",
-                "3":"You rarely need a sick day.",
-                "4":"Competition runner or dedicated hiker.",
-                "5":"Olympic triathlon or marathon competitor.",
-                "6":"Above the peak of human endurance."
+            "dotDescriptions": {
+                "1": "You are always the first to get sick, and the last to recover.",
+                "2": "Your job involves a lot of sitting.",
+                "3": "You rarely need a sick day.",
+                "4": "Competition runner or dedicated hiker.",
+                "5": "Olympic triathlon or marathon competitor.",
+                "6": "Above the peak of human endurance."
             },
             "source": "TCC"
         },
         "Presence": {
             "description": "Presence measures a character's ability to convince other people. A high Presence may be due to striking good looks, strong character, or aggressive personal traits. It measures the character's capacity to impose their will. A character with a high Intellect might be able to come up with a logical argument, but it requires a good Presence score to make the argument successfully. Characters who require a high Presence would be salesmen, lawyers, or CEOs. A low Presence character may be shy or unskilled in social situations. A high Presence character isn't necessarily charming (like a usedcar salesman), but is skilled at getting their way.  \n\nPresence can be used to: give orders, influence another person, trick someone, give a speech, interrogate a prisoner, or train an animal.",
             "arena": "social",
-            "dotDescriptions":{
-                "1":"No one ever seems to notice you, even when you want them to.",
-                "2":"A face in the crowd.",
-                "3":"You give a good business presentation.",
-                "4":"High-priced lawyer or sought-after speaker.",
-                "5":"Truly charismatic politician on a national or international stage.",
-                "6":"Your speeches can inspire whole nations."
+            "dotDescriptions": {
+                "1": "No one ever seems to notice you, even when you want them to.",
+                "2": "A face in the crowd.",
+                "3": "You give a good business presentation.",
+                "4": "High-priced lawyer or sought-after speaker.",
+                "5": "Truly charismatic politician on a national or international stage.",
+                "6": "Your speeches can inspire whole nations."
             },
             "source": "TCC"
         },
         "Manipulation": {
             "description": "Manipulation measures a character's ability to fine tune their social skills and to analyze social cues. The “hard sell” requires a high Presence. Intricate trickery requires a high Manipulation. Characters who require a high Manipulation are politicians, spies, and con artists. Low Manipulation characters lack subtlety or empathy. High Manipulation characters are able to read people well.  \n\nManipulation can be used for: managing people, lying convincingly, sleight of hand, noticing social cues, seduction, or subduing a hostile animal.",
             "arena": "social",
-            "dotDescriptions":{
-                "1":"Open mouth, insert foot.",
-                "2":"You can be a little socially awkward sometimes.",
-                "3":"Low-level hustler or savvy networker.",
-                "4":"An expert at cold reading and telling people what they want to hear.",
-                "5":"You can blend in just about anywhere.",
-                "6":"The world's best spy."
+            "dotDescriptions": {
+                "1": "Open mouth, insert foot.",
+                "2": "You can be a little socially awkward sometimes.",
+                "3": "Low-level hustler or savvy networker.",
+                "4": "An expert at cold reading and telling people what they want to hear.",
+                "5": "You can blend in just about anywhere.",
+                "6": "The world's best spy."
             },
             "source": "TCC"
         },
         "Composure": {
             "description": "Composure measures a character's ability to resist social manipulation. It measures a character's ability to remain calm when being interrogated by the police or make sure that negotiations go their way. It is also useful for recognizing when one is being lied to or otherwise deceived. Characters who require a high Composure are soldiers, test pilots, and reporters. Low Composure characters are easily flustered and crack under social pressure. High Composure characters keep their cool.  \n\nComposure can be used to: resist manipulation, maintain a cool attitude, stay firm under pressure, cut through red tape, notice deception, resist psionics, or conceal your intentions.",
             "arena": "social",
-            "dotDescriptions":{
-                "1":"You were born yesterday.",
-                "2":"You sometimes lose your cool when things don't go your way.",
-                "3":"You can usually tell when someone is lying to you.",
-                "4":"Tough business negotiations are your regular Tuesday.",
-                "5":"You could interview mass murderers and dictators without blinking.",
-                "6":"Utterly unflappable; nothing ordinary could ever make you lose your cool."
+            "dotDescriptions": {
+                "1": "You were born yesterday.",
+                "2": "You sometimes lose your cool when things don't go your way.",
+                "3": "You can usually tell when someone is lying to you.",
+                "4": "Tough business negotiations are your regular Tuesday.",
+                "5": "You could interview mass murderers and dictators without blinking.",
+                "6": "Utterly unflappable; nothing ordinary could ever make you lose your cool."
             },
             "source": "TCC"
         }
     },
     "edges": {
-        "Adrenaline Spike": {
+        "Adrenaline Spike": {            
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Alternate Identity": {
             "cost": "1-2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Always Prepared": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Ambidextrous": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Amphibious Conversion": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Augmentation Edges"
         },
         "Animal Ken": {
             "cost": "1-2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Anonymous": {
             "cost": "0",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Enhanced Edges"
         },
         "Aquatic Conversion": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Augmentation Edges"
         },
         "Armor Expert": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Advanced Combat Maneuvers"
         },
         "Armory": {
             "cost": "0",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Enhanced Edges"
         },
         "Artifact": {
             "cost": "1-5",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Powered Edges"
         },
         "Artistic Talent": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Big Hearted": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Breath Control": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Computer": {
             "cost": "1-2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Augmentation Edges"
         },
         "Cool Under Fire": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Advanced Combat Maneuvers"
         },
         "Covert": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Danger Sense": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Deflection Adept": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Advanced Combat Maneuvers"
         },
         "Demolitions Training": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Style"
         },
         "Detached": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Psionic"
         },
         "Direction Sense": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Dual Citizenship": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Social"
         },
+        "Emergency Transit": {
+            "cost": "3",
+            "description":"",
+            "prerequisite":["Upeo wa Machu"],
+            "source": "AEON",
+            "type": "Special"
+        },
         "Endurance": {
             "cost": "3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Powered Edges"
         },
         "Enhanced Attunement": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Psionic"
         },
         "Fame": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Fast Draw": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Favored Mode": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Psionic"
         },
         "Forceful Martial Arts": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Style"
         },
         "Free Running": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Style"
         },
         "Hair Trigger Reflexes": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Hardy": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Increased Tolerance": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Augmentation Edges"
         },
         "Indomitable": {
             "cost": "0",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Enhanced Edges"
         },
         "Iron Will": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Keen Sense": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Library": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Loaded": {
             "cost": "0",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Enhanced Edges"
         },
         "Low-Gravity Adaptation": {
             "cost": "1-2",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Augmentation Edges"
         },
         "Mars Adaptation": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Augmentation Edges"
         },
         "Ms. Fix It": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "One Against an Ocean": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Advanced Combat Maneuvers"
         },
         "Patron": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Photographic Memory": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Precise Martial Arts": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Style"
         },
         "Respected Authority": {
             "cost": "0",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Enhanced Edges"
         },
         "Safe House": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Skilled Liar": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Small Unit Tactics": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Sniper": {
             "cost": "1-3",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Style"
         },
         "Speed Reading": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Mental"
         },
         "Striking": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Superior Trait": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Powered Edges"
         },
         "Swift": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Telepathic Resistance": {
             "cost": "3",
+            "description":"",
+            "prerequisite":[],
             "source": "AEON",
             "type": "Social"
         },
         "Tough Cookie": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Waiting to Greet the Storm": {
             "cost": "2",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Advanced Combat Maneuvers"
         },
         "Weak Spots": {
             "cost": "1",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Physical"
         },
         "Wealth": {
             "cost": "1-5",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Social"
         },
         "Wondrous Item": {
             "cost": "0",
+            "description":"",
+            "prerequisite":[],
             "source": "TCC",
             "type": "Enhanced Edges"
         }
@@ -698,52 +825,127 @@
         },
         "Oceania": {
             "connections": [
-                "Artists", 
-                "Scientists", 
-                "Boat or Submarine Pilot", 
-                "Genetic Engineer", 
+                "Artists",
+                "Scientists",
+                "Boat or Submarine Pilot",
+                "Genetic Engineer",
                 "Undersea Miner"
             ],
             "description": "Your character grew up on a floating or undersea city and is now a citizen of Earth's newest and most unusual nation, Oceania. You are likely to have been born, or become, a phib or aqua and grew up in a high-tech city surrounded by an environment deadly to unmodified humans. However, the close-knit cities of Oceania are also some of the most creative and technologically advanced on the planet.",
             "edges": [],
             "skills": [
-                "Culture", 
-                "Empathy", 
-                "Survival", 
+                "Culture",
+                "Empathy",
+                "Survival",
                 "Technology"
             ],
             "source": "AEON",
             "type": "origin"
         },
         "Off-Earth Colonist": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Corporate Sponsor",
+                "Interstellar Explorer",
+                "Survivalist",
+                "Xenobiologist"
+            ],
+            "description": "The character is literally reaching for the stars, part of humanity's colonization of new worlds. She is hardy, resourceful, and rugged, capable of surviving in incredibly tough conditions and expecting the unexpected. When faced with the unknown, she has the courage and determination to push onward. She has the skills and mindset to build a home and a new life under alien stars, regardless of what the galaxy throws at her.",
+            "edges": [
+                "Animal Ken",
+                "Danger Sense",
+                "Direction Sense",
+                "Hardy",
+                "Ms. Fix-It",
+                "Pioneer Spirit",
+                "Superior Trait",
+                "Weak Spots"
+            ],
+            "skills": [
+                "Athletics",
+                "Integrity",
+                "Survival",
+                "Technology"
+            ],
             "source": "AEON",
             "type": "role"
         },
         "Pilot": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Important Client",
+                "Criminal Organization",
+                "Indebted Passenger"
+            ],
+            "description": "The character is at home with all piloted vehicles, able to pilot, drive, fly, or operate anything from a turboprop plane to a submarine. Maybe he's the personal pilot of a very influential person, or maybe he's a cabbie in New York and knows the fastest way to get around; either way, he has a reputation as the best in the business. People seek out his services, and he has a lot of people who owe him debts of gratitude. He also knows everything there is to know about his vehicle, including where to get it serviced or upgraded and how to get a new one.",
+            "edges": [
+                "Ambidextrous",
+                "Cool Under Fire",
+                "Demolitions Training",
+                "Direction Sense",
+                "Hair Trigger Reflexes",
+                "Ms. Fix It",
+                "Patron",
+                "Tough Cookie"
+            ],
+            "skills": [
+                "Aim",
+                "Close Combat",
+                "Pilot",
+                "Technology"
+            ],
             "source": "TCC",
             "type": "role"
         },
         "Space Military": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Armorer",
+                "Off-Earth Colony",
+                "Spacer Captain",
+                "UNMC"
+            ],
+            "description": "The character is part of a small elite — those combat specialists who ply their trade in the void of space. She might be part of a space vessel's onboard contingent of marines intended mostly for policing and supporting off-Earth colonies and manning the ship's battle stations, or she may be an elite combat pilot expected to go toe to toe with whatever nightmarish attack craft the mad science of Aberrants and aliens might conjure up. She's likely to have whip-fast reflexes and a level of vigilance that would impress even elite, planet-dwelling soldiers; she knows that the hungering",
+            "edges": [
+                "Adrenaline Spike",
+                "Breath Control",
+                "Danger Sense",
+                "Hair-Trigger Reflexes",
+                "Hardy",
+                "Low-Gravity Adaptation",
+                "Small Unit Tactics",
+                "Variable Gravity Training",
+                "Variable Gravity Combat Training"
+            ],
+            "skills": [
+                "Aim",
+                "Command",
+                "Pilot",
+                "Technology"
+            ],
             "source": "AEON",
             "type": "role"
         },
         "Spacer": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Asteroid Miner",
+                "Interstellar Explorer",
+                "Off-Earth Colonist",
+                "Upeo wa Macho Member"
+            ],
+            "description": "The character lives or works in space, perhaps as the crew on a spacecraft or in a desolate outpost. She may be a technician, skilled in maintaining and repairing the technology that is so vital to keeping her and her fellows alive. She may be a pilot, working with noetic engines or alongside a clairsentient and a teleporter to steer a colossal vessel through the void. Regardless of her role, she almost certainly has at least some familiarity with handling small craft and EVA equipment. The void is not a natural or welcoming environment for humanity, and technology is absolutely vital to her day-to-day survival, but she may also have undergone some level of modification and adaptation — changing the fabric of her very body to better handle the strange pressures of space.",
+            "edges": [
+                "Breath Control",
+                "Endurance",
+                "Hardy",
+                "Low- Gravity Adaptation",
+                "Ms. Fix-It",
+                "Variable Gravity Training",
+                "Weak Spots"
+            ],
+            "skills": [
+                "Enigmas",
+                "Pilot",
+                "Science",
+                "Technology"
+            ],
             "source": "AEON",
             "type": "role"
         },
@@ -827,74 +1029,292 @@
             "type": "origin"
         },
         "Technology Expert": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Chop Shop Worker",
+                "Research Scientists",
+                "Machinist Friend"
+            ],
+            "description": "Your character hasn't met a piece of technology that he can't understand. From hardware to software and everything in between, he has a handle on how to use it. He feels more comfortable dealing with a computer, or working on a car, than dealing with other people. He can create software, hack systems, and rig broken things together out of duct tape and some spare wires; just don't ask him to chat up the guy in the other room.",
+            "edges": [
+                "Demolitions Training",
+                "Library",
+                "Lightning Calculator",
+                "Ms. Fix It",
+                "Patron",
+                "Weak Spots",
+                "Swift"
+            ],
+            "skills": [
+                "Culture",
+                "Enigmas",
+                "Science",
+                "Technology"
+            ],
             "source": "TCC",
             "type": "role"
         },
         "The Æsculapian Order Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Æon Trinity",
+                "Emergency Service Personnel",
+                "Health Ministry",
+                "Medical Specialist"
+            ],
+            "description": "The character is closely affiliated with the Æsculapian Order, the vitakinetic psi order. She is aligned with the Order's mission of helping the sick and injured, providing aid, and protecting humanity from disasters. She is likely either a medical professional or other first responder, or she works closely with those who are. She is likely familiar with the organization and provision of aid and emergency services to those in need across the world — and beyond.",
+            "edges": [
+                "Adrenaline Spike",
+                "Danger Sense",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Hardy",
+                "Keen Sense",
+                "Library",
+                "Rapid Response Protocols",
+                "Trained Memory"
+            ],
+            "skills": [
+                "Athletics",
+                "Empathy",
+                "Medicine",
+                "Science"
+            ],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Chitra Bhanu Path": {
+            "connections": [
+                "Æon Trinity",
+                "Criminal Organization",
+                "Fellow Chitra Bhanu Survivor",
+                "Quantum Flux Victim"
+            ],
+            "description": "The character is — or was — closely affiliated with Chitra Bhanu, the quantakinetic psi order. She survived the purge of the order. She may be on the run, a fugitive who sided with Dr. Bhurano and who aches for revenge on those who destroyed her order; or she may want no part of the conflict that consumed her former comrades. If she is a quantakinetic psion then she is either a survivor of the quantakinetic purge or became a quantakinetic within the past few months. She is also very likely to be a scientist or some other type of academic.",
+            "edges": [
+                "Alternate Identity",
+                "Covert",
+                "Enhanced Attunement",
+                "Enhanced Psi Cloak",
+                "Favored Mode",
+                "Hair Trigger Reflexes",
+                "Skilled Liar",
+                "Superior Trait",
+                "Trained Memory"
+            ],
+            "skills": [
+                "Humanities",
+                "Integrity",
+                "Larceny",
+                "Science"
+            ],
             "source": "AEON",
             "type": "society"
         },
         "The ISRA Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Æon Trinity",
+                "Local Community Organizer",
+                "Respected Priest",
+                "Seemingly Random Individual Clairsentience Indicated to Be Significant"
+            ],
+            "description": "The character is closely affiliated with the Interplanetary School of Research and Advancement, the clairsentient order. She is aligned with this sprawling, spiritual organization and may well be a counselor or spiritual advisor herself. If she is a psion, she may be part of ISRA's network of “neighbors.” Whether part of a response team, an associate member, or some other affiliate to the order, she is likely to have experienced the strange and often mysterious aid that the society of clairsentients provides to its members.",
+            "edges": [
+                "Artistic Talent",
+                "Danger Sense",
+                "Direction Sense",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Keen Sense",
+                "Mysterious Aid",
+                "Patron",
+                "Weak Spots"
+            ],
+            "skills": [
+                "Culture",
+                "Empathy",
+                "Humanities",
+                "Integrity"
+            ],
             "source": "AEON",
             "type": "society"
         },
         "The Legions Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Local Militia",
+                "Mercenary Company",
+                "Military Contractor",
+                "UN Official"
+            ],
+            "description": "The character is closely affiliated with the Legions, the psychokinetic order. She may be an actual ranking member of the Legions and thus part of the UNMC, or she may be a closely aligned contractor, supporter, or ally of the organization. If she is a psion in the order, she has undergone a rigorous and selective training process, and during her service lives according to the Legions' rules and regulations. Whether a soldier or not, she works as a part of the Legions' efforts to protect humanity.",
+            "edges": [
+                "Always Prepared",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Hardy",
+                "Iron Will",
+                "Legion Armory",
+                "Small Unit Tactics"
+            ],
+            "skills": [
+                "Aim",
+                "Athletics",
+                "Close Combat",
+                "Command"
+            ],
             "source": "AEON",
             "type": "society"
         },
-        "The Ministry Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+        "The Ministry Path (Telepaths)": {
+            "connections": [
+                "Government Official",
+                "Local Religious Leader",
+                "Noetics Expert",
+                "Politician"
+            ],
+            "description": "The character is closely affiliated with the Ministry of Noetic Affairs, the telepathic order and part of the Chinese government. She may work directly for the Ministry, or for one of the other departments of the government that are so intimately intertwined with it. She may be a dutiful agent with a sense of Chinese patriotism, someone who sees Bue Li's faith as a shining example — or simply have joined up out of a desire for power or for the sense of connection that only telepathy can provide.",
+            "edges": [
+                "Covert",
+                "Danger Sense",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Iron Will",
+                "Skilled Liar",
+                "Subtle Influence",
+                "Trained Memory"
+            ],
+            "skills": [
+                "Culture",
+                "Empathy",
+                "Enigmas",
+                "Integrity"
+            ],
+            "source": "AEON",
+            "type": "society"
+        },
+        "The Ministry Path (Non-telepaths)": {
+            "connections": [
+                "Government Official",
+                "Local Religious Leader",
+                "Noetics Expert",
+                "Politician"
+            ],
+            "description": "The character is closely affiliated with the Ministry of Noetic Affairs, the telepathic order and part of the Chinese government. She may work directly for the Ministry, or for one of the other departments of the government that are so intimately intertwined with it. She may be a dutiful agent with a sense of Chinese patriotism, someone who sees Bue Li's faith as a shining example — or simply have joined up out of a desire for power or for the sense of connection that only telepathy can provide.",
+            "edges": [
+                "Covert",
+                "Dual Minded",
+                "Favored Mode",
+                "Iron Will",
+                "Subtle Influence",
+                "Telepathic Resistance"
+            ],
+            "skills": [
+                "Culture",
+                "Empathy",
+                "Enigmas",
+                "Integrity"
+            ],
             "source": "AEON",
             "type": "society"
         },
         "The Nor\u00e7a Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Ecoterrorist",
+                "Ecoscientist",
+                "Humanitarian Agency",
+                "Intelligence Agency"
+            ],
+            "description": "The character is closely affiliated with the Norça, the biokinetic order. She may be a direct member of the New National Force, or perhaps an ecoterrorist or scientist associated with some of their endeavors. She is likely to have been observed for some time before being invited to join or fraternize with the Norça; they are extremely picky about who they recruit. If part of the order proper, she is part of a cell of operatives — and will know full well that she is being watched.",
+            "edges": [
+                "Ambidextrous",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Alternate Identity",
+                "Hardy",
+                "Impersonation Training",
+                "Keen Sense",
+                "Safe House",
+                "Superior Trait"
+            ],
+            "skills": [
+                "Athletics",
+                "Empathy",
+                "Science",
+                "Survival"
+            ],
             "source": "AEON",
             "type": "society"
         },
         "The Orgotek Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Biotechnician",
+                "FSA Regulator",
+                "High-Flying CEO",
+                "Start-Up Business"
+            ],
+            "description": "The character is closely affiliated with Orgotek, the electrokinetic order. She is part of the Orgotek corporation, employed by one of its divisions or serving as a contractor or troubleshooter for the conglomerate; or she might even be an investor or shareholder from Orgotek's early days. She belongs to or regularly interacts with the Orgotek corporate culture, is familiar with its market goals and may well possess significant insight into the modern economy and business world.",
+            "edges": [
+                "Artifact",
+                "Bioware Access",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Increased Tolerance",
+                "Wealth"
+            ],
+            "skills": [
+                "Culture",
+                "Persuasion",
+                "Science",
+                "Technology"
+            ],
             "source": "AEON",
             "type": "society"
         },
         "The Sneak": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Criminal Organization",
+                "Best Friend",
+                "Police Insider"
+            ],
+            "description": "The best way to support your team is from the shadows. Your character spends most of her time outside the limelight, and she prefers it that way. She doesn't just sneak around, but she is a master of getting into places she doesn't belong. From petty theft to breaking and entering, she's the one everyone looks to when something needs to happen on the down low. She could be a career criminal, a hobbyist, or maybe she is special ops for the military.",
+            "edges": [
+                "Adrenaline Spike",
+                "Alternate Identity",
+                "Covert",
+                "Free Running",
+                "Photographic Memory",
+                "Skilled Liar"
+            ],
+            "skills": [
+                "Athletics",
+                "Enigmas",
+                "Larceny",
+                "Technology"
+            ],
             "source": "TCC",
             "type": "role"
         },
         "The Upeo wa Macho Path": {
-            "connections": [],
-            "description": "",
-            "edges": [],
-            "skills": [],
+            "connections": [
+                "Bonded Witness",
+                "Interstellar Explorer",
+                "Leviathan Captain",
+                "Off-Earth Colony"
+            ],
+            "description": "The character is closely affiliated with the Upeo wa Macho, the teleportation order. If a psion, she may have spent the last seven years with her fellows far from Earth, before eventually returning in the face of the threat of the Chromatics and the growing number of disappearing teleporters. She may be part of the fresh wave of psions being immersed in the order's Prometheus Chamber, or perhaps a teleporter who went into hiding when the rest of the order vanished. Whatever her origin, she is likely to have traveled vast distances that other humans can barely conceive of.",
+            "edges": [
+                "Integrity",
+                "Pilot",
+                "Survival",
+                "Technology"
+            ],
+            "skills": [
+                "Direction Sense",
+                "Emergency Transit",
+                "Enhanced Attunement",
+                "Favored Mode",
+                "Hardy",
+                "Iron Will",
+                "Photographic Memory"
+            ],
             "source": "AEON",
             "type": "society"
         }
