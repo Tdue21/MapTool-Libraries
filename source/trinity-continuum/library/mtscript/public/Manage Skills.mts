@@ -1,18 +1,19 @@
 <!-- ##################################################################### -->
-<!-- # All-in-one macro for handling skills. The default is a dialog,    # -->
-<!-- # which shows all edges in a table. Actions taken will call back    # -->
-<!-- # with one or more arguments:                                       # -->
+<!-- # All-in-one macro for handling traits. The default is a dialog,    # -->
+<!-- # which shows all traits of one type in a table. Actions taken will # -->
+<!-- # call back with one or more arguments:                             # -->
 <!-- #	- dialogState: Determines how to act on macro call.              # -->
 <!-- #  	- Possible values: <empty> | close | delete | show |         # -->
 <!-- #                         edit | process                            # -->
-<!-- #	- name: Name of the edge being handled.                          # -->
+<!-- #	- name: Name of the path being handled.                          # -->
 <!-- ##################################################################### -->
 [h:dialogName = "Manage Skills"]
 [h:dialogArgs = "width=500;height=700;temporary=1;input=0;closebutton=0;noframe=0"]
-[h:macroName  = dialogName + "@Lib:Core"]
+[h:macroName  = dialogName + "@this"]
 [h:traitName  = "skills"]
-[h:collection = aeon.getTraits(traitName)]
-[h:sources= aeon.getTraits("sources")]
+[h:collection = tcc.getTraits(traitName)]
+[h:sources    = tcc.getTraits("sources")]
+[h:ns         = tcc.getNamespace()]
 
 [h,if(json.contains(macro.args, "name") == 1): name = json.get(macro.args, "name"); name = ""]
 [h,if(name != ""): selected = json.get(collection, name); selected = "{}"]
@@ -35,17 +36,17 @@
 [h,if("DELETE" == dialogState),code:{
 	[h:assert(isGM(), dialogName + ": Only GM may delete entries.",0)]
 
-	[h:res=input("del|Do you wish to delete the skill '" + name + "'?|Delete|LABEL|SPAN=TRUE")];
+	[h:res=input("del|Do you wish to delete the trait '" + name + "'?|Delete|LABEL|SPAN=TRUE")];
 	[h:abort(res)]
 
 	[h:collection=json.remove(collection, name)]
-	[h:aeon.setTraits(traitName, collection)]
+	[h:tcc.setTraits(traitName, collection)]
 
 	[h,macro(macroName):""]
 }]
 
 <!-- ##################################################################### -->
-<!-- # Show details dialog with data                                # -->
+<!-- # Show details dialog with data                                     # -->
 <!-- ##################################################################### -->
 [h,if("SHOW" == dialogState),code:{	
 	[h:source = json.get(selected, "source")]
@@ -55,9 +56,9 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="[r:aeon.getTheme()].css@Lib:Core">
-		<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
-		<title>Edge Details - [r:name]</title>
+		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+		<title>Trait Details - [r:name]</title>
 	</head>
 	<body>
 		<ul class="menu">
@@ -66,7 +67,7 @@
 		</ul>
 
 		<div class="showTrait">
-			<h3>[r:name] <span>[r:capitalize(json.get(selected,"type")) + " path"]</span></h3>
+			<h3>[r:name] <span>[r:capitalize(json.get(selected,"type"))]</span></h3>
 			[r:markdownToHTML(json.get(selected,"description"))]
 			<p><b>Example connections:&nbsp;</b>[r:json.toList(json.get(selected,"connections"), ", ")]</p>
 			<p><b>Skills:&nbsp;</b>[r:json.toList(json.get(selected,"skills"), ", ")]</p>
@@ -82,11 +83,11 @@
 }]
 
 <!-- ##################################################################### -->
-<!-- # Show edit dialog for data                                    # -->
+<!-- # Show edit dialog for data                                         # -->
 <!-- ##################################################################### -->
 [h,if("EDIT" == dialogState),code:{
 	[h:assert(isGM(), dialogName + ": Only GM may edit entries.",0)]
-	[h:aeon.debugLog("Selected: " + selected)]
+	[h:tcc.debugLog("Selected: " + selected)]
 	[h:type       = if(selected == "", "", json.get(selected, "type"))]
 	[h:description= if(selected == "", "", json.get(selected,"description"))]
 	[h:connections= if(selected == "", "", json.toList(json.get(selected,"connections"),", "))]
@@ -98,9 +99,9 @@
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="[r:aeon.getTheme()].css@Lib:Core">
-		<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
-		<title>Edit Edge - [r:name]</title>
+		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+		<title>Edit Trait - [r:name]</title>
 	</head>
 	<body>
 		[h:processLink=macroLinkText(macroName,"")]
@@ -170,48 +171,45 @@
 }]
 
 <!-- ##################################################################### -->
-<!-- # Process edge changes state                                        # -->
+<!-- # Process trait changes state                                       # -->
 <!-- ##################################################################### -->
 [h,if("PROCESS" == dialogState),code:{
 	[h:oldName = json.get(macro.args, "oldName")]
-	[h,if(json.contains(collection, oldName)):path=json.get(collection, oldName);path=""]
+	[h,if(json.contains(collection, oldName)):trait=json.get(collection, oldName);trait=""]
 	
-	[h:path=json.set(path, "name",        json.get(macro.args, "name"))]
-	[h:path=json.set(path, "type",        json.get(macro.args, "type"))]
-	[h:path=json.set(path, "description", json.get(macro.args, "description"))]
-	[h:path=json.set(path, "connections", json.fromList(json.get(macro.args, "connections"), ","))]
-	[h:path=json.set(path, "skills",      json.fromList(json.get(macro.args, "skills"),","))]
-	[h:path=json.set(path, "edges",       json.fromList(json.get(macro.args, "edges"),","))]
-	[h:path=json.set(path, "source",      json.get(macro.args, "source"))]
+	[h:trait=json.set(trait, "name",        json.get(macro.args, "name"))]
+	[h:trait=json.set(trait, "type",        json.get(macro.args, "type"))]
+	[h:trait=json.set(trait, "description", json.get(macro.args, "description"))]
+	[h:trait=json.set(trait, "connections", json.fromList(json.get(macro.args, "connections"), ","))]
+	[h:trait=json.set(trait, "skills",      json.fromList(json.get(macro.args, "skills"),","))]
+	[h:trait=json.set(trait, "edges",       json.fromList(json.get(macro.args, "edges"),","))]
+	[h:trait=json.set(trait, "source",      json.get(macro.args, "source"))]
 		
 	[h,if(oldName != "" && oldName != name):collection = json.remove(collection, oldName)]
-	[h:collection=json.set(collection, name, path)]
-	[h:aeon.setTraits(traitName,collection)]
+	[h:collection=json.set(collection, name, trait)]
+	[h:tcc.setTraits(traitName,collection)]
 	
 	[h,if(isDialogVisible(dialogName) == 1),macro(macroName):json.set("{}","dialogState","show","name",name)]
 }]
 
 <!-- ##################################################################### -->
-<!-- Reload dialog if returning from substate -->
+<!-- Reload dialog if returning from substate                            # -->
 <!-- ##################################################################### -->
 [h,if(dialogState != ""),code:{
 	[h:abort(0)]
 }]
 
 <!-- ##################################################################### -->
-<!-- Default state: Showing list of edges -->
+<!-- Default state: Showing list of traits                               # -->
 <!-- ##################################################################### -->
 [dialog5(dialogName, dialogArgs):{
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="[r:aeon.getTheme()].css@Lib:Core">
-	<link rel="stylesheet" type="text/css" href="main.css@Lib:Core">
-	<script>
-		[h:indices=getMacroIndexes("sortTable.js","json","Lib:Core")]
-		[r:getMacroCommand(json.get(indices,0),"Lib:Core")]
-	</script>
-	<title>Edges List</title>
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
+	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
+	<script src="lib://[r:tcc.getNamespace()]/js/sortTable.js"></script>
+<title>Traits List</title>
 </head>
 <body>
 	<ul class="menu">
@@ -229,7 +227,6 @@
 		</tr>
 		<tr>
 			[h:fields=json.fields(collection)]
-			[h:trash=tableImage("Images", 7, 16)]
 			
 			[r,foreach(field, fields, "</tr><tr>"),code:{
 				[h:path=json.get(collection, field)]
@@ -239,7 +236,7 @@
 				<td>[r:json.get(path,"source")]</td>
 				<td>
 					[h:linkText=macroLinkText(macroName, "", json.set("{}","dialogState","delete","name",field))]
-					<a href="[r:linkText]"><img src="[r:trash]"></a>
+					<a href="[r:linkText]"><img width="24" height="24" src="[r:tcc.getImage('Trashcan.png')]"></a>
 				</td>
 			}]
 		</tr>

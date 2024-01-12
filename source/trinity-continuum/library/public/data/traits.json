@@ -1,53 +1,120 @@
 {
     "attributes": {
-        "Composure": {
-            "description": "",
-            "group": "social",
+        "Intellect": {
+            "description": "Intellect covers the raw computing power of a character's brain. Intellect is used for deduction, problem-solving, and processing information. Anyaction where a character is actively trying to figure out something is usually Intellect based. Characters who frequently use Intellect are scientists, researchers, programmers, tacticians, and librarians. A character with a low Intellect isn't necessarily stupid, though they don't learn as quickly. A high Intellect does not necessarily mean the character is well educated, though they often are.  \n\nIntellect can be used to: recall specific facts, calculate the trajectory of an object, determine how to fix a broken machine, find food and water in the wilderness, or hack a computer. It is important when crafting anything from engines to computer viruses.",
+            "arena": "mental",
+            "dotDescriptions":{
+                "1":"Everything goes in one ear and out the other.",
+                "2":"You're not really the intellectual sort.",
+                "3":"You're well-read in subjects that interest you.",
+                "4":"An expert in multiple fields.",
+                "5":"One of the top minds on the planet, you can learn almost anything if you set your mind to it.",
+                "6":"Geniuses and experts come to you for help."
+            },
             "source": "TCC"
         },
         "Cunning": {
-            "description": "",
-            "group": "mental",
-            "source": "TCC"
-        },
-        "Dexterity": {
-            "description": "",
-            "group": "physical",
-            "source": "TCC"
-        },
-        "Intellect": {
-            "description": "",
-            "group": "mental",
-            "source": "TCC"
-        },
-        "Manipulation": {
-            "description": "",
-            "group": "social",
-            "source": "TCC"
-        },
-        "Might": {
-            "connections": [],
-            "description": "Might is raw physical power. It covers lifting or moving heavy objects, including the character themselves. While some fighting styles may require skill and speed over brute strength, a simple punch in the nose requires Might behind it. A high Might score is useful for characters who engage in handto-hand combat on a regular basis, such as police officers, professional boxers, soldiers, and criminal thugs. It is also useful for athletes, from power lifters to baseball players: anywhere where the application of physical force is necessary. A character with a low Might may have suffered an injury so they can\u2019t use their strength without harming themselves further. A character with a high Might may be strong or simply very good at using what strength they do have to maximum effect.  \n\nMight can be used to: forge a sword, lift or throw objects, intimidate, climb walls, or muscle through pain.\n\n|  |  |\n| :--- | :--- |\n| * | Weak as a kitten. |\n| ** | You aren\u2019t much help when people move. |\n| *** | You go to the gym pretty regularly. |\n| **** | Professional bodybuilder or athlete. |\n| ***** | Olympic-level weightlifter. |\n| ****** | World-record holder, you are quite possibly the strongest person in the world. |",
-            "edges": [],
-            "group": "physical",
-            "name": "Might",
-            "skills": [],
-            "source": "TCC",
-            "type": ""
-        },
-        "Presence": {
-            "description": "",
-            "group": "social",
+            "description": "Cunning covers mental tasks that require speed over power. A person with high Cunning thinks on his feet, notices details quickly, and comes up with responses before the others. Cunning is similar to Dexterity in that it covers actions that require speed over force. However, Cunning covers the fine motor skills instead of gross movement. Characters that need high Cunning include investigators, snipers, thieves, law-enforcement officials, and pilots. A character with a low Cunning may be the sort of person who “has their head in the clouds” or can't multi-task. A high Cunning character is very aware of her surroundings and can act without hesitation.  \n\nCunning can be used to: hack computers, notice clues, spot a hidden enemy, understand a political situation, solve riddles, apply emergency medical care, act, con, get away from pursuers in a chase, or solve a maze.",
+            "arena": "mental",
+            "dotDescriptions":{
+                "1":"If you stuck your hand in a fire, it would take you a minute to notice.",
+                "2":"You don't deal well when forced out of your routine.",
+                "3":"You handle rush-hour traffic well.",
+                "4":"Head on a swivel.",
+                "5":"Top combat pilots, racecar drivers, and others who react in a second.",
+                "6":"You react to things almost before they happen."
+            },
             "source": "TCC"
         },
         "Resolve": {
-            "description": "",
-            "group": "mental",
+            "description": "Resolve measures a character's strength of will and resistance to trickery or mental pressure. Characters who need a high Resolve are lawyers, teachers, detectives, or spies. Low Resolve characters are easily fooled and lack mental focus. A character with a high Resolve doesn't miss deadlines, ignores distractions, and is difficult to hypnotize.  \n\nResolve may be used to: study evidence, search archives, move silently, follow animal tracks, resist persuasion, stunt drive, understand scientific theories, stay strong under pressure, or remain focused.",
+            "arena": "mental",
+            "dotDescriptions":{
+                "1":"\"Ooh, what's that?\"",
+                "2":"You get flustered easily.",
+                "3":"You meditate about once a week.",
+                "4":"Someone in a very high-stress job or who has been trained to resist interrogation.",
+                "5":"Zen master or expert spy.",
+                "6":"Once you have set your mind to something, no one can deter you."
+            },
+            "source": "TCC"
+        },
+        "Might": {
+            "description": "Might is raw physical power. It covers lifting or moving heavy objects, including the character themselves. While some fighting styles may require skill and speed over brute strength, a simple punch in the nose requires Might behind it. A high Might score is useful for characters who engage in handto-hand combat on a regular basis, such as police officers, professional boxers, soldiers, and criminal thugs. It is also useful for athletes, from power lifters to baseball players: anywhere where the application of physical force is necessary. A character with a low Might may have suffered an injury so they can\u2019t use their strength without harming themselves further. A character with a high Might may be strong or simply very good at using what strength they do have to maximum effect.  \n\nMight can be used to: forge a sword, lift or throw objects, intimidate, climb walls, or muscle through pain.",
+            "arena": "physical",
+            "dotDescriptions":{
+                "1":"Weak as a kitten.",
+                "2":"You aren't much help when people move.",
+                "3":"You go to the gym pretty regularly.",
+                "4":"Professional bodybuilder or athlete.",
+                "5":"Olympic-level weightlifter.",
+                "6":"World-record holder, you are quite possibly the strongest person in the world."
+            },
+            "source": "TCC"
+        },
+        "Dexterity": {
+            "description": "Dexterity covers fine and gross motor control. While Might determines how much a character can lift, Dexterity determines how well they can maneuver, either themselves or other objects. A character with a high Dexterity is more likely to catch a ball, walk a tightrope, or dive for cover. Dexterity is useful for acrobats as well as sports where precision is important. A baseball pitcher needs Might to determine the speed of his fastball, but whether or not he keeps it in the strike zone is based on Dexterity. A low Dexterity character may be slow and clumsy. High Dexterity characters are nimble and have good hand-eye coordination.  \n\nDexterity can be used to: jump between buildings, pick a lock, dance, walk over treacherous ground, maintain balance, impress people, or dog fight (in an airplane).",
+            "arena": "physical",
+            "dotDescriptions":{
+                "1":"You constantly trip over things that aren't there.",
+                "2":"You can walk and chew gum at the same time.",
+                "3":"You've taught yourself juggling.",
+                "4":"You can make a living as a dancer or stage magician.",
+                "5":"One of the best gymnasts in the world.",
+                "6":"Super-heroic agility."
+            },
             "source": "TCC"
         },
         "Stamina": {
-            "description": "",
-            "group": "physical",
+            "description": "Stamina covers how well a character can resist physical threats. This could be an environmental threat like holding your breath under water, resisting a disease, or not freezing to death in a blizzard. It also determines how well a character can take a punch or how long they'll survive a snake bite before they get treated. A high Stamina score is useful for fighters, endurance runners, and medical practitioners who need to avoid getting sick when surrounded by the diseased. A person with low Stamina is often sick or easily injured. A person with a high Stamina has a great resistance and rarely becomes ill.  \n\nStamina can be used to: run long distances, continue in a fight despite injury, recover faster, meditate, or resist diseases or poison.",
+            "arena": "physical",
+            "dotDescriptions":{
+                "1":"You are always the first to get sick, and the last to recover.",
+                "2":"Your job involves a lot of sitting.",
+                "3":"You rarely need a sick day.",
+                "4":"Competition runner or dedicated hiker.",
+                "5":"Olympic triathlon or marathon competitor.",
+                "6":"Above the peak of human endurance."
+            },
+            "source": "TCC"
+        },
+        "Presence": {
+            "description": "Presence measures a character's ability to convince other people. A high Presence may be due to striking good looks, strong character, or aggressive personal traits. It measures the character's capacity to impose their will. A character with a high Intellect might be able to come up with a logical argument, but it requires a good Presence score to make the argument successfully. Characters who require a high Presence would be salesmen, lawyers, or CEOs. A low Presence character may be shy or unskilled in social situations. A high Presence character isn't necessarily charming (like a usedcar salesman), but is skilled at getting their way.  \n\nPresence can be used to: give orders, influence another person, trick someone, give a speech, interrogate a prisoner, or train an animal.",
+            "arena": "social",
+            "dotDescriptions":{
+                "1":"No one ever seems to notice you, even when you want them to.",
+                "2":"A face in the crowd.",
+                "3":"You give a good business presentation.",
+                "4":"High-priced lawyer or sought-after speaker.",
+                "5":"Truly charismatic politician on a national or international stage.",
+                "6":"Your speeches can inspire whole nations."
+            },
+            "source": "TCC"
+        },
+        "Manipulation": {
+            "description": "Manipulation measures a character's ability to fine tune their social skills and to analyze social cues. The “hard sell” requires a high Presence. Intricate trickery requires a high Manipulation. Characters who require a high Manipulation are politicians, spies, and con artists. Low Manipulation characters lack subtlety or empathy. High Manipulation characters are able to read people well.  \n\nManipulation can be used for: managing people, lying convincingly, sleight of hand, noticing social cues, seduction, or subduing a hostile animal.",
+            "arena": "social",
+            "dotDescriptions":{
+                "1":"Open mouth, insert foot.",
+                "2":"You can be a little socially awkward sometimes.",
+                "3":"Low-level hustler or savvy networker.",
+                "4":"An expert at cold reading and telling people what they want to hear.",
+                "5":"You can blend in just about anywhere.",
+                "6":"The world's best spy."
+            },
+            "source": "TCC"
+        },
+        "Composure": {
+            "description": "Composure measures a character's ability to resist social manipulation. It measures a character's ability to remain calm when being interrogated by the police or make sure that negotiations go their way. It is also useful for recognizing when one is being lied to or otherwise deceived. Characters who require a high Composure are soldiers, test pilots, and reporters. Low Composure characters are easily flustered and crack under social pressure. High Composure characters keep their cool.  \n\nComposure can be used to: resist manipulation, maintain a cool attitude, stay firm under pressure, cut through red tape, notice deception, resist psionics, or conceal your intentions.",
+            "arena": "social",
+            "dotDescriptions":{
+                "1":"You were born yesterday.",
+                "2":"You sometimes lose your cool when things don't go your way.",
+                "3":"You can usually tell when someone is lying to you.",
+                "4":"Tough business negotiations are your regular Tuesday.",
+                "5":"You could interview mass murderers and dictators without blinking.",
+                "6":"Utterly unflappable; nothing ordinary could ever make you lose your cool."
+            },
             "source": "TCC"
         }
     },
@@ -610,7 +677,7 @@
                 "Government Official",
                 "Nippon Intelligence Agency"
             ],
-            "description": "The character is closely affiliated with the government of Nippon, a nation possessing cutting-edge technology, but that is intensely distrustful of the psi orders and where bioware is banned. She serves as an agent or asset for the Nihonjin beyond the country’s shores, granting them the reach to meddle in the affairs of other regions without compromising their official distance and the isolation of much of their population. She may be an infiltrator, information gatherer, or even an assassin; whatever her role, she benefits from the incredible technology that her powerful patron provides.\n\nA Nihonjin agent is either a neutral or a Talent; she cannot be a psion.",
+            "description": "The character is closely affiliated with the government of Nippon, a nation possessing cutting-edge technology, but that is intensely distrustful of the psi orders and where bioware is banned. She serves as an agent or asset for the Nihonjin beyond the country's shores, granting them the reach to meddle in the affairs of other regions without compromising their official distance and the isolation of much of their population. She may be an infiltrator, information gatherer, or even an assassin; whatever her role, she benefits from the incredible technology that her powerful patron provides.\n\nA Nihonjin agent is either a neutral or a Talent; she cannot be a psion.",
             "edges": [
                 "Alternative Identity",
                 "Computer Enhancement",

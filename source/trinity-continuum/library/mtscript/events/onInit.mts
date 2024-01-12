@@ -3,8 +3,10 @@
 [h:this = getMacroLocation()]
 [h:defineFunction(prefix+"statBlock",    "Statblock Dialog@"+this)]
 [h:defineFunction(prefix+"loading",      "overlay/loading@"+this)]
-[h:defineFunction(prefix+"getNamespace", "functions/function.getNamespace@"+this)]
+[h:defineFunction(prefix+"manageTraits", "Manage Traits@"+this)]
 
+[h:defineFunction(prefix+"getImage",     "functions/function.getImage@"+this)]
+[h:defineFunction(prefix+"getNamespace", "functions/function.getNamespace@"+this)]
 [h:defineFunction(prefix+"debugLog",     "functions/function.debugLog@"+this)]
 [h:defineFunction(prefix+"dicePool",     "functions/function.dicePool@"+this)]
 [h:defineFunction(prefix+"getTheme",     "functions/function.getTheme@"+this)]
@@ -22,16 +24,6 @@
 
 [h:tcc.loading("Defining Functions ...")]
 
-
-<!-- Reading output settings -->
-[h:outputPC=tcc.readSetting("outputPC")]
-[h:outputGM=tcc.readSetting("outputGM")]
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
-<!-- Setting start map -->
-[h:startMap=tcc.readSetting("startMap")]
-[h:setCurrentMap(startMap)]
-
 [macro("Welcome@this"):""]
 
 <!-- Setting up deferred macro calls -->
@@ -40,3 +32,5 @@
 
 <!-- All done. Closing up -->
 [h:closeOverlay("loading")]
+
+[h:broadcast("OnInit Done")]

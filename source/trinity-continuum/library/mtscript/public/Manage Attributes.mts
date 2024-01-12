@@ -7,10 +7,10 @@
 <!-- #                         edit | process                            # -->
 <!-- #	- name: Name of the path being handled.                          # -->
 <!-- ##################################################################### -->
-[h:dialogName = "Manage Edges"]
+[h:dialogName = "Manage Attributes"]
 [h:dialogArgs = "width=500;height=700;temporary=1;input=0;closebutton=0;noframe=0"]
 [h:macroName  = dialogName + "@this"]
-[h:traitName  = "edges"]
+[h:traitName  = "attributes"]
 [h:collection = tcc.getTraits(traitName)]
 [h:sources    = tcc.getTraits("sources")]
 [h:ns         = tcc.getNamespace()]
@@ -59,6 +59,21 @@
 		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
 		<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
 		<title>Trait Details - [r:name]</title>
+		<style>
+[r:'
+		.dots {
+			font-size:1em;
+		}
+
+		.dots td:first-child {
+			width:15%;
+		}
+
+		.dots td:last-child {
+			text-align:left;
+		}
+']		
+		</style>
 	</head>
 	<body>
 		<ul class="menu">
@@ -67,11 +82,21 @@
 		</ul>
 
 		<div class="showTrait">
-			<h3>[r:name] <span>[r:capitalize(json.get(selected,"type"))]</span></h3>
+			<h3>[r:name] <span>[r:capitalize(json.get(selected,"arena"))]</span></h3>
+			<div>
 			[r:markdownToHTML(json.get(selected,"description"))]
-			<p><b>Example connections:&nbsp;</b>[r:json.toList(json.get(selected,"connections"), ", ")]</p>
-			<p><b>Skills:&nbsp;</b>[r:json.toList(json.get(selected,"skills"), ", ")]</p>
-			<p><b>Edges:&nbsp;</b>[r:json.toList(json.get(selected,"edges"), ", ")]</p>
+			<div>
+			<div>
+				[h:dots=json.get(selected, "dotDescriptions")]
+				<table class="table dots">
+					<tr><td>•</td><td>[r:json.get(dots, "1")]</td></tr>
+					<tr><td>••</td><td>[r:json.get(dots, "2")]</td></tr>
+					<tr><td>•••</td><td>[r:json.get(dots, "3")]</td></tr>
+					<tr><td>••••</td><td>[r:json.get(dots, "4")]</td></tr>
+					<tr><td>•••••</td><td>[r:json.get(dots, "5")]</td></tr>
+					<tr><td>••••• •</td><td>[r:json.get(dots, "6")]</td></tr>
+				</table>
+			</div>
 			<p><b>Source:&nbsp;</b><span class="tooltip">[r:json.get(selected, "source")]
 				<span class="tooltiptext">[r:tooltip]</span>
 				</span>
@@ -88,11 +113,8 @@
 [h,if("EDIT" == dialogState),code:{
 	[h:assert(isGM(), dialogName + ": Only GM may edit entries.",0)]
 	[h:tcc.debugLog("Selected: " + selected)]
-	[h:type       = if(selected == "", "", json.get(selected, "type"))]
+	[h:type       = if(selected == "", "", json.get(selected, "arena"))]
 	[h:description= if(selected == "", "", json.get(selected,"description"))]
-	[h:connections= if(selected == "", "", json.toList(json.get(selected,"connections"),", "))]
-	[h:skills     = if(selected == "", "", json.toList(json.get(selected,"skills"),", "))]
-	[h:edges      = if(selected == "", "", json.toList(json.get(selected,"edges"),", "))]
 	[h:source     = if(selected == "", "", json.get(selected,"source"))]
 
 	[dialog5(dialogName, dialogArgs):{
@@ -125,25 +147,27 @@
 				<label for="name">Name</label><br>
 				<input id="name" name="name" type="text" value="[r:name]"><br>
 				
-				<label for="type">Name</label><br>
-				<select id="type" name="type"> 
-					<option value="origin"  [r,if(type == "origin" ):"selected";""]>Origin</option>
-					<option value="role"    [r,if(type == "role"   ):"selected";""]>Role</option>
-					<option value="society" [r,if(type == "society"):"selected";""]>Society</option>
+				<label for="arena">Name</label><br>
+				<select id="arena" name="arena"> 
+					<option value="physical"  [r,if(type == "physical"):"selected";""]>Physical</option>
+					<option value="mental"    [r,if(type == "mental"  ):"selected";""]>Mental</option>
+					<option value="social"    [r,if(type == "social"  ):"selected";""]>Social</option>
 				</select><br>
 
 				<label for="description">Description</label><br>
 				<textarea id="description" name="description">[r:description]</textarea><br>
 				
-				<label for="connections">Possible Connections</label><br>
-				<input id="connections" name="connections" type="text" value="[r:connections]"><br>
-		
-				<label for="skills">Skills</label><br>
-				<input id="skills" name="skills" type="text" value="[r:skills]"><br>
-		
-				<label for="edges">Edges</label><br>
-				<input id="edges" name="edges" type="text" value="[r:edges]"><br>
-		
+				<label for="description">Description</label><br>
+				[h:dots=json.get(selected, "dotDescriptions")]
+				<table>
+					<tr><td>•</td><td><input id="1" name="1" type="text" value=" [r:json.get(dots, '1')]"></td></tr>
+					<tr><td>••</td><td><input id="2" name="2" type="text" value=" [r:json.get(dots, '2')]"></td></tr>
+					<tr><td>•••</td><td><input id="3" name="3" type="text" value=" [r:json.get(dots, '3')]"></td></tr>
+					<tr><td>••••</td><td><input id="4" name="4" type="text" value=" [r:json.get(dots, '4')]"></td></tr>
+					<tr><td>•••••</td><td><input id="5" name="5" type="text" value=" [r:json.get(dots, '5')]"></td></tr>
+					<tr><td>••••• •</td><td><input id="6" name="6" type="text" value=" [r:json.get(dots, '6')]"></td></tr>
+				</table>
+
 				<label for="source">Source</label><br>
 				<select id="source" name="source">
 					[r,foreach(src,json.fields(sources),""),code:{
@@ -171,20 +195,27 @@
 }]
 
 <!-- ##################################################################### -->
-<!-- # Process trait changes state                                        # -->
+<!-- # Process trait changes state                                       # -->
 <!-- ##################################################################### -->
 [h,if("PROCESS" == dialogState),code:{
 	[h:oldName = json.get(macro.args, "oldName")]
 	[h,if(json.contains(collection, oldName)):trait=json.get(collection, oldName);trait=""]
 	
-	[h:trait=json.set(trait, "name",        json.get(macro.args, "name"))]
-	[h:trait=json.set(trait, "type",        json.get(macro.args, "type"))]
-	[h:trait=json.set(trait, "description", json.get(macro.args, "description"))]
-	[h:trait=json.set(trait, "connections", json.fromList(json.get(macro.args, "connections"), ","))]
-	[h:trait=json.set(trait, "skills",      json.fromList(json.get(macro.args, "skills"),","))]
-	[h:trait=json.set(trait, "edges",       json.fromList(json.get(macro.args, "edges"),","))]
-	[h:trait=json.set(trait, "source",      json.get(macro.args, "source"))]
+	[h:dots = ""]
+	[h:dots = json.set(dots, "1", json.get(macro.args, "1"))]
+	[h:dots = json.set(dots, "2", json.get(macro.args, "2"))]
+	[h:dots = json.set(dots, "3", json.get(macro.args, "3"))]
+	[h:dots = json.set(dots, "4", json.get(macro.args, "4"))]
+	[h:dots = json.set(dots, "5", json.get(macro.args, "5"))]
+	[h:dots = json.set(dots, "6", json.get(macro.args, "6"))]
+
 		
+	[h:trait=json.set(trait, "name",           json.get(macro.args, "name"))]
+	[h:trait=json.set(trait, "arena",          json.get(macro.args, "arena"))]
+	[h:trait=json.set(trait, "description",    json.get(macro.args, "description"))]
+	[h:trait=json.set(trait, "source",         json.get(macro.args, "source"))]
+	[h:trait=json.set(trait, "dotDescription", dots))]
+
 	[h,if(oldName != "" && oldName != name):collection = json.remove(collection, oldName)]
 	[h:collection=json.set(collection, name, trait)]
 	[h:tcc.setTraits(traitName,collection)]
@@ -209,7 +240,7 @@
 	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/[r:tcc.getTheme()].css">
 	<link rel="stylesheet" type="text/css" href="lib://[r:tcc.getNamespace()]/css/main.css">
 	<script src="lib://[r:tcc.getNamespace()]/js/sortTable.js"></script>
-	<title>Traits List</title>
+<title>Traits List</title>
 </head>
 <body>
 	<ul class="menu">
@@ -221,7 +252,7 @@
 	<table id="traitsTable" class="table">
 		<tr>
 			<th onclick="sortTable('traitsTable', 0)">Name</td>
-			<th onclick="sortTable('traitsTable', 1)">Type</td>
+			<th onclick="sortTable('traitsTable', 1)">Arena</td>
 			<th onclick="sortTable('traitsTable', 2)">Source</td>
 			<th>Delete</td>
 		</tr>
@@ -232,7 +263,7 @@
 				[h:path=json.get(collection, field)]
 				
 				<td>[r:macroLink(field,macroName, "", json.set("{}","dialogState","show","name",field))]</td>
-				<td>[r:capitalize(json.get(path,"type"))]</td>
+				<td>[r:capitalize(json.get(path,"arena"))]</td>
 				<td>[r:json.get(path,"source")]</td>
 				<td>
 					[h:linkText=macroLinkText(macroName, "", json.set("{}","dialogState","delete","name",field))]

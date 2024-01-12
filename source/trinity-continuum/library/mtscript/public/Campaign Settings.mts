@@ -27,13 +27,17 @@
 			<td>[r:tcc.readSetting("theme")]</td>
 		</tr>
 		<tr>
+			<td>[r:macroLink("Sources", "SettingsSelection@this","","Sources"))]</td>
+			<td>[r:listCount(json.toList(tcc.readSetting("sources")))] selected.</td>
+			</tr>
+		<tr>
 			<td>[r:macroLink("Welcome Message", "Change Settings Property@this","",json.set("{}","field","welcomeMessage"))]</td>
 			<td>&nbsp;</td>
 		</tr>
 	</table>
 
 	<table class="settings">
-		<caption>Character Sheet</caption>
+		<caption>Traits</caption>
 		<tr>
 			<td>[r:macroLink("Paths", "Manage Paths@this", "", "")]</td>
 			<td>
@@ -56,7 +60,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>[r:macroLink("Attributes", "Manage Paths@this", "", "")]</td>
+			<td>[r:macroLink("Attributes", "Manage Attributes@this", "", "")]</td>
 			<td>
 				[h:traits=tcc.getTraits("attributes")]
 				[r:listCount(json.toList(json.fields(traits)))]
