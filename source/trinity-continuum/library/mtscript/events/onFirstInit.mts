@@ -2,8 +2,9 @@
 
 <!-- ### load the default data into the campaign ### -->
 [h:setLibProperty("Settings", data.getStaticData(ns, "/public/data/settings.json"), getMacroLocation())]
-[h:setLibProperty("Themes", data.getStaticData(ns, "/public/data/themes.json"), getMacroLocation())]
-[h:setLibProperty("Traits", data.getStaticData(ns, "/public/data/traits.json"), getMacroLocation())]
+[h:setLibProperty("Themes",   data.getStaticData(ns, "/public/data/themes.json"),   getMacroLocation())]
+[h:setLibProperty("Traits",   data.getStaticData(ns, "/public/data/traits.json"),   getMacroLocation())]
+[h:setLibProperty("Personae", data.getStaticData(ns, "/public/data/personae.json"), getMacroLocation())]
 
 <!-- ### create the StoryGuide's screen map for storing tokens and other stuff for the SG only. ### -->
 [h:screenImage = "lib://" + ns + "/images/StoryGuideScreen.png")]

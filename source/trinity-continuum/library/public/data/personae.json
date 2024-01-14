@@ -1,0 +1,115 @@
+[
+    {
+        "type": "normal",
+        "name": "Johan Hamburg",
+        "description": "When Lilly came home one evening with a pile of cash she had pulled off people walking the streets, Jonah was nervous. Someone must have seen something if she was hitting so many marks. But nothing came of it, and Lilly got bolder. Jonah did what any concerned husband would do; he made sure she always had a getaway driver. Now Jonah is complicit in Lilly's actions and has grown just as bold, assuming her luck will continue to rub off on him.",
+        "primary": {
+            "value": 7,
+            "summary": "fast driving and guns"
+        },
+        "secondary": {
+            "value": 5,
+            "summary": "breaking and entering"
+        },
+        "desperation": 3,
+        "enhancement": 1,
+        "defense": 3,
+        "health": 4,
+        "edges": {
+            "covert": 1,
+            "direction sense": 0,
+            "free running": 2,
+            "sniper": 2
+        },
+        "initiative": 3,
+        "source": null,
+        "gifts": null,
+        "sourceBook": "TCC"
+    },
+    {
+        "type": "talent",
+        "name": "Lilly Hamburg",
+        "description": "Lilly hit Inspiration one night while picnicking in Central Park in New York City. She had no idea that a flux anomaly had occurred in the remote, out-of-theway spot where she enjoyed sitting to watch the stars at night. But she ended up spending three hours in direct contact with flux, and she left Inspired. She noticed her extreme luck right away, and learned that she had a moderate amount of control over it. This led her to do what any normal, hard-up, semi-professional huckster would do: she started stealing. At first it was convenience stores and picking pockets, but soon it evolved into daytime bank robberies and corporate offices. She kills indiscriminately, positive that she will escape with her amazing luck, and so far, she’s been correct.",
+        "primary": {
+            "value": 8,
+            "summary": "thievery and going unnoticed"
+        },
+        "secondary": {
+            "value": 6,
+            "summary": "guns and knives"
+        },
+        "desperation": 4,
+        "enhancement": 2,
+        "defense": 4,
+        "health": 5,
+        "edges": {
+            "always prepared": 0,
+            "covert": 3,
+            "ms. fix-it": 0
+        },
+        "initiative": 4,
+        "source": 4,
+        "gifts": {
+            "Get the Drop": 0,
+            "Sharpshooter": 0
+        },
+        "sourceBook": "TCC"
+    },
+    {
+        "type": "anormaly",
+        "name": "Francis Smith",
+        "description": "Francis Smith came to Earth about five years ago. He was working in his lab on a miniaturized hydrogen fusion engine when a miscalculation shifted him through dimensions and onto Earth. Unfortunately, in the minor explosion that caused the rip and subsequent journey, the engine was destroyed, and Francis has no way of getting back home. What makes this even more problematic for Francis is that he is a four-foot-long cephalopod, and bartering for parts is impossible. So he steals what he can, and tries to figure out the rest. His experiments create huge flux events, which often causes all manner of creatures to come through the weak spots, and he has no care at all about how he leaves the state of this Earth, as long as he leaves it.",
+        "primary": {
+            "value": 9,
+            "summary": "weird science and experimentation"
+        },
+        "secondary": {
+            "value": 7,
+            "summary": "punching and moving"
+        },
+        "desperation": 4,
+        "enhancement": 4,
+        "defense": 4,
+        "health": 6,
+        "edges": null,
+        "initiative": 4,
+        "powers": {
+            "Hyper-Intelligence": 0,
+            "Multi-limbed": 0,
+            "Inspired":0,
+            "Device Mogul":0,
+            "Slip the Cuffs": 0
+        },
+        "sourceBook": "TCC"
+    },
+    {
+        "type": "psion",
+        "name": "Legion Psychokinetic",
+        "description": "Born in the UAN, Nalah always looked to the stars for her future; the gleaming thread of the space elevator up to Abuhisi station always made that dream come easily to her. When she tested positively for latent psionic ability, the Upeo wa Macho had already vanished and she also lacked the required latency. However, she found another path. Now she stands proudly as part of the Seventh Legion, Phoenix Fleet; she may not be the interstellar pioneer of her childhood fantasies, but she'll damn well give her all to protect everything that humanity has achieved in its expansion through space. A disciplined and highly trained soldier, Nalah has focused her psionic development into mastering the creation and control of force fields; to those suffering attack by aliens, Aberrants, or other threats, she is a guardian and protector, the bulwark between the innocent and those who would do them harm. Sometimes she feels flashes of envy toward the newly returned Upeo wa Macho, but largely Nalah has made peace with her role as a warrior sentinel.",
+        "primary": {
+            "value": 11,
+            "summary": "soldier"
+        },
+        "secondary": {
+            "value": 6,
+            "summary": "pilot and explorer"
+        },
+        "desperation": 4,
+        "enhancement": 2,
+        "defense": 3,
+        "health": 4,
+        "edges": {
+            "Iron Will": 2,
+            "Legion Armory": null,
+            "Small Unit Tactics": null
+        },
+        "initiative": 6,
+        "psi": 4,
+        "modes": {
+            "Thermokinesis": 2,
+            "Telekinesis": 3,
+            "Perikinesis": 4
+        },
+        "sourceBook": "AEON"
+    }
+]

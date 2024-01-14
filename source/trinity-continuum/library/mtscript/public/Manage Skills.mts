@@ -236,7 +236,7 @@
 				<td>[r:json.get(path,"source")]</td>
 				<td>
 					[h:linkText=macroLinkText(macroName, "", json.set("{}","dialogState","delete","name",field))]
-					<a href="[r:linkText]"><img width="24" height="24" src="[r:tcc.getImage('Trashcan.png')]"></a>
+					<a href="[r:linkText]"><img width="24" height="24" src="[r:tcc.getImage('icons/trashcan.png')]"></a>
 				</td>
 			}]
 		</tr>

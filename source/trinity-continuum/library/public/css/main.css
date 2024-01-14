@@ -222,6 +222,19 @@ ul.menu > li {
   border: 1px solid #bababa;
 }
 
+.i16 {
+  width:16px;
+  height:16px;
+}
 
+.i24 {
+  width:24px;
+  height:24px;
+}
+
+.i32 {
+  width:32px;
+  height:32px;
+}
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./css/aeon.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/statblock.css" />
+    <title>Stat Block</title>
+
+</head>
+
+<body>
+    <h1><span id="CharacterName"></span><span id="sourceBook">TCC</span></h1>
+    <div>
+        <p id="description"></p>
+    </div>
+
+    <!-- Common stats -->
+    <div id="primaryPool">
+        <span style="font-weight: bold;">Primary Pool: </span>
+        <span id="primaryValue"></span> (<span id="primarySummary"></span>)
+    </div>
+    <div id="secondaryPool">
+        <span style="font-weight: bold;">Secondary Pool: </span>
+        <span id="secondaryValue"></span> (<span id="secondarySummary"></span>)
+    </div>
+    <div id="desperationPool">
+        <span style="font-weight: bold;">Desperation Pool: </span>
+        <span id="desperationValue"></span>
+    </div>
+    <div id="enhancement">
+        <span style="font-weight: bold;">Enhancement: </span>
+        <span id="enhancementValue"></span>
+    </div>
+    <div id="bonuses">
+        <span style="font-weight: bold;">Equipment Bonuses: </span>
+        <span id="bonusValue"></span>
+    </div>
+    <div id="defense">
+        <span style="font-weight: bold;">Defense: </span>
+        <span id="defenseValue"></span>
+    </div>
+    <div id="health">
+        <span style="font-weight: bold;">Health: </span>
+        <span id="healthValue"></span>
+    </div>
+    <div id="edges">
+        <span style="font-weight: bold;">Edges: </span>
+        <span id="edgeValues"></span>
+    </div>
+
+    <!-- Talent stats -->
+    <div id="anormaly" hidden>
+        <div id="powers">
+            <span style="font-weight: bold;">Anormaly Powers: </span>
+            <span id="powerValues"></span>
+        </div>
+    </div>
+
+    <!-- Talent stats -->
+    <div id="talent" hidden>
+        <div id="source">
+            <span style="font-weight: bold;">Source: </span>
+            <span id="sourceValue"></span>
+        </div>
+        <div id="gifts">
+            <span style="font-weight: bold;">Gifts: </span>
+            <span id="giftValues"></span>
+        </div>
+    </div>
+
+    <!-- Psion stats -->
+    <div id="psion" hidden>
+        <div id="psi">
+            <span style="font-weight: bold;">Psi Trait: </span>
+            <span id="psiValue"></span>
+        </div>
+        <div id="modes">
+            <span style="font-weight: bold;">Modes: </span>
+            <span id="modeValues"></span>
+        </div>
+    </div>
+</body>
+<script>
+    (async () => {
+
+        let rawData = await fetch("./data/personae.json");
+        let personae = await rawData.json();
+        let data = personae[2];
+
+        setValue("sourceBook", data.sourceBook);
+        setValue("CharacterName", data.name);
+        setValue("description", data.description);
+        setValue("primaryValue", data.primary.value);
+        setValue("primarySummary", data.primary.summary);
+        setValue("secondaryValue", data.secondary.value);
+        setValue("secondarySummary", data.secondary.summary);
+        setValue("desperationValue", data.desperation);
+        setValue("enhancementValue", data.enhancement);
+        setValue("defenseValue", data.defense);
+        setValue("healthValue", data.health);
+        setArray("edgeValues", data.edges);
+
+        if (data.type == "anormaly") {
+            isHidden("talent", true);
+            isHidden("anormaly", false);
+            isHidden("psion", true);
+            setArray("powerValues", data.powers);
+        }
+
+        if (data.type == "talent") {
+            isHidden("talent", false);
+            isHidden("psion", true);
+            setValue("sourceValue", data.source);
+            setArray("giftValues", data.gifts);
+        }
+
+        if (data.type == "psion") {
+            isHidden("talent", true);
+            isHidden("psion", false);
+            setValue("psiValue", data.psi);
+            setArray("modeValues", data.modes);
+        }
+
+        function setValue(id, value) {
+            const element = document.getElementById(id);
+            if (element != null) {
+                element.innerText = value;
+            }
+        }
+
+        function isHidden(id, value) {
+            const element = document.getElementById(id);
+            if (element != null) {
+                element.hidden = value;
+            }
+        }
+
+        function setArray(spanId, array) {
+            const result = [];
+            for (const key in array) {
+                if (array[key] == 0 || array[key] == null) {
+                    result.push(key);
+                } else {
+                    result.push(`${key} ${array[key]}`);
+                }
+            }
+            setValue(spanId, result.join(", "));
+        }
+    })();
+</script>
+
+</html>

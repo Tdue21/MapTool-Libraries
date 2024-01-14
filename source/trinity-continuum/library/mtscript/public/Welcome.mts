@@ -3,7 +3,7 @@
 [h:playerName = getPlayerName()]
 [h:mtVersion  = json.get(getInfo("client"),"version")]
 [h:fwVersion  = tcc.getVersion()]
-[h:image      = "lib://" + ns + "/images/TrinityContinuum.png"]
+[h:image      = tcc.getImage("TrinityContinuum.png")]
 
 
 [h:html=markdownToHTML(welcome)]

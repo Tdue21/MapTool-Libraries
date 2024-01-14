@@ -1,0 +1,16 @@
+:root {
+    margin: 10px;
+}
+
+h1 {
+    width: calc(100% - 20px);
+    background-color: var(--background-color);
+    color: var(--header-color);
+    padding:5px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#sourceBook {
+    justify-self: end;
+}

@@ -1,8 +1,5 @@
-[h:toggle=getStrProp(macro.args,"toggle")]
-[h:visibility=if(toggle==0 || toggle=="","inline","none")]
-
-[h:outputPC=aeon.readSetting("outputPC")]
-[h:outputGM=aeon.readSetting("outputGM")]
+[h:outputPC=tcc.readSetting("outputPC")]
+[h:outputGM=tcc.readSetting("outputGM")]
 [h:output=if(isGM()==1,outputGM,outputPC)]
 
 [h:info=getInfo("client")]
@@ -11,55 +8,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="overlay.css@Lib:Core">
-	<style>[r:strformat("#hide {display: %{visibility};}")]</style>
+	<link rel="stylesheet" type="text/css" href="[r:tcc.getFile('css/overlay.css')]">
 </head>
 <body>
-
-<!-------------------Toggle------------------->
 	<div class="menu">
-		[h:rotate=if(toggle==0 || toggle=="","180deg","0deg")]
-		[h:doToggle=if(toggle==0 || toggle=="",1,0)]
-		[h:chevron=tableImage("Images", 4, 22)]
-		[h:link=strformat("<img style='transform: rotate(%{rotate});' src='%{chevron}'>")]
-		
-		[r:macrolink(link,"Mini Menu@Lib:Core","","toggle="+doToggle)]
-	</div>
-
-	<div id="hide">
 		<!-------------------Map------------------->
-		<div class="menu">
-			[h:maps=getAllMapNames()]
-			[h:maps=listsort(maps,"N")]
-			[h:visibleMaps=maps]
-			[h,foreach(map,maps,""),code:{
-				[h,if(getMapVisible(map) == 1):"";visibleMaps=listdelete(visibleMaps,listfind(visibleMaps,map))]				
-			}]
-			[h,if(isGM()==1):maps=maps;maps=visibleMaps]			
-			[h:maps=listsort(maps,"N")]
-			[h:image=tableImage("Images", 5, 32)]
-			[h:hidden=tableimage("Images", 6, 16)]
+		[h:maps=listsort(getAllMapNames(),"N")]
+		[h:visibleMaps=maps]
+		[h,foreach(map,maps,""),code:{
+			[h,if(getMapVisible(map) == 1):"";visibleMaps=listdelete(visibleMaps,listfind(visibleMaps,map))]				
+		}]
+		[h,if(isGM()==1):maps=maps;maps=visibleMaps]			
+		[h:maps=listsort(maps,"N")]
+		[h:image=tcc.getImage("globe.png")]
+		[h:hidden=tcc.getImage("hidden.png")]
 
-			[r:macroLink(strformat("<img src='%{image}'>"),"Select Map@Lib:Core")]
-			<div class="submenu">
-				<table class="border">
-					<tr>
-					[r,foreach(map, maps,"</tr><tr>"),code:{
-						<td>
-							[r,if(map == getCurrentMapName()):"<b>";""]
-							<span>
-							[r:macroLink(map, "function.selectMap@Lib:Core", "", json.fromStrProp(map+"=overlay"))]
-							[r,if(getMapVisible(map) == 0):"<img src="+hidden+">"; ""]
-							</span>	
-							[r,if(map == getCurrentMapName()):"</b>";""]
-						</td>
-					}]
-				</tr>
-				</table>
-			</div>
+		[r:macroLink(strformat("<img class='i32' src='%{image}'>"),"Select Map@" + getMacroLocation())]
+		<div class="submenu">
+			<table class="border">
+				<tr>
+				[r,foreach(map, maps,"</tr><tr>"),code:{
+					<td>
+						[r,if(map == getCurrentMapName()):"<b>";""]
+						<span>
+							[r:macroLink(map, "functions/function.selectMap@" + getMacroLocation(), "", json.fromStrProp(map+"=overlay"))]
+							[r,if(getMapVisible(map) == 0):"<img style='width: 16px; height: 16px;' src="+hidden+">"; ""]
+						</span>	
+						[r,if(map == getCurrentMapName()):"</b>";""]
+					</td>
+				}]
+			</tr>
+			</table>
 		</div>
-
-
-</div>
-
+	</div>
+</body>
+</html>
 }]

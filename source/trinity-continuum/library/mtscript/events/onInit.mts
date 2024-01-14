@@ -31,6 +31,10 @@
 [h:link = macroLinkText("events/deferredCalls@" + this)]
 [h:execLink(link,1)]
 
+<!-- Loading overlays -->
+[h:tcc.loading("Loading overlays ...")]
+[macro("overlay/miniMenu@this"):""]
+
 <!-- All done. Closing up -->
 [h:closeOverlay("loading")]
 
