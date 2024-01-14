@@ -38,13 +38,13 @@
 <!-- ### Work-around for creating the necessary GM & Campaign buttons, until createMacro supports this. ### -->
 
 <!-- ### First a lib token for holding the buttons. ### -->
-[h:tokenParams  = json.set("{}", 
+[h:libImage = "lib://" + ns + "/images/trinity-token.webp"]
+[h:tokenId = createToken(json.set("{}", 
     "name", "Lib:TrinityCore", 
     "label", "Trinity Continuum Campaign Macros",
-    "tokenImage", "lib://" + ns + "/images/trinity-token.webp",
-	"x", 0,
-	"y", 0)]
-[h:tokenId = createToken(tokenParams)]
+    "tokenImage", libImage,
+    "x", 0,
+    "y", 0))]
 
 <!-- ### Create the Campaign Settings button ### -->
 [h:macroParams  = json.set("{}", 
