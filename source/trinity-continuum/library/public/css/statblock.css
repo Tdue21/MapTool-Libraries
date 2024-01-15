@@ -14,3 +14,26 @@ h1 {
 #sourceBook {
     justify-self: end;
 }
+
+#edit {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    border: 1px solid black;
+}
+
+#edit label {
+    width:100%;
+    border: 1px solid black;
+}
+
+#edit span {
+    min-width: 120px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+#edit input[type='text'],
+#edit select {
+    width:calc(100% - 140px);
+}
