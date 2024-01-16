@@ -12,50 +12,48 @@
 
 <body>
     <div id="show">
-        <h1><span id="CharacterName"></span><span id="sourceBook">TCC</span></h1>
+        <h1>
+            <span id="show-name"></span>
+            <span id="show-sourceBook" style="font-size:14px"></span></h1>
         <div>
-            <p id="description"></p>
+            <p id="show-description"></p>
         </div>
 
         <!-- Common stats -->
         <div id="primaryPool">
             <span style="font-weight: bold;">Primary Pool: </span>
-            <span id="primaryValue"></span> (<span id="primarySummary"></span>)
+            <span id="show-primary-value"></span> (<span id="show-primary-focus"></span>)
         </div>
         <div id="secondaryPool">
             <span style="font-weight: bold;">Secondary Pool: </span>
-            <span id="secondaryValue"></span> (<span id="secondarySummary"></span>)
+            <span id="show-secondary-value"></span> (<span id="show-secondary-focus"></span>)
         </div>
         <div id="desperationPool">
             <span style="font-weight: bold;">Desperation Pool: </span>
-            <span id="desperationValue"></span>
+            <span id="show-desperation"></span>
         </div>
         <div id="enhancement">
-            <span style="font-weight: bold;">Enhancement: </span>
-            <span id="enhancementValue"></span>
-        </div>
-        <div id="bonuses">
-            <span style="font-weight: bold;">Equipment Bonuses: </span>
-            <span id="bonusValue"></span>
+            <span style="font-weight: bold;">Enhancements: </span>
+            <span id="show-enhancement"></span>
         </div>
         <div id="defense">
             <span style="font-weight: bold;">Defense: </span>
-            <span id="defenseValue"></span>
+            <span id="show-defense"></span>
         </div>
         <div id="health">
             <span style="font-weight: bold;">Health: </span>
-            <span id="healthValue"></span>
+            <span id="show-health"></span>
         </div>
         <div id="edges">
             <span style="font-weight: bold;">Edges: </span>
-            <span id="edgeValues"></span>
+            <span id="show-edges"></span>
         </div>
 
         <!-- Talent stats -->
         <div id="anormaly" hidden>
             <div id="powers">
                 <span style="font-weight: bold;">Anormaly Powers: </span>
-                <span id="powerValues"></span>
+                <span id="show-powers"></span>
             </div>
         </div>
 
@@ -63,11 +61,11 @@
         <div id="talent" hidden>
             <div id="source">
                 <span style="font-weight: bold;">Source: </span>
-                <span id="sourceValue"></span>
+                <span id="show-source"></span>
             </div>
             <div id="gifts">
                 <span style="font-weight: bold;">Gifts: </span>
-                <span id="giftValues"></span>
+                <span id="show-gifts"></span>
             </div>
         </div>
 
@@ -75,11 +73,11 @@
         <div id="psion" hidden>
             <div id="psi">
                 <span style="font-weight: bold;">Psi Trait: </span>
-                <span id="psiValue"></span>
+                <span id="show-psi"></span>
             </div>
             <div id="modes">
                 <span style="font-weight: bold;">Modes: </span>
-                <span id="modeValues"></span>
+                <span id="show-modes"></span>
             </div>
         </div>
     </div>
@@ -88,12 +86,12 @@
     <div id="edit">
         <label>
             <span>Name:</span>
-            <input id="editCharacterName" type="text" />
+            <input id="edit-name" type="text" />
         </label>
 
         <label>
             <span>Type:</span>
-            <select id="editCharacterType">
+            <select id="edit-type">
                 <option>Normal</option>
                 <option>Anormaly</option>
                 <option>Talent</option>
@@ -103,19 +101,19 @@
 
         <label>
             <span>Description:</span>
-            <input id="editDescription" type="text" />
+            <textarea id="edit-description" rows="6"></textarea>
         </label>
 
         <label>
             <span>Primary Pool:</span>
-            <input id="editPrimaryValue" type="number" />
-            <input id="editPrimaryFocus" type="text" placeholder="Enter primary focus" />
+            <input id="edit-primary-value" type="number" />
+            <input id="edit-primary-focus" class="focus" type="text" placeholder="Enter primary focus" />
         </label>
 
         <label>
             <span>Secondary Pool:</span>
             <input id="editSecondaryValue" type="number" />
-            <input id="editSecondaryFocus" type="text" placeholder="Enter secondary focus" />
+            <input id="editSecondaryFocus" class="focus" type="text" placeholder="Enter secondary focus" />
         </label>
 
         <label>
@@ -126,7 +124,7 @@
         <label>
             <span>Enhancements:</span>
             <input id="editEnhancement" type="number" />
-            <input id="editEnhancementSource" type="text" placeholder="Enter source of enhancement" />
+            <input id="editEnhancementSource" class="focus" type="text" placeholder="Enter source of enhancement" />
         </label>
 
         <label>
@@ -139,36 +137,30 @@
             <input id="editHealth" type="number" />
         </label>
 
-        <div id="editTalent">
-            <label>
-                <span>Source:</span>
-                <input id="editHealth" type="number" />
-            </label>
+        <label class="talent">
+            <span>Source:</span>
+            <input id="editSource" type="number" />
+        </label>
 
-            <label>
-                <span>Gifts:</span>
-                <input id="editHealth" type="text" />
-            </label>
-        </div>
+        <label class="talent">
+            <span>Gifts:</span>
+            <input id="editGifts" type="text" />
+        </label>
 
-        <div id="editAnormaly">
-            <label>
-                <span>Powers:</span>
-                <input id="editHealth" type="number" />
-            </label>
-        </div>
+        <label class="anormaly">
+            <span>Powers:</span>
+            <input id="editPowers" type="number" />
+        </label>
 
-        <div id="editPsion">
-            <label>
-                <span>Psi:</span>
-                <input id="editHealth" type="number" />
-            </label>
+        <label class="psion">
+            <span>Psi:</span>
+            <input id="editPsi" type="number" />
+        </label>
 
-            <label>
-                <span>Modes:</span>
-                <input id="editHealth" type="text" />
-            </label>
-        </div>
+        <label class="psion">
+            <span>Modes:</span>
+            <input id="editModes" type="text" />
+        </label>
 
     </div>
 </body>
@@ -176,47 +168,49 @@
     (async () => {
         try {
             const userData = await getUserData();
+            const sources = await getSources();
             const data = userData.data;
             const action = userData.action;
 
             isHidden(action, false);
 
-            setValue("sourceBook", data.sourceBook);
-            setValue("CharacterName", data.name);
-            setValue("description", data.description);
-            setValue("primaryValue", data.primary.value);
-            setValue("primarySummary", data.primary.summary);
-            setValue("secondaryValue", data.secondary.value);
-            setValue("secondarySummary", data.secondary.summary);
-            setValue("desperationValue", data.desperation);
-            setValue("enhancementValue", data.enhancement);
-            setValue("defenseValue", data.defense);
-            setValue("healthValue", data.health);
-            setArray("edgeValues", data.edges);
+            document.title = `${data.name} [Stat Block]`;
+
+            setValue("show-sourceBook", sources[data.sourceBook]);
+            setValue("show-name", data.name);
+            setValue("show-description", data.description);
+            setValue("show-primary-value", data.primary.value);
+            setValue("show-primary-focus", data.primary.focus);
+            setValue("show-secondary-value", data.secondary.value);
+            setValue("show-secondary-focus", data.secondary.focus);
+            setValue("show-desperation", data.desperation);
+            setEnhancements("show-enhancement", data.enhancement);
+            setValue("show-defense", data.defense);
+            setValue("show-health", data.health);
+            setArray("show-edges", data.edges);
 
             if (data.type == "anormaly") {
                 isHidden("talent", true);
                 isHidden("anormaly", false);
                 isHidden("psion", true);
-                setArray("powerValues", data.powers);
+                setArray("show-powers", data.powers);
             }
 
             if (data.type == "talent") {
                 isHidden("talent", false);
                 isHidden("psion", true);
-                setValue("sourceValue", data.source);
-                setArray("giftValues", data.gifts);
+                setValue("show-source", data.source);
+                setArray("show-gifts", data.gifts);
             }
 
             if (data.type == "psion") {
                 isHidden("talent", true);
                 isHidden("psion", false);
-                setValue("psiValue", data.psi);
-                setArray("modeValues", data.modes);
+                setValue("show-psi", data.psi);
+                setArray("show-modes", data.modes);
             }
         } catch (error) {
             console.log(error);
-
         }
     })();
 </script>

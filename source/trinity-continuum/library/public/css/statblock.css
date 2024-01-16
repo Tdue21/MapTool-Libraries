@@ -8,7 +8,7 @@ h1 {
     color: var(--header-color);
     padding:5px;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 #sourceBook {
@@ -19,21 +19,25 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 5px;
-    border: 1px solid black;
 }
 
 #edit label {
     width:100%;
-    border: 1px solid black;
+    vertical-align: top;
 }
 
 #edit span {
     min-width: 120px;
     display: inline-block;
-    border: 1px solid black;
 }
 
 #edit input[type='text'],
+#edit textarea,
 #edit select {
     width:calc(100% - 140px);
+}
+
+#edit .focus {
+    margin-top: 5px;
+    margin-left: 125px;
 }
