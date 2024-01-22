@@ -20,8 +20,8 @@
 		}]
 		[h,if(isGM()==1):maps=maps;maps=visibleMaps]			
 		[h:maps=listsort(maps,"N")]
-		[h:image=tcc.getImage("globe.png")]
-		[h:hidden=tcc.getImage("hidden.png")]
+		[h:image=tcc.getImage("icons/globe.png")]
+		[h:hidden=tcc.getImage("icons/hidden.png")]
 
 		[r:macroLink(strformat("<img class='i32' src='%{image}'>"),"Select Map@" + getMacroLocation())]
 		<div class="submenu">

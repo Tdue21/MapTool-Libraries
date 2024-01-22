@@ -20,6 +20,8 @@
 [h:defineFunction(prefix+"toolTip",      "functions/function.tooltip@"+this)]
 [h:defineFunction(prefix+"writeSetting", "functions/function.writeSetting@"+this)]
 
+[h:defineFunction(prefix+"showStatBlock", "functions/function.showStatBlock@"+this)]
+
 [h:defineFunction(prefix+"clearChat",    "functions/function.clearChat@"+this)]
 [h:defineFunction(prefix+"showSettings", "Campaign Settings@"+this)]
 

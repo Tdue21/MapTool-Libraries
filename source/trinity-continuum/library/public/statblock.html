@@ -2,57 +2,63 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./css/aeon.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/statblock.css" />
-    <script src="./js/statblock.js"></script>
+    <link rel="stylesheet" href="./css/aeon.css?cachelib=false" />
+    <link rel="stylesheet" href="./css/main.css?cachelib=false" />
+    <link rel="stylesheet" href="./css/statblock.css?cachelib=false" />
+    <script src="./js/htmljstools.js?cachelib=false"></script>
+    <script src="./js/statblock.js?cachelib=false"></script>
     <title>Stat Block</title>
 
 </head>
 
 <body>
     <div id="show">
-        <h1>
-            <span id="show-name"></span>
-            <span id="show-sourceBook" style="font-size:14px"></span></h1>
+        <div id="header">
+            <img id="show-token">
+            <span id="show-name" style="grid-row-start: 1;"></span>
+            <label>
+                <span class="bold">Source Book: </span>
+                <span id="show-sourceBook" style="grid-row-start: 2;"></span>
+            </label>
+        </div>
         <div>
             <p id="show-description"></p>
         </div>
 
         <!-- Common stats -->
         <div id="primaryPool">
-            <span style="font-weight: bold;">Primary Pool: </span>
-            <span id="show-primary-value"></span> (<span id="show-primary-focus"></span>)
+            <span class="bold">Primary Pool: </span>
+            <a id="show-primary-value"></a> (<span id="show-primary-focus"></span>)
         </div>
         <div id="secondaryPool">
-            <span style="font-weight: bold;">Secondary Pool: </span>
-            <span id="show-secondary-value"></span> (<span id="show-secondary-focus"></span>)
+            <span class="bold">Secondary Pool: </span>
+            <a id="show-secondary-value"></a> (<span id="show-secondary-focus"></span>)
         </div>
         <div id="desperationPool">
-            <span style="font-weight: bold;">Desperation Pool: </span>
-            <span id="show-desperation"></span>
+            <span class="bold">Desperation Pool: </span>
+            <a id="show-desperation"></a>
         </div>
         <div id="enhancement">
-            <span style="font-weight: bold;">Enhancements: </span>
+            <span class="bold">Enhancements: </span>
             <span id="show-enhancement"></span>
         </div>
         <div id="defense">
-            <span style="font-weight: bold;">Defense: </span>
-            <span id="show-defense"></span>
+            <span class="bold">Defense: </span>
+            <a id="show-defense"></a>
         </div>
         <div id="health">
-            <span style="font-weight: bold;">Health: </span>
+            <span class="bold">Health: </span>
             <span id="show-health"></span>
         </div>
         <div id="edges">
-            <span style="font-weight: bold;">Edges: </span>
+            <span class="bold">Edges: </span>
             <span id="show-edges"></span>
         </div>
 
         <!-- Talent stats -->
         <div id="anormaly" hidden>
             <div id="powers">
-                <span style="font-weight: bold;">Anormaly Powers: </span>
+                <span class="bold">Anormaly Powers: </span>
                 <span id="show-powers"></span>
             </div>
         </div>
@@ -60,11 +66,11 @@
         <!-- Talent stats -->
         <div id="talent" hidden>
             <div id="source">
-                <span style="font-weight: bold;">Source: </span>
+                <span class="bold">Source: </span>
                 <span id="show-source"></span>
             </div>
             <div id="gifts">
-                <span style="font-weight: bold;">Gifts: </span>
+                <span class="bold">Gifts: </span>
                 <span id="show-gifts"></span>
             </div>
         </div>
@@ -72,17 +78,18 @@
         <!-- Psion stats -->
         <div id="psion" hidden>
             <div id="psi">
-                <span style="font-weight: bold;">Psi Trait: </span>
+                <span class="bold">Psi Trait: </span>
                 <span id="show-psi"></span>
             </div>
             <div id="modes">
-                <span style="font-weight: bold;">Modes: </span>
+                <span class="bold">Modes: </span>
                 <span id="show-modes"></span>
             </div>
         </div>
     </div>
 
     <hr />
+
     <div id="edit">
         <label>
             <span>Name:</span>
@@ -176,16 +183,17 @@
 
             document.title = `${data.name} [Stat Block]`;
 
+            setToken("show-token", data.token);
             setValue("show-sourceBook", sources[data.sourceBook]);
             setValue("show-name", data.name);
             setValue("show-description", data.description);
-            setValue("show-primary-value", data.primary.value);
+            setAnchorValue("show-primary-value", data.primary.value);
             setValue("show-primary-focus", data.primary.focus);
-            setValue("show-secondary-value", data.secondary.value);
+            setAnchorValue("show-secondary-value", data.secondary.value);
             setValue("show-secondary-focus", data.secondary.focus);
-            setValue("show-desperation", data.desperation);
+            setAnchorValue("show-desperation", data.desperation);
             setEnhancements("show-enhancement", data.enhancement);
-            setValue("show-defense", data.defense);
+            setAnchorValue("show-defense", data.defense);
             setValue("show-health", data.health);
             setArray("show-edges", data.edges);
 

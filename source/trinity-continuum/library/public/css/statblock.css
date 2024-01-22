@@ -1,18 +1,38 @@
 :root {
     margin: 10px;
+    font-size: 14px;
 }
 
-h1 {
+.bold {
+    font-weight: bold;
+}
+
+#header {
     width: calc(100% - 20px);
     background-color: var(--background-color);
     color: var(--header-color);
     padding:5px;
     display: grid;
-    grid-template-columns: 1fr;
+    column-gap: 5px;
+    row-gap: 0px;
+    grid-template-columns: 64px 1fr;
+    font-size: 1em;
 }
 
-#sourceBook {
-    justify-self: end;
+#header > img {
+    width:64px;
+    height:64px;
+    grid-column: 1;
+    grid-row-start: span 2;
+}
+
+#header > span {
+    grid-column: 2;
+}
+
+#show-name {
+    font-weight: bold;
+    font-size: 2em;
 }
 
 #edit {

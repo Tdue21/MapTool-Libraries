@@ -25,12 +25,14 @@
 )]
 
 <!-- ### Work-around for placing an image on the background, as createMap does not yet understand lib:// uris ### -->
-[h:tokenId=createToken(json.set("{}",
-    "name","Image:StoryGuideScreen",
-    "tokenImage", screenImage,
-    "size","Free",
-    "layer", "Background"))]
-
+[h:tokenId = createToken(
+    json.set("{}",
+        "name","Image:StoryGuideScreen",
+        "tokenImage", screenImage,
+        "size","Free",
+        "layer", "Background"
+    )
+)]
 [h:tokenX = getTokenX(1, tokenId) - (getTokenWidth(tokenId) / 2)]
 [h:tokenY = getTokenY(1, tokenId) - (getTokenHeight(tokenId) / 2)]
 [h:moveToken(tokenX, tokenY, 1, tokenId)]
@@ -38,13 +40,18 @@
 <!-- ### Work-around for creating the necessary GM & Campaign buttons, until createMacro supports this. ### -->
 
 <!-- ### First a lib token for holding the buttons. ### -->
-[h:libImage = "lib://" + ns + "/images/trinity-token.webp"]
-[h:tokenId = createToken(json.set("{}", 
-    "name", "Lib:TrinityCore", 
-    "label", "Trinity Continuum Campaign Macros",
-    "tokenImage", libImage,
-    "x", 0,
-    "y", 0))]
+[h:libImage = "lib://" + ns + "/images/tokens/trinity-token.webp"]
+[h:tokenId = createToken(
+    json.set("{}", 
+        "name", "Lib:TrinityCore", 
+        "label", "Trinity Continuum Campaign Macros",
+        "tokenImage", libImage,
+        "layer", "Token",
+        "size", "0",
+        "x", 0,
+        "y", 0
+    )
+)]
 
 <!-- ### Create the Campaign Settings button ### -->
 [h:macroParams  = json.set("{}", 

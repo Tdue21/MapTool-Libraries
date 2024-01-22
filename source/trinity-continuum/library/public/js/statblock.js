@@ -3,6 +3,7 @@
 async function getUserData() {
     // Mock data
     if(typeof MapTool === typeof undefined) {
+        console.log("MOCK!");
         let rawData = await fetch("./data/personae.json");
         let personae = await rawData.json();
         return {
@@ -11,7 +12,10 @@ async function getUserData() {
         }
     }
     else {
-        return MapTool.getUserData();
+        MapTool.log("MAPTOOL!!");
+        var data = await MapTool.getUserData();
+
+        return JSON.parse(data);
     }
 }
 
@@ -31,6 +35,22 @@ function setValue(id, value) {
     const element = document.getElementById(id);
     if (element != null) {
         element.innerText = value;
+    }
+}
+
+function setAnchorValue(id, value) {
+    const element = document.getElementById(id);
+    const target = 8;
+    if (element != null) {
+        element.innerText = value;
+        element.href = `lib://functions/function.rollDicePool@net.dovesoft.trinity-continuum?dice=${value}&target=${target}&cachelib=false`
+    }
+}
+
+function setToken(id, value) {
+    const element = document.getElementById(id);
+    if (element != null) {
+        element.src = value;
     }
 }
 

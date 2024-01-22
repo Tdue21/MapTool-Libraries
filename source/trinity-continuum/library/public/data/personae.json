@@ -24,6 +24,7 @@
             "sniper": 2
         },
         "initiative": 3,      
+        "token":"images/tokens/johan-token.png",
         "sourceBook": "TCC"
     },
     {
@@ -55,6 +56,7 @@
             "Get the Drop": 0,
             "Sharpshooter": 0
         },
+        "token":"images/tokens/lilly-token.png",
         "sourceBook": "TCC"
     },
     {
@@ -84,6 +86,7 @@
             "Device Mogul": 0,
             "Slip the Cuffs": 0
         },
+        "token":"images/tokens/francis-token.png",
         "sourceBook": "TCC"
     },
     {
@@ -116,12 +119,13 @@
             "Telekinesis": 3,
             "Perikinesis": 4
         },
+        "token":"images/tokens/legion-token.png",
         "sourceBook": "AEON"
     },
     {
         "type": "psion",
         "name": "Ministry Telepath",
-        "description": "Jinhai never really expected to amount to much. He studied hard and diligently, but he suffered badly from impostor syndrome, convinced that at any moment everyone would see through the facade and perceive the nervous, scared, uncertain young man behind it for what he really was. Then his latent psionic powers became evident and, again, every day he expected it to turn out to be a false positive and be yanked away, even up to the very moment he was immersed into the Ministry’s Prometheus Chamber. Now, as a telepath, Jinhai has mastered the flaws of his own mind, and has seen the truth in everyone else’s — they’re all just as scared and uncertain as he was. He loves humanity for this shared selfdoubt, but also believes that it shows the need for the Ministry’s work; humans are flawed and fragile creatures and require the firm, guiding hand of the order to protect them and keep them on the righteous path. Any suggestion that he might still share those flaws himself will quickly crack his serene facade.",
+        "description": "Jinhai never really expected to amount to much. He studied hard and diligently, but he suffered badly from impostor syndrome, convinced that at any moment everyone would see through the facade and perceive the nervous, scared, uncertain young man behind it for what he really was. Then his latent psionic powers became evident and, again, every day he expected it to turn out to be a false positive and be yanked away, even up to the very moment he was immersed into the Ministry's Prometheus Chamber. Now, as a telepath, Jinhai has mastered the flaws of his own mind, and has seen the truth in everyone else's — they're all just as scared and uncertain as he was. He loves humanity for this shared selfdoubt, but also believes that it shows the need for the Ministry's work - humans are flawed and fragile creatures and require the firm, guiding hand of the order to protect them and keep them on the righteous path. Any suggestion that he might still share those flaws himself will quickly crack his serene facade.",
         "primary": {
             "value": 11,
             "focus":"social science and social work"
@@ -148,6 +152,7 @@
             "Mindshare": 3,
             "Psychbending": 2
         },
+        "token":"images/tokens/ministry-token.png",
         "sourceBook": "AEON"
     },
     {
@@ -172,12 +177,21 @@
             "": 0
         },
         "initiative": 0,
+        "source": 0,
+        "gifts":{
+            "gift 1":0
+        },
+        "powers":{
+            "power 1":0
+        },
         "psi": 0,
         "modes": {
             "mode 1": 0,
             "mode 2": 0,
             "mode 3": 0
         },
+        "token":null,
+        "portrait":null,
         "sourceBook": "tcc"
     }
 ]
