@@ -42,7 +42,7 @@ class MT {
      * @returns {boolean} 
      */
     static async isGM(player = undefined) {
-        let result = (player != undefined) 
+        let result = (player != undefined)
             ? evaluateMacro(`[r:isGM("${player}")]`)
             : evaluateMacro(`[r:isGM()]`);
         return Number(await result) == 1;
@@ -72,7 +72,17 @@ class MT {
      * @returns {String}
      */
     static async getLibProperty(name, ns) {
-        return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
+
+        if (typeof MapTool === typeof undefined) {
+            if (name === "Personae") {
+                return (await fetch("./data/personae.json")).text();
+            } else if (name === "Sources") {
+                return (await fetch("./data/sources.json")).text();
+            }
+        }
+        else {
+            return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
+        }
     }
 
     /**
@@ -86,4 +96,11 @@ class MT {
         return await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`);
     }
 
+    static async macroLinkText(macroName, output, args, target) {
+        if (typeof MapTool === typeof undefined) {
+            return `macro://${macroName}/${output}/${target}?${JSON.stringify(args)}`;
+        } else {
+            return await evaluateMacro(`[r:macroLinkText("${macroName}", "${output}", "${args}", "${target}")]`);
+        }
+    }
 }
