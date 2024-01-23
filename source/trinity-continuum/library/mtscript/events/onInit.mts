@@ -4,6 +4,7 @@
 [h:defineFunction(prefix+"statBlock",    "Statblock Dialog@"+this)]
 [h:defineFunction(prefix+"loading",      "overlay/loading@"+this)]
 [h:defineFunction(prefix+"manageTraits", "Manage Traits@"+this)]
+[h:defineFunction(prefix+"personae",     "Manage Dramatis Personae@"+this)]
 
 [h:defineFunction(prefix+"debugLog",     "functions/function.debugLog@"+this)]
 [h:defineFunction(prefix+"dicePool",     "functions/function.dicePool@"+this)]

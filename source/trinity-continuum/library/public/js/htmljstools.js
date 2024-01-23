@@ -20,8 +20,11 @@ function logError(message, error = undefined) {
  */
 async function evaluateMacro(macro) {
     try {
-        let r = await fetch("./macro/EvaluateMacro", { method: "POST", body: macro });
-        return await r.text();
+        let uri = "macro:EvaluateMacro@lib:net.dovesoft.trinity-continuum";
+        let r = await fetch(uri, { method: "POST", body: macro });
+        let result = await r.text();
+        return result;
+
     } catch (error) {
         console.log(error.stack);
     }
@@ -96,11 +99,11 @@ class MT {
         return await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`);
     }
 
+    static async macroLinkText(macroName, args) {
+        return await evaluateMacro(`[r:macroLinkText("${macroName}", "", "${args}")]`);
+    }
+
     static async macroLinkText(macroName, output, args, target) {
-        if (typeof MapTool === typeof undefined) {
-            return `macro://${macroName}/${output}/${target}?${JSON.stringify(args)}`;
-        } else {
-            return await evaluateMacro(`[r:macroLinkText("${macroName}", "${output}", "${args}", "${target}")]`);
-        }
+        return await evaluateMacro(`[r:macroLinkText("${macroName}", "${output}", "${args}", "${target}")]`);
     }
 }

@@ -67,6 +67,17 @@
 			</td>
 		</tr>
 	</table>
+
+	<table class="settings">
+		<caption>Compendium</caption>
+		<tr>
+			<td>[r:macroLink("Dramatis Personae", "Manage Dramatis Personae@this", "", "")]</td>
+			<td>
+				[h:personae=getLibProperty("Personae", getMacroLocation())]
+				[r:json.length(personae)]
+			</td>
+		</tr>
+	</table>
 	</div>
 
 </body>

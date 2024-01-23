@@ -1,27 +1,14 @@
 "use strict";
 
 async function getUserData() {
-    // Mock data
-    if(typeof MapTool === typeof undefined) {
-        console.log("MOCK!");
-        let rawData = await fetch("./data/personae.json");
-        let personae = await rawData.json();
-        return {
-            action: "edit",
-            data: personae[4]
-        }
-    }
-    else {
-        MapTool.log("MAPTOOL!!");
-        var data = await MapTool.getUserData();
-
-        return JSON.parse(data);
-    }
+    var data = await MapTool.getUserData();
+    console.log(data);
+    return JSON.parse(atob(data));
 }
 
 async function getSources() {
     // Mock data
-    if(typeof MapTool === typeof undefined) {
+    if (typeof MapTool === typeof undefined) {
         let rawData = await fetch("./data/sources.json");
         let sources = await rawData.json();
         return sources;

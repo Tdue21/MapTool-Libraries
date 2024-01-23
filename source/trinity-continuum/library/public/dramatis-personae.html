@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="./css/main.css?cachelib=false" />
 
     <script src="./js/htmljstools.js?cachelib=false"></script>
+    <title>Dramatis Personae</title>
 </head>
 
 <body>
-    <div id="personae-dramatis" style="margin:5px">
+    <div id="dramatis-personae" style="margin:5px">
         <table id="personae" class="settings">
+
+            <caption>Dramatis Personae</caption>
             <thead>
                 <tr>
                     <th style="text-align: left;">Name</th>
@@ -38,12 +41,11 @@
         </tr>
     </template>
 
-    <script async type="text/javascript">
+    <script defer type="text/javascript">
         (async () => {
             try {
                 const table = document.getElementById("personae-body");
                 const template = document.getElementById("personae-template");
-
                 const sources = JSON.parse(await MT.getLibProperty("Sources", "net.dovesoft.trinity-continuum"));
                 const personaes = JSON.parse(await MT.getLibProperty("Personae", "net.dovesoft.trinity-continuum"));
 
@@ -54,15 +56,15 @@
 
                         let a = document.createElement("a");
                         a.textContent = person.name;
-                        a.href = await MT.macroLinkText("functions/function.showStatBlock@this", "", { "action": "show", "data": person }, "");
+                        a.href = await MT.macroLinkText("functions/function.showStatBlock@this", "", btoa(JSON.stringify( { action: "show", data: person } )), "");
                         td[0].appendChild(a);
                         td[1].textContent = person.type;
                         td[2].textContent = sources[person.sourceBook];
 
                         let as = td[3].querySelectorAll("a");
-                        as[0].href = await MT.macroLinkText("functions/function.createToken@this", "", person, "");
-                        as[1].href = await MT.macroLinkText("functions/function.showStatBlock@this", "", { "action": "edit", "data": person }, "");
-                        as[2].href = await MT.macroLinkText("functions/function.deleteStatBlock@this", "", person, "");
+                        as[0].href = await MT.macroLinkText("functions/function.createToken@this", "", btoa(JSON.stringify(person)), "");
+                        as[1].href = await MT.macroLinkText("functions/function.showStatBlock@this", "", btoa(JSON.stringify( { action: "edit", data: person } )), "");
+                        as[2].href = await MT.macroLinkText("functions/function.deleteStatBlock@this", "", btoa(JSON.stringify(person)), "");
 
                         table.appendChild(clone);
                     }
