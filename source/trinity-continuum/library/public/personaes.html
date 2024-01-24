@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="./js/dynamictheme.js?cachelib=false"></script>
+
+    <link rel="stylesheet" href="./css/main.css?cachelib=false" />
+
+    <script src="./js/htmljstools.js?cachelib=false"></script>
+</head>
+
+<body>
+    <div id="personae-dramatis" style="margin:5px">
+        <table id="personae" class="settings">
+            <caption>Dramatis Personae</caption>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Name</th>
+                    <th style="text-align: left;">Type</th>
+                    <th style="text-align: left;">Source</th>
+                    <th style="text-align: right;">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="personae-body">
+            </tbody>
+        </table>
+
+        <a id="add-personae" href="#">[+] Add</a>
+    </div>
+
+    <template id="personae-template">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="#" title="Make Token"><img width="24" height="24" src="./images/icons/coin.png"></a>
+                <a href="#" title="Edit"><img width="24" height="24" src="./images/icons/pencil.png"></a>
+                <a href="#" title="Delete"><img width="24" height="24" src="./images/icons/trashcan.png"></a>
+            </td>
+        </tr>
+    </template>
+
+    <script async type="text/javascript">
+        (async () => {
+            try {
+                const sources = JSON.parse(await MT.getLibProperty("Sources"));
+                const personaes = JSON.parse(await MT.getLibProperty("Personae"));
+
+                const table = document.getElementById("personae-body");
+                const template = document.getElementById("personae-template");
+                const addPerson = document.getElementById("add-personae");
+                addPerson.href = MT.macroLinkText("functions/function.showStatBlock@this", (JSON.stringify({ "action": "create", "data": null })));
+
+                
+                // https://gist.github.com/DanDiplo/30528387da41332ff22b
+                for (let person of personaes.filter(p => p.type != "template")) {
+                    const clone = template.content.cloneNode(true);
+                    let td = clone.querySelectorAll("td");
+
+                    let a = document.createElement("a");
+                    a.textContent = person.name;
+                    a.href = await MT.macroLinkText("functions/function.showStatBlock@this", (JSON.stringify({ "action": "show", "data": person })));
+                    td[0].appendChild(a);
+                    td[1].textContent = person.type;
+                    td[2].textContent = sources[person.sourceBook];
+
+                    let as = td[3].querySelectorAll("a");
+                    as[0].href = await MT.macroLinkText("functions/function.createToken@this", (JSON.stringify(person)));
+                    as[1].href = await MT.macroLinkText("functions/function.showStatBlock@this", (JSON.stringify({ "action": "edit", "data": person })));
+                    as[2].href = await MT.macroLinkText("functions/function.deleteStatBlock@this", (JSON.stringify(person)));
+
+                    table.appendChild(clone);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+
+    </script>
+
+</body>
+
+</html>

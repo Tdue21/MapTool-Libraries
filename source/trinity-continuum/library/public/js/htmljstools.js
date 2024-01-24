@@ -1,5 +1,49 @@
 "use strict";
 
+if (typeof MapTool === typeof undefined) {
+
+    console.log("No MapTool found!");
+
+    window.MapTool = {
+
+        mocked: true,
+
+        userdata: "",
+
+        getName() { return "name" },
+
+        getKind() { return "kind" },
+
+        log(data) { console.log(data) },
+
+        async getUserData() { return userdata; },
+
+        async fetch(data) {
+
+            if (data.includes("getPlayerName")) { return "mock-player"; } else
+
+            if (data.includes("isGM")) { return true; } else
+
+            if (data.includes("library.getInfo")) { return (await fetch("../../library.json")).text(); } else
+
+            if (data.includes("setLibProperty")) { console.log("MOCK: Writing data to lib property."); } else
+
+            if (data.includes("getLibProperty")) {
+
+                if (data.includes("Personae")) { return (await fetch("./data/personae.json")).text(); } else
+
+                if (data.includes("Sources")) { return (await fetch("./data/sources.json")).text(); } else
+
+                if (data.includes("Themes")) { return (await fetch("./data/themes.json")).text(); } else
+
+                if (data.includes("Traits")) { return (await fetch("./data/traits.json")).text(); }
+
+            } 
+
+        }
+    };
+}
+
 /**
  * 
  * @param {String} message 
@@ -19,91 +63,62 @@ function logError(message, error = undefined) {
  * @param {Object} callBack 
  */
 async function evaluateMacro(macro) {
-    try {
-        let uri = "macro:EvaluateMacro@lib:net.dovesoft.trinity-continuum";
-        let r = await fetch(uri, { method: "POST", body: macro });
-        let result = await r.text();
-        return result;
+    if (MapTool.mocked) {
+        return await MapTool.fetch(macro);
+    }
+    else {
+        try {
+            let uri = "macro:EvaluateMacro@lib:net.dovesoft.trinity-continuum";
+            let r = await fetch(uri, { method: "POST", body: macro });
+            let result = await r.text();
+            return result;
 
-    } catch (error) {
-        console.log(error.stack);
+        } catch (error) {
+            console.log(error.stack);
+        }
     }
 }
 
 class MT {
 
-    /**
-     * Returns the name of the player for the client that it executes on. 
-     * @returns {String}
-     */
     static async getPlayerName() {
         return await evaluateMacro("[r:getPlayerName()]");
     }
 
-    /**
-     * @param {String} player
-     * @returns {boolean} 
-     */
-    static async isGM(player = undefined) {
-        let result = (player != undefined)
-            ? evaluateMacro(`[r:isGM("${player}")]`)
-            : evaluateMacro(`[r:isGM()]`);
-        return Number(await result) == 1;
+    static async isGM() {
+        return Number(await evaluateMacro(`[r:isGM()]`)) == 1;
     }
 
-    /**
-     * 
-     * @param {String} ns 
-     * @returns {String}
-     */
     static async getLibraryInfo(ns) {
         return await evaluateMacro(`[r:library.getInfo("${ns}")]`);
     }
 
-    /**
-     * 
-     * @param {String} topic 
-     * @returns {String}
-     */
     static async getInfo(topic) {
         return await evaluateMacro(`[r:getInfo("${topic}")]`);
     }
-    /**
-     * 
-     * @param {String} name 
-     * @param {String} ns 
-     * @returns {String}
-     */
-    static async getLibProperty(name, ns) {
 
-        if (typeof MapTool === typeof undefined) {
-            if (name === "Personae") {
-                return (await fetch("./data/personae.json")).text();
-            } else if (name === "Sources") {
-                return (await fetch("./data/sources.json")).text();
-            }
-        }
-        else {
-            return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
-        }
+    static async getLibProperty(name, ns = "net.dovesoft.trinity-continuum") {
+        return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
     }
 
-    /**
-     * 
-     * @param {String} name 
-     * @param {String} value 
-     * @param {String} ns 
-     * @returns {String}
-     */
-    static async setLibProperty(name, value, ns) {
+    static async setLibProperty(name, value, ns = "net.dovesoft.trinity-continuum") {
         return await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`);
     }
 
     static async macroLinkText(macroName, args) {
-        return await evaluateMacro(`[r:macroLinkText("${macroName}", "", "${args}")]`);
-    }
-
-    static async macroLinkText(macroName, output, args, target) {
-        return await evaluateMacro(`[r:macroLinkText("${macroName}", "${output}", "${args}", "${target}")]`);
+        if(!MapTool.mocked) {
+            return await evaluateMacro(`[r:macroLinkText("${macroName}", "", "${args}")]`);
+        } else {
+            MapTool.userdata = args;
+            if(macroName.includes("createToken"    )) { 
+                return "#createToken?args=" + args; 
+            } else
+            if(macroName.includes("showStatBlock"  )) { 
+                return "./statblock.html?args=" + args; 
+            } 
+            else if(macroName.includes("deleteStatBlock")) { 
+                return "#delete?args=" + args; 
+            }
+        }
     }
 }

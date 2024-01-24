@@ -1,5 +1,5 @@
 async function loadThemeStyle() {
-    let theme = (typeof MapTool === typeof undefined) ? "aeon" : (await evaluateMacro("[r:tcc.getTheme()]"));
+    let theme = MapTool.mocked ? "aeon" : (await evaluateMacro("[r:tcc.getTheme()]"));
     let styles = document.createElement('link');
 
     styles.rel = 'stylesheet';

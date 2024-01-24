@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script async src="./js/dynamictheme.js?cachelib=false"></script>
+    <script defer src="./js/dynamictheme.js?cachelib=false"></script>
 
     <link rel="stylesheet" href="./css/main.css?cachelib=false" />
     <link rel="stylesheet" href="./css/statblock.css?cachelib=false" />
@@ -175,7 +175,14 @@
 <script>
     (async () => {
         try {
-            const userData = await getUserData();
+            if (MapTool.mocked) {
+                const args = (new URLSearchParams(window.location.search)).get("args");
+                MapTool.userdata = args;
+                console.log(MapTool.userdata);
+            }
+
+
+            const userData = await MapTool.getUserData();
             const sources = await getSources();
             const data = userData.data;
             const action = userData.action;
