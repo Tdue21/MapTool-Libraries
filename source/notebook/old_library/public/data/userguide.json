@@ -9,19 +9,19 @@
         "pages": [
             {
                 "name": "0. Introduction",
-                "uri": "./data/userguide_intro.md"
+                "uri": "/public/data/docs/userguide_intro.md"
             },
             {
                 "name": "1. Basic Use",
-                "uri": "./data/userguide_basics.md"
+                "uri": "/public/data/docs/userguide_basics.md"
             },
             {
                 "name": "2. Syntax",
-                "uri": "./data/userguide_syntax.md"
+                "uri": "/public/data/docs/userguide_syntax.md"
             },
             {
                 "name": "3. Changelog",
-                "uri": "./data/userguide_changelog.md"
+                "uri": "/public/data/docs/userguide_changelog.md"
             }
         ]
     }

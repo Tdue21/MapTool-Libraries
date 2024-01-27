@@ -1,0 +1,1 @@
+[html.dialog5("About Notebooks", "lib://" + dsnb.getNamespace() + "/about.html", "width=500; height=450; temporary=1; noframe=0; input=1")]

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/common.css?cachelib=false">
+    <link rel="stylesheet" type="text/css" href="./css/show.css?cachelib=false">
+
+    <script src="./js/mocks.js?cachelib=false"></script>
+    <script src="./js/maptool.js?cachelib=false"></script>
+    <script src="./js/tinycolor.min.js?cachelib=false"></script>
+    <script src="./js/marked.umd.min.js?cachelib=false"></script>
+    <script src="./js/purify.min.js?cachelib=false"></script>
+</head>
+
+<body>
+    <div id="bookHeader">
+        <h1>
+            <img id="bookIcon" src="./images/quill-paper.png">
+            <span id="bookTitle"></span>
+            <img id="editBook" src="./images/edit.png">
+        </h1>
+    </div>
+
+    <div id="bookContent">
+        <div id="indexPanel">
+            <h2><span id="pageHeader">Pages</span></h2>
+            <ul id="pageIndex">
+                <li>
+                    <div class="entry">
+                        <span id="summaryEntry">Summary</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="pagePanel"></div>
+    </div>
+
+    <div id="bookFooter">
+        <table style="width:100%;margin:0px;padding:0px;border-collapse: collapse;">
+            <tr style="background-color:transparent">
+                <td style="text-align:left;color:var(--accent-fg)">
+                    <span><b>Owner:</b></span>&nbsp;
+                    <span id="footerOwner"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        (async () => {
+            try {
+                const rawdata = await MapTool.getUserData();
+                let userData = JSON.parse(atob(rawdata));
+                console.log(userData);
+
+                let root = document.documentElement;
+                let title = document.getElementById("bookTitle");
+                let summary = document.getElementById("summaryEntry");
+                let owner = document.getElementById("footerOwner");
+
+                let indexPanel = document.getElementById("indexPanel");
+                let pageIndex = document.getElementById("pageIndex");
+                let pagePanel = document.getElementById("pagePanel");
+                let editBook = document.getElementById("editBook");
+
+                pagePanel.innerHTML = MD.parse(userData.summary);
+
+                title.innerText = userData.title;
+                owner.innerText = userData.owner;
+
+                let tc = tinycolor(userData.accent ? userData.accent : "#a8a5ca");
+
+                let bg = tc.toHexString();
+                let fg = tc.isLight() ? 'black' : 'white';
+                let hbg = tc.darken(10).toHexString();
+                let hfg = tinycolor(hbg).isLight() ? 'black' : 'white';
+                let abg = tc.darken(20).toHexString();
+                let afg = tinycolor(abg).isLight() ? 'black' : 'white';
+
+                root.style.setProperty('--accent-bg', bg);
+                root.style.setProperty('--accent-hover-bg', hbg);
+                root.style.setProperty('--accent-active-bg', abg);
+
+                root.style.setProperty('--accent-fg', fg);
+                root.style.setProperty('--accent-hover-fg', hfg);
+                root.style.setProperty('--accent-active-fg', afg);
+
+                summary.addEventListener("click", event => pagePanel.innerHTML = MD.parse(userData.summary));
+                userData.pages.forEach(page => pageIndex.appendChild(createPageLink(page.name)));
+
+                function createPageLink(pageName) {
+                    let link = Utils.createElement("span", {
+                        id: btoa(pageName),
+                        innerText: pageName
+                    });
+
+                    let item = Utils.createElement("li", null, [
+                        Utils.createElement("div", { className: "entry" }, [link])
+                    ]);
+
+                    link.addEventListener("click", async event => {
+                        await showPage(event.target.id);
+                    });
+
+                    return item;
+                }
+
+                async function showPage(pageId) {
+                    let name = atob(pageId);
+                    let page = userData.pages.find(page => page.name === name);
+                    if(page.uri) {
+                        let rawdata = await fetch(page.uri);
+                        let content = await rawdata.text();
+                        pagePanel.innerHTML = marked.parse(content);                    
+                    } else {
+                        pagePanel.innerHTML = page.uri;
+                    }
+
+                    console.log(name);
+                }
+
+            } catch (error) {
+                console.error(error.stack);
+            }
+        })();
+    </script>
+</body>
+
+</html>

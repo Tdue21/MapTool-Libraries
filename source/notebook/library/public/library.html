@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/common.css?cachelib=false">
+    <link rel="stylesheet" type="text/css" href="./css/tooltip.css?cachelib=false">
+    <link rel="stylesheet" type="text/css" href="./css/library.css?cachelib=false">
+
+    <script src="./js/mocks.js?cachelib=false"></script>
+    <script src="./js/maptool.js?cachelib=false"></script>
+
+</head>
+
+<body>
+    <h1>Available Notebooks</h1>
+    <ul id="booksList">
+
+    </ul>
+
+    <div style="position:fixed;left:5px;bottom:5px;">
+        <input id="frame" type="checkbox">
+        <label for="frame">Open as frame</label>
+    </div>
+
+    <script>
+        (async () => {
+            try {
+                const rawdata = await MapTool.getUserData();
+                let userData = JSON.parse(atob(rawdata));
+                let frame = document.getElementById("frame");
+                frame.checked = userData.userPrefs.asFrame;
+
+                frame.addEventListener("change", event => {
+                    userData.userPrefs.asFrame = event.target.checked;
+                    MT.setUserPreferences(userData.playerName, userData.userPrefs);
+                });
+
+                let booksList = document.getElementById("booksList");
+
+                for (let book of userData.notebooks) {
+
+                    let button = Utils.createElement("button",
+                        {
+                            id: btoa(book.title),
+                            className: "button",
+                            title: decodeURIComponent(book.summary)
+                        },
+                        [
+                            Utils.createElement("p", {
+                                style: `--accent-bg:${book.accent}`,
+                                className: "accent",
+                                innerText: decodeURIComponent(book.title)
+                            }),
+                            Utils.createElement("img", {
+                                src: "./images/key.png",
+                                title: `Owner: ${book.owner}`,
+                                width: book.private ? "16" : "0",
+                                height: book.private ? "16" : "0"
+                            })
+                        ]);
+
+                    button.addEventListener("click", e => {
+                        let data = {
+                            book: book,
+                            asFrame: this.userData.userPrefs.asFrame
+                        };
+                        MT.openBook(btoa(JSON.stringify(data)));
+                    });
+
+                    this.booksList.appendChild(Utils.createElement("li", null, [button]));
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    </script>
+</body>
+
+</html>
