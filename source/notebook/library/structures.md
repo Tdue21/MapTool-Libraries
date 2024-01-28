@@ -7,19 +7,6 @@ The document is intended for internal use, but is a part of the add-on
 for others to peruse, should they wish to dig into the inner workings
 of the library. 
 
-## UserPreferences
-The user preferences structure is saved as a librarty property called 
-`userPreferences`, it is a json object that follows this structure:
-
-```json
-{
-    "player":{
-        "asFrame":"true"
-    }
-}
-```
-A dictionary of player names, with each value containing the user preferences
-for that player. The preferences themselves are just another dictionary. 
 
 ## Notebooks
 The individual notebooks are stores as a json array in a library property 

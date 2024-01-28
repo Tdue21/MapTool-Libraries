@@ -24,5 +24,23 @@
                 "uri": "./data/userguide_changelog.md"
             }
         ]
+    },
+    {
+        "title": "Test Notes",
+        "summary": "This notebook is a test",
+        "owner": "net.dovesoft.notebook",
+        "private": false,
+        "accent": "#61003E",
+        "readonly": true,
+        "pages": [
+            {
+                "name": "first page",
+                "content": "This is the first page"
+            },
+            {
+                "name": "second page",
+                "content": "This is the second page"
+            }
+        ]
     }
 ]

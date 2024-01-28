@@ -1,14 +1,14 @@
 <!-- Setting up User Defined Functions -->
 [h:prefix = "dsnb."]
 [h:this = getMacroLocation()]
-[h:defineFunction("debugLog",           "functions/debugLog@"+this)]
+[h:defineFunction(prefix+"debugLog",           "public/debugLog@"+this)]
+[h:defineFunction(prefix+"doDebug",            "public/doDebug@"+this)]
 
-[h:defineFunction(prefix+"compareVersions",   "functions/compareVersions@"+this)]
-[h:defineFunction(prefix+"doDebug",           "functions/doDebug@"+this)]
-[h:defineFunction(prefix+"getLatestVersion",  "functions/getLatestVersion@"+this)]
-[h:defineFunction(prefix+"getLibraryVersion", "functions/getLibraryVersion@"+this)]
-[h:defineFunction(prefix+"getNamespace",      "functions/getNamespace@"+this)]
-[h:defineFunction(prefix+"getRecord",         "functions/getRecord@"+this)]
+[h:defineFunction(prefix+"compareVersions",    "functions/compareVersions@"+this)]
+[h:defineFunction(prefix+"getLatestVersion",   "functions/getLatestVersion@"+this)]
+[h:defineFunction(prefix+"getLibraryVersion",  "functions/getLibraryVersion@"+this)]
+[h:defineFunction(prefix+"getNamespace",       "functions/getNamespace@"+this)]
+[h:defineFunction(prefix+"getRecord",          "functions/getRecord@"+this)]
 
 [h:defineFunction(prefix+"showWelcome", "showWelcome@"+this)]
 [h:defineFunction(prefix+"showAbout",   "showAbout@"+this)]

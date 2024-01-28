@@ -52,7 +52,6 @@
             try {
                 const rawdata = await MapTool.getUserData();
                 let userData = JSON.parse(atob(rawdata));
-                console.log(userData);
 
                 let root = document.documentElement;
                 let title = document.getElementById("bookTitle");
@@ -112,12 +111,10 @@
                     if(page.uri) {
                         let rawdata = await fetch(page.uri);
                         let content = await rawdata.text();
-                        pagePanel.innerHTML = marked.parse(content);                    
+                        pagePanel.innerHTML = MD.parse(content);                    
                     } else {
-                        pagePanel.innerHTML = page.uri;
+                        pagePanel.innerHTML = MD.parse(page.content);
                     }
-
-                    console.log(name);
                 }
 
             } catch (error) {

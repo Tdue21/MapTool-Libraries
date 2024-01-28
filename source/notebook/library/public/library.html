@@ -14,11 +14,10 @@
 <body>
     <h1>Available Notebooks</h1>
     <ul id="booksList">
-
     </ul>
 
     <div style="position:fixed;left:5px;bottom:5px;">
-        <input id="frame" type="checkbox">
+        <input id="frame" type="checkbox" />
         <label for="frame">Open as frame</label>
     </div>
 
@@ -28,11 +27,14 @@
                 const rawdata = await MapTool.getUserData();
                 let userData = JSON.parse(atob(rawdata));
                 let frame = document.getElementById("frame");
-                frame.checked = userData.userPrefs.asFrame;
+                frame.checked = userData.asFrame;
 
-                frame.addEventListener("change", event => {
-                    userData.userPrefs.asFrame = event.target.checked;
-                    MT.setUserPreferences(userData.playerName, userData.userPrefs);
+                frame.addEventListener("change", async event => {
+                    try {
+                        await MT.setLibProperty("asFrame", event.target.checked ? 1 : 0);
+                    } catch (err) {
+                        console.log(err);
+                    }
                 });
 
                 let booksList = document.getElementById("booksList");
@@ -59,12 +61,12 @@
                             })
                         ]);
 
-                    button.addEventListener("click", e => {
-                        let data = {
-                            book: book,
-                            asFrame: this.userData.userPrefs.asFrame
-                        };
-                        MT.openBook(btoa(JSON.stringify(data)));
+                    button.addEventListener("click", async () => {
+                        try {
+                            await MT.showBook('show', btoa(JSON.stringify(book)), frame.checked);
+                        } catch (err) {
+                            console.log(err);
+                        }
                     });
 
                     this.booksList.appendChild(Utils.createElement("li", null, [button]));

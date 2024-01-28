@@ -23,9 +23,7 @@ if (typeof MapTool === typeof undefined) {
                 let userData = {
                     isGM: true,
                     playerName: "Gertrude",
-                    userPrefs: {
-                        asFrame: true
-                    },
+                    asFrame: true,
                     notebooks: notebooks
                 };
 

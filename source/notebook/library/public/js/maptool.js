@@ -7,9 +7,9 @@ class MT {
     static async debugLog(message) {
         try {
             //let uri = "lib://lib:net.dovesoft.notebook/macro/functions/doDebug";
-            //let uri = "lib://net.dovesoft.notebook/macro/functions/doDebug";
+            //let uri = "lib://net.dovesoft.notebook/macro/doDebug";
             //let uri = "lib:net.dovesoft.notebook/macro/functions/doDebug";
-            let uri = "macro:functions/doDebug@lib:net.dovesoft.notebook";
+            let uri = "macro:doDebug@lib:net.dovesoft.notebook";
             let r = await fetch(uri, { method: "POST", body: null });
             let result = await r.text();
             if (Number(result) === 1) {
@@ -24,6 +24,7 @@ class MT {
         await this.debugLog("MT.evaluateMacro: " + macro);
 
         try {
+            //let uri = "lib://" + defNs + "/macro/EvaluateMacro";
             let uri = "macro:EvaluateMacro@lib:" + defNs;
             let r = await fetch(uri, { method: "POST", body: macro });
             let result = await r.text();
@@ -35,40 +36,32 @@ class MT {
     }
 
     static async getPlayerName() {
-        return await evaluateMacro("[r:getPlayerName()]");
+        return await this.evaluateMacro("[r:getPlayerName()]");
     }
 
     static async isGM() {
-        return Number(await evaluateMacro(`[r:isGM()]`)) == 1;
+        return Number(await this.evaluateMacro(`[r:isGM()]`)) == 1;
     }
 
     static async getInfo(topic) {
-        return await evaluateMacro(`[r:getInfo("${topic}")]`);
+        return await this.evaluateMacro(`[r:getInfo("${topic}")]`);
     }
 
     static async getLibProperty(name, ns = defNs) {
-        return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
+        return await this.evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
     }
 
     static async setLibProperty(name, value, ns = defNs) {
-        return await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`);
+        await this.evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`);
     }
 
-    static async getUserPreferences(name) {
-        return null;
-    }
-
-    static async setUserPreferences(name, userPrefs) {
-        console.log(`${name}: ${JSON.stringify(userPrefs)}`);
-    }
-
-    static async openBook(userData) {
-        console.log(JSON.parse(atob(userData)));
+    static async showBook(action, notebook, asFrame) {
+        await this.evaluateMacro(`[h:dsnb.showBook("${action}", "${notebook}", ${asFrame})]`);
     }
 
     static async macroLinkText(macroName, args) {
         if (!MapTool.mocked) {
-            return await evaluateMacro(`[r:macroLinkText("${macroName}", "", "${args}")]`);
+            return await this.evaluateMacro(`[r:macroLinkText("${macroName}", "", "${args}")]`);
         } else {
             MapTool.userdata = args;
             if (macroName.includes("createToken")) {
@@ -87,25 +80,28 @@ class MT {
 class Utils {
 
     static createElement(type, options = null, children = [], eventListener = null) {
+        try {
+            let element = document.createElement(type);
 
-        let element = document.createElement(type);
-
-        if (options != null) {
-            let keys = Object.keys(options);
-            for (let prop of keys) {
-                element[prop] = options[prop];
+            if (options != null) {
+                let keys = Object.keys(options);
+                for (let prop of keys) {
+                    element[prop] = options[prop];
+                }
             }
-        }
 
-        for (let child of children) {
-            element.appendChild(child);
-        }
+            for (let child of children) {
+                element.appendChild(child);
+            }
 
-        if (eventListener != null) {
-            element.addEventListener(eventListener.type, e => eventListener.func(e));
-        }
+            if (eventListener != null) {
+                element.addEventListener(eventListener.type, e => eventListener.func(e));
+            }
 
-        return element;
+            return element;
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

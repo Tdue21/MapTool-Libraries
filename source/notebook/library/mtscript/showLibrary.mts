@@ -1,14 +1,12 @@
 [h: ns = dsnb.getNamespace()]
 [h: playerName = getPlayerName()]
-[h: userData = getLibProperty("userPreferences", ns)]
-[h, if(userData == "") : userData = json.set("{}", playerName, json.set("{}", "asFrame", 0))]
-[h: userPrefs = json.get(userData, playerName)]
-[h: asFrame = Number(json.get(userPrefs, "asFrame")) == 1]
+[h: asFrame = getLibProperty("asFrame", ns)]
+[h, if(asFrame == "") : asFrame = 0]
 
 [h:frameOptions = json.set("{}", 
     "isGM", if(isGM(), json.true, json.false),
     "playerName", playerName,
-    "userPrefs", userPrefs,
+    "asFrame", Number(asFrame),
     "notebooks", getLibProperty("notebooks", ns)
 )]
 
