@@ -39,7 +39,7 @@ This will embed an image from the notebook library add-on.
 ```
 ![](lib://net.dovesoft.notebook/images/quill-paper.png)
 ```
-![](lib://net.dovesoft.notebook/images/quill-paper.png)
+![](./images/quill-paper.png)
 
 You can embedded MapTool assets like this: 
 

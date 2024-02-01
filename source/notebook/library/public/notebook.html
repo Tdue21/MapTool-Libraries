@@ -5,11 +5,10 @@
     <link rel="stylesheet" type="text/css" href="./css/common.css?cachelib=false">
     <link rel="stylesheet" type="text/css" href="./css/show.css?cachelib=false">
 
-    <script src="./js/mocks.js?cachelib=false"></script>
-    <script src="./js/maptool.js?cachelib=false"></script>
+    <!--<script src="./js/mocks.js?cachelib=false"></script>-->
     <script src="./js/tinycolor.min.js?cachelib=false"></script>
     <script src="./js/marked.umd.min.js?cachelib=false"></script>
-    <script src="./js/purify.min.js?cachelib=false"></script>
+    <script src="./js/maptool.js?cachelib=false"></script>
 </head>
 
 <body>
@@ -50,7 +49,7 @@
     <script>
         (async () => {
             try {
-                const rawdata = await MapTool.getUserData();
+                const rawdata = await MT.getUserData();
                 let userData = JSON.parse(atob(rawdata));
 
                 let root = document.documentElement;
@@ -63,7 +62,7 @@
                 let pagePanel = document.getElementById("pagePanel");
                 let editBook = document.getElementById("editBook");
 
-                pagePanel.innerHTML = MD.parse(userData.summary);
+                pagePanel.innerHTML = await MD.parse(userData.summary);
 
                 title.innerText = userData.title;
                 owner.innerText = userData.owner;
@@ -85,7 +84,7 @@
                 root.style.setProperty('--accent-hover-fg', hfg);
                 root.style.setProperty('--accent-active-fg', afg);
 
-                summary.addEventListener("click", event => pagePanel.innerHTML = MD.parse(userData.summary));
+                summary.addEventListener("click", async event => pagePanel.innerHTML = await MD.parse(userData.summary));
                 userData.pages.forEach(page => pageIndex.appendChild(createPageLink(page.name)));
 
                 function createPageLink(pageName) {
@@ -111,9 +110,9 @@
                     if(page.uri) {
                         let rawdata = await fetch(page.uri);
                         let content = await rawdata.text();
-                        pagePanel.innerHTML = MD.parse(content);                    
+                        pagePanel.innerHTML = await MD.parse(content);                    
                     } else {
-                        pagePanel.innerHTML = MD.parse(page.content);
+                        pagePanel.innerHTML = await MD.parse(page.content);
                     }
                 }
 
