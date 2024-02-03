@@ -29,7 +29,7 @@
         "title": "Test Notes",
         "summary": "This notebook is a test",
         "owner": "net.dovesoft.notebook",
-        "private": false,
+        "private": true,
         "accent": "#61003E",
         "readonly": true,
         "pages": [

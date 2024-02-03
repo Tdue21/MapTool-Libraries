@@ -6,21 +6,24 @@
     <link rel="stylesheet" type="text/css" href="./css/tooltip.css?cachelib=false">
     <link rel="stylesheet" type="text/css" href="./css/library.css?cachelib=false">
 
-    <script src="./js/knockout-3.5.1.js?cachelib=false"></script>
+    <script src="./js/knockout-3.5.1.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
 </head>
 
 <body>
     <h1>Available Notebooks</h1>
-    <ul id="booksList" data-bind="foreach: books">
+    
+    <div style="overflow: auto;">
+        <ul id="booksList" data-bind="foreach: books">
 
-        <li>
-            <button class="button" data-bind="id: bookId, attr: {title:summary}, click: $parent.openBook">
-                <p class="accent" data-bind="style: accent, text: title"></p>
-                <img src="./images/key.png" width="16" height="16" data-bind="title: owner, hidden: private">
-            </button>
-        </li>
-    </ul>
+            <li>
+                <button class="button" data-bind="id: bookId, attr: {title:summary}, click: $parent.openBook">
+                    <p class="accent" data-bind="style: accent, text: title"></p>
+                    <img src="./images/key.png" width="16" height="16" data-bind="title: owner, visible: private">
+                </button>
+            </li>
+        </ul>
+    </div>
 
     <div style="position:fixed;left:5px;bottom:5px;">
         <input id="frame" type="checkbox" data-bind="checked: asFrame, event: { change: checkChanged }" />
@@ -29,8 +32,6 @@
 
     <script>
         (async () => {
-            const rawdata = await MT.getUserData();
-
             function BookInfo(bookData) {
                 let self = this;
 
@@ -48,16 +49,23 @@
 
                 try {
                     let userData = JSON.parse(atob(rawdata));
+                    let isGM = userData.isGM;
+                    let playerName = userData.playerName;
 
-                    let bookArray = userData.notebooks.map(x => new BookInfo(x));
+                    let bookArray = [];
+                    for (const book of userData.notebooks) {
+                        if ((!book.private || (playerName === book.owner) || isGM)) {
+                            bookArray.push(new BookInfo(book));
+                        }
+                    }
                     self.books = ko.observableArray(bookArray);
                     self.asFrame = ko.observable(userData.asFrame);
 
-                    self.checkChanged = async function() {
+                    self.checkChanged = async function () {
                         await MT.setLibProperty("asFrame", self.asFrame() ? 1 : 0);
                     };
 
-                    self.openBook = async function(book) {
+                    self.openBook = async function (book) {
                         await MT.showBook('show', btoa(JSON.stringify(book.data)), self.asFrame());
                     };
 
@@ -65,6 +73,8 @@
                     console.log(error);
                 }
             }
+
+            const rawdata = await MT.getUserData();
             ko.applyBindings(new LibraryViewModel());
         })();
     </script>

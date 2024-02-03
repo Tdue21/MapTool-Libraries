@@ -6,16 +6,18 @@
     <link rel="stylesheet" type="text/css" href="./css/show.css?cachelib=false">
 
     <!--<script src="./js/mocks.js?cachelib=false"></script>-->
-    <script src="./js/tinycolor.min.js?cachelib=false"></script>
-    <script src="./js/marked.umd.min.js?cachelib=false"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/tinycolor-1.5.1.min.js"></script>
+    <script src="./js/marked-11.1.1.umd.min.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
+    <script defer src="./js/notebook.js?cachelib=false"></script>
 </head>
 
-<body>
+<body id="app">
     <div id="bookHeader">
         <h1>
             <img id="bookIcon" src="./images/quill-paper.png">
-            <span id="bookTitle"></span>
+            <span id="bookTitle">{{title}}</span>
             <img id="editBook" src="./images/edit.png">
         </h1>
     </div>
@@ -24,15 +26,15 @@
         <div id="indexPanel">
             <h2><span id="pageHeader">Pages</span></h2>
             <ul id="pageIndex">
-                <li>
-                    <div class="entry">
-                        <span id="summaryEntry">Summary</span>
-                    </div>
-                </li>
+                <template v-for="page in pages">
+                    <li>
+                        <div :id="page.id" class="entry" @click="pageClick">{{page.name}}</div>
+                    </li>
+                </template>
             </ul>
         </div>
 
-        <div id="pagePanel"></div>
+        <div id="pagePanel" v-html="currentPage" />
     </div>
 
     <div id="bookFooter">
@@ -40,87 +42,11 @@
             <tr style="background-color:transparent">
                 <td style="text-align:left;color:var(--accent-fg)">
                     <span><b>Owner:</b></span>&nbsp;
-                    <span id="footerOwner"></span>
+                    <span id="footerOwner">{{owner}}</span>
                 </td>
             </tr>
         </table>
     </div>
-
-    <script>
-        (async () => {
-            try {
-                const rawdata = await MT.getUserData();
-                let userData = JSON.parse(atob(rawdata));
-
-                let root = document.documentElement;
-                let title = document.getElementById("bookTitle");
-                let summary = document.getElementById("summaryEntry");
-                let owner = document.getElementById("footerOwner");
-
-                let indexPanel = document.getElementById("indexPanel");
-                let pageIndex = document.getElementById("pageIndex");
-                let pagePanel = document.getElementById("pagePanel");
-                let editBook = document.getElementById("editBook");
-
-                pagePanel.innerHTML = await MD.parse(userData.summary);
-
-                title.innerText = userData.title;
-                owner.innerText = userData.owner;
-
-                let tc = tinycolor(userData.accent ? userData.accent : "#a8a5ca");
-
-                let bg = tc.toHexString();
-                let fg = tc.isLight() ? 'black' : 'white';
-                let hbg = tc.darken(10).toHexString();
-                let hfg = tinycolor(hbg).isLight() ? 'black' : 'white';
-                let abg = tc.darken(20).toHexString();
-                let afg = tinycolor(abg).isLight() ? 'black' : 'white';
-
-                root.style.setProperty('--accent-bg', bg);
-                root.style.setProperty('--accent-hover-bg', hbg);
-                root.style.setProperty('--accent-active-bg', abg);
-
-                root.style.setProperty('--accent-fg', fg);
-                root.style.setProperty('--accent-hover-fg', hfg);
-                root.style.setProperty('--accent-active-fg', afg);
-
-                summary.addEventListener("click", async event => pagePanel.innerHTML = await MD.parse(userData.summary));
-                userData.pages.forEach(page => pageIndex.appendChild(createPageLink(page.name)));
-
-                function createPageLink(pageName) {
-                    let link = Utils.createElement("span", {
-                        id: btoa(pageName),
-                        innerText: pageName
-                    });
-
-                    let item = Utils.createElement("li", null, [
-                        Utils.createElement("div", { className: "entry" }, [link])
-                    ]);
-
-                    link.addEventListener("click", async event => {
-                        await showPage(event.target.id);
-                    });
-
-                    return item;
-                }
-
-                async function showPage(pageId) {
-                    let name = atob(pageId);
-                    let page = userData.pages.find(page => page.name === name);
-                    if(page.uri) {
-                        let rawdata = await fetch(page.uri);
-                        let content = await rawdata.text();
-                        pagePanel.innerHTML = await MD.parse(content);                    
-                    } else {
-                        pagePanel.innerHTML = await MD.parse(page.content);
-                    }
-                }
-
-            } catch (error) {
-                console.error(error.stack);
-            }
-        })();
-    </script>
 </body>
 
 </html>

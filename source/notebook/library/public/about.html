@@ -37,8 +37,7 @@
         (async () => {
             try {
                 let version = await MT.getLibraryVersion();
-                let span = document.getElementById("libVersion");
-                span.innerText = version;
+                document.getElementById("libVersion").innerText = version;
             }
             catch (error) {
                 console.log("### about: " + error.stack);
