@@ -6,78 +6,37 @@
     <link rel="stylesheet" type="text/css" href="./css/tooltip.css?cachelib=false">
     <link rel="stylesheet" type="text/css" href="./css/library.css?cachelib=false">
 
-    <script src="./js/knockout-3.5.1.js"></script>
+    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js"></script> -->
+    <script src="./js/libraries/vue.global-3.4.15.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
+    <script defer src="./js/library.js?cachelib=false"></script>
 </head>
 
-<body>
+<body id="app">
     <h1>Available Notebooks</h1>
-    
-    <div style="overflow: auto;">
-        <ul id="booksList" data-bind="foreach: books">
 
-            <li>
-                <button class="button" data-bind="id: bookId, attr: {title:summary}, click: $parent.openBook">
-                    <p class="accent" data-bind="style: accent, text: title"></p>
-                    <img src="./images/key.png" width="16" height="16" data-bind="title: owner, visible: private">
-                </button>
-            </li>
+    <div style="overflow: scroll;">
+        <a href="#" @click="newBook">[+]</a>
+
+        <ul id="booksList">
+            <template v-for="book in books">
+                <li>
+                    <button class="button" :title="book.summary" @click="openBook">
+                        <p class="accent" :id="book.id" :style="{'--accent-bg': book.accent}">{{book.title}}</p> 
+                        <img src="./images/key.png" width="16" height="16" :title="book.owner" v-if="book.private">
+                    </button>
+                </li>
+            </template>
         </ul>
+
+        <a href="#" @click="newBook">[+]</a>
     </div>
 
-    <div style="position:fixed;left:5px;bottom:5px;">
-        <input id="frame" type="checkbox" data-bind="checked: asFrame, event: { change: checkChanged }" />
+    <div style="position:fixed;left:5px;bottom:5px;min-height: 35px;">
+        <input id="frame" type="checkbox" v-model="asFrame" @change="checkChanged" />
         <label for="frame">Open as frame</label>
     </div>
 
-    <script>
-        (async () => {
-            function BookInfo(bookData) {
-                let self = this;
-
-                self.title = decodeURIComponent(bookData.title);
-                self.summary = decodeURIComponent(bookData.summary);
-                self.accent = "--accent-bg: " + bookData.accent;
-                self.owner = bookData.owner;
-                self.private = bookData.private;
-
-                self.data = bookData;
-            }
-
-            function LibraryViewModel() {
-                let self = this;
-
-                try {
-                    let userData = JSON.parse(atob(rawdata));
-                    let isGM = userData.isGM;
-                    let playerName = userData.playerName;
-
-                    let bookArray = [];
-                    for (const book of userData.notebooks) {
-                        if ((!book.private || (playerName === book.owner) || isGM)) {
-                            bookArray.push(new BookInfo(book));
-                        }
-                    }
-                    self.books = ko.observableArray(bookArray);
-                    self.asFrame = ko.observable(userData.asFrame);
-
-                    self.checkChanged = async function () {
-                        await MT.setLibProperty("asFrame", self.asFrame() ? 1 : 0);
-                    };
-
-                    self.openBook = async function (book) {
-                        await MT.showBook('show', btoa(JSON.stringify(book.data)), self.asFrame());
-                    };
-
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-
-            const rawdata = await MT.getUserData();
-            ko.applyBindings(new LibraryViewModel());
-        })();
-    </script>
 </body>
 
 </html>

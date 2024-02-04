@@ -4,17 +4,42 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            action:'show',
             title: "This is the title",
+            summary: "summary",
             owner: "Thomas",
             private: false,
             readonly: false,
             accent: '#A8A5CA',
             currentPage: "<p>Ouch</p>",
+            selected: null,
+            selectedPage: {},
             pages: []
         }
     },
 
+    computed: {
+        doShow() {
+            return { display: this.action === 'show' ? 'block' : 'none' }
+        },
+
+        doEdit() {
+            return { display: this.action !== 'show' ? 'block' : 'none' }
+        }
+
+    },
+
     methods: {
+        async saveNotebook(event) {
+            this.action = 'show';
+        },
+
+        async pageSelect(event) {
+            console.log(this.selected);
+            let page = this.pages.find(x => x.id === this.selected);
+            this.selectedPage = page;
+        },
+
         async pageClick(event) {
             let page = this.pages.find(x => x.id === event.target.id);
             if (page.content) {
@@ -47,21 +72,24 @@ createApp({
 
             const rawdata = await MT.getUserData();
             let userData = JSON.parse(atob(rawdata));
+            this.action = userData.action;
+            let notebook = JSON.parse(atob(userData.notebook));
 
-            this.title = userData.title;
-            this.owner = userData.owner;
-            this.accent = userData.accent ? userData.accent : "#A8A5CA";
+            this.title = notebook.title;
+            this.owner = notebook.owner;
+            this.accent = notebook.accent ? notebook.accent : "#A8A5CA";
             this.colors = this.accentColors();
-            this.currentPage = await MD.parse(userData.summary);
+            this.currentPage = await MD.parse(notebook.summary);
 
             this.pages.push({
                 id: btoa("Summary"),
                 name: "Summary",
-                content: userData.summary
+                content: notebook.summary
             });
 
-            for (let page of userData.pages) {
+            for (let page of notebook.pages) {
 
+                console.log(page.name);
                 this.pages.push({
                     id: btoa(page.name),
                     name: page.name,

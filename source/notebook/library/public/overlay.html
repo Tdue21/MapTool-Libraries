@@ -3,38 +3,35 @@
 
 <head>
     <link rel="stylesheet" href="./css/overlay.css?cachelib=false">
+
+    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js"></script> -->
+    <script src="./js/libraries/vue.global-3.4.15.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
+    <script defer src="./js/overlay.js?cachelib=false"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 </head>
 
 <body id="container">
-
-    <div id="overlay" class="overlay">
-        <div id="main">
-            <div data-tooltip="Open library">
-                <img id="quill" src="./images/quill-paper.png?cachelib=false">
+    <div id="app">
+        <div id="overlay" class="overlay">
+            <div id="main">
+                <div data-tooltip="Open library">
+                    <img id="quill" src="./images/quill-paper.png?cachelib=false" @click="onClick">
+                </div>
             </div>
-        </div>
 
-        <div id="options">
-            <div data-tooltip="Add new book">
-                <img id="add" src="./images/add.png?cachelib=false">
-            </div>
-            <div data-tooltip="About MapTool Notebooks">
-                <img id="about" src="./images/question.png?cachelib=false">
+            <div id="options">
+                <div data-tooltip="Add new book">
+                    <img id="add" src="./images/add.png?cachelib=false" @click="onClick">
+                </div>
+
+                <div data-tooltip="About MapTool Notebooks">
+                    <img id="about" src="./images/question.png?cachelib=false" @click="onClick">
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        (async () => {
-            let frame = await MT.getLibProperty("asFrame");
-
-            Utils.onClickEvent("quill", async () => await MT.showLibrary());
-            Utils.onClickEvent("add",   async () => await MT.showBook('edit', '', frame));
-            Utils.onClickEvent("about", async () => await MT.showAbout());
-        })();
-    </script>
 </body>
 
 </html>

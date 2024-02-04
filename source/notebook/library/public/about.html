@@ -3,47 +3,44 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./css/common.css?cachelib=false">
+
+    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js"></script> -->
+    <script src="./js/libraries/vue.global-3.4.15.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
+    <script defer src="./js/about.js?cachelib=false"></script>
 </head>
 
-<body style="margin:0px; padding:10px;overflow: hidden;">
+<body id="app" style="margin:0px; padding:10px;overflow: hidden;">
     <h2>About Notebooks</h2>
 
     <div style="float:left;background-color:transparent;">
         <img src="./images/quill-paper.png" style="width:100px">
     </div>
     <p>
-        The concept of this library is based on the
-        <a href="https://github.com/rtakehara/5e-Framework/tree/master/Resources">Notebook library</a>
-        from Rod Takehara.
+        The concept of this library is inspired by the
+        <a href="https://github.com/rtakehara/5e-Framework/tree/master/Resources">
+        Notebook library</a> from Rod Takehara.
     </p>
     <p>
-        It is a complete rewrite though, utilitizing functionality from the latest version of MapTool, as of
-        this writing 1.14.
+        It is has been built from the ground up though, utilitizing functionality 
+        from the latest version of MapTool, as of this writing 1.14. 
     </p>
     <p>
-        <b>Version:</b> <span id="libVersion"></span>
+        In addition it serves as a show-case for using javascript and modern frameworks
+        for creating reactive web applications, but in MapTool.
+    </p>
+    <p>
+        <b>Version:</b> <span>{{version}}</span>
     </p>
     <h3>Open source libraries used</h3>
     <p>The following open source libraries have been used to create this add-on.</p>
     <ul>
+        <li><a href="https://vuejs.org/">Vue 3.4.15</a></li>
+        <li><a href="https://marked.js.org/">Marked 11.1.1</a></li>
         <li><a href="https://bgrins.github.io/TinyColor/">Tiny Color 1.5.1</a></li>
         <li><a href="https://toolcool-color-picker.mzsoft.org/">ToolCool color picker 1.0.15</a></li>
-        <li><a href="https://marked.js.org/">Marked 11.1.1</a></li>
-        <li><a href="https://github.com/cure53/DOMPurify">DOMPurify 3.0.8</a></li>
+        <!-- <li><a href="https://github.com/cure53/DOMPurify">DOMPurify 3.0.8</a></li> -->
     </ul>
-
-    <script>
-        (async () => {
-            try {
-                let version = await MT.getLibraryVersion();
-                document.getElementById("libVersion").innerText = version;
-            }
-            catch (error) {
-                console.log("### about: " + error.stack);
-            }
-        })();
-    </script>
 </body>
 
 </html>

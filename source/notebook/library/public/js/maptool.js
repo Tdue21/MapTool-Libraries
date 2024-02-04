@@ -6,7 +6,7 @@ class MT {
 
     static async showLibrary() {
         if (typeof MapTool !== typeof undefined) {
-            await evaluateMacro("[h:dsnb.showLibrary()]");
+            await this.evaluateMacro("[h:dsnb.showLibrary()]");
         } else {
             console.log("MT.showLibrary()");
         }
@@ -14,7 +14,7 @@ class MT {
 
     static async showBook(action, data, frame) {
         if (typeof MapTool !== typeof undefined) {
-            await evaluateMacro(`[h:dsnb.showBook('${action}', '${data}', ${frame})]`);
+            await this.evaluateMacro(`[h:dsnb.showBook('${action}', '${data}', ${frame})]`);
         } else {
             console.log(`MT.showbook("${action}", "${data}", ${frame})`);
         }
@@ -22,7 +22,7 @@ class MT {
 
     static async showAbout() {
         if (typeof MapTool !== typeof undefined) {
-            await evaluateMacro("[h:dsnb.showAbout()]");
+            await this.evaluateMacro("[h:dsnb.showAbout()]");
         } else {
             console.log("MT.showAbout()");
         }
@@ -30,7 +30,7 @@ class MT {
 
     static async getLibraryVersion() {
         if (typeof MapTool !== typeof undefined) {
-            return await evaluateMacro("[r:dsnb.getLibraryVersion()]");
+            return await this.evaluateMacro("[r:dsnb.getLibraryVersion()]");
         } else {
             console.log("MT.getLibraryVersion()");
             return "0.1.2-mock";
@@ -115,38 +115,6 @@ class MT {
     }
 }
 
-class Utils {
-
-    static onClickEvent(id, eventHandler) {
-        document.getElementById(id).addEventListener("click", eventHandler);
-    }
-
-    static createElement(type, options = null, children = [], eventListener = null) {
-        try {
-            let element = document.createElement(type);
-
-            if (options != null) {
-                let keys = Object.keys(options);
-                for (let prop of keys) {
-                    element[prop] = options[prop];
-                }
-            }
-
-            for (let child of children) {
-                element.appendChild(child);
-            }
-
-            if (eventListener != null) {
-                element.addEventListener(eventListener.type, e => eventListener.func(e));
-            }
-
-            return element;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
-
 class MD {
 
     static async parse(data) {
@@ -204,32 +172,6 @@ class MD {
     }
 }
 
-class Observable {
-    constructor(value) {
-        this._listeners = [];
-        this._value = value;
-    }
-
-    notify() {
-        this._listeners.forEach(listener => listener(this._value));
-    }
-
-    subscribe(listener) {
-        this._listeners.push(listener);
-    }
-
-    get value() {
-        return this._value;
-    }
-
-    set value(val) {
-        if (val !== this._value) {
-            this._value = val;
-            this.notify();
-        }
-    }
-}
-
 
 // let doDebug = false;
 
@@ -252,28 +194,29 @@ class Observable {
 class Mocks {
     static async getUserData() {
         console.log(document.location.pathname);
+        let userData = null;
 
         if (document.location.pathname.includes("library.html")) {
 
             let data = await fetch("./data/userguide.json");
             let notebooks = await data.json();
 
-            let userData = {
+            userData = {
                 isGM: true,
                 playerName: "Gertrude",
                 asFrame: true,
                 notebooks: notebooks
             };
-
-            return btoa(JSON.stringify(userData));
-
         } else if (document.location.pathname.includes("notebook.html")) {
 
             let data = await fetch("./data/userguide.json");
             let book = await data.json();
-            return btoa(JSON.stringify(book[0]));
+            userData = {
+                action:"edit",
+                notebook:btoa(JSON.stringify(book[0]))
+            }
         }
-        return null;
+        return btoa(JSON.stringify(userData));
     }
 
     static async getMockData(dataId) {

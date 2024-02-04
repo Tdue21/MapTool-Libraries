@@ -3,50 +3,95 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./css/common.css?cachelib=false">
-    <link rel="stylesheet" type="text/css" href="./css/show.css?cachelib=false">
+    <link rel="stylesheet" type="text/css" href="./css/notebook.css?cachelib=false">
 
-    <!--<script src="./js/mocks.js?cachelib=false"></script>-->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./js/tinycolor-1.5.1.min.js"></script>
-    <script src="./js/marked-11.1.1.umd.min.js"></script>
+    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js"></script> -->
+    <script src="./js/libraries/vue.global-3.4.15.js"></script>
+    <script src="./js/libraries/tinycolor-1.5.1.min.js"></script>
+    <script src="./js/libraries/toolcool-color-picker-1.0.15.min.js"></script>
+    <script src="./js/libraries/marked-11.1.1.umd.min.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
     <script defer src="./js/notebook.js?cachelib=false"></script>
 </head>
 
 <body id="app">
-    <div id="bookHeader">
-        <h1>
-            <img id="bookIcon" src="./images/quill-paper.png">
-            <span id="bookTitle">{{title}}</span>
-            <img id="editBook" src="./images/edit.png">
-        </h1>
-    </div>
+    <section id="show" :style="doShow">
 
-    <div id="bookContent">
-        <div id="indexPanel">
-            <h2><span id="pageHeader">Pages</span></h2>
-            <ul id="pageIndex">
-                <template v-for="page in pages">
-                    <li>
-                        <div :id="page.id" class="entry" @click="pageClick">{{page.name}}</div>
-                    </li>
-                </template>
-            </ul>
+        <div class="header">
+            <img class="c1" src="./images/quill-paper.png">
+
+            <div class="c2" style="margin: 0px; padding: 0px;">
+                <h1>{{title}}</h1>
+                <span><b>By:</b>&nbsp;{{owner}}</span>
+            </div>
+
+            <div class="c3">
+                <img class="action" src="./images/edit.png" title="Edit this notebook">
+                <img class="action" src="./images/delete.png" title="Delete this notebook">
+            </div>
         </div>
 
-        <div id="pagePanel" v-html="currentPage" />
-    </div>
+        <div class="pages">
+            <div class="index">
+                <h2>Pages</h2>
+                <ul>
+                    <template v-for="page in pages">
+                        <li>
+                            <div :id="page.id" class="entry" @click="pageClick">{{page.name}}</div>
+                        </li>
+                    </template>
+                </ul>
+            </div>
 
-    <div id="bookFooter">
-        <table style="width:100%;margin:0px;padding:0px;border-collapse: collapse;">
-            <tr style="background-color:transparent">
-                <td style="text-align:left;color:var(--accent-fg)">
-                    <span><b>Owner:</b></span>&nbsp;
-                    <span id="footerOwner">{{owner}}</span>
-                </td>
-            </tr>
-        </table>
-    </div>
+            <div class="content" v-html="currentPage" />
+        </div>
+    </section>
+
+    <section id="edit" :style="doEdit">
+        <h1>Edit Notebook</h1>
+        <div class="edit">
+            <label>
+                <span>Title</span>
+                <input type="text" :value="title">
+            </label>
+
+            <label>
+                <span>Summary</span>
+                <input type="text" :value="summary">
+            </label>
+
+            <label>
+                <span>Private</span>
+                <input type="checkbox" :value="private">
+            </label>
+
+            <label>
+                <span>Accent</span>
+                <toolcool-color-picker :color="accent"></toolcool-color-picker>
+            </label>
+
+            <label>
+                <span>Pages</span>
+                <select v-model="selected" @change="pageSelect">
+                    <option v-for="page in pages" :id="page.id" :value="page.id">
+                        {{page.name}}
+                    </option>
+                </select>
+            </label>
+
+            <div>
+                <label>
+                    <span>Page</span>
+                    <input type="text" :value="selectedPage.name">
+                </label>
+                <label>
+                    <span>Summary</span>
+                    <textarea>{{selectedPage.content}}</textarea>
+                </label>
+            </div>
+            <button @click="saveNotebook">Save</button>
+        </div>
+    </section>
 </body>
 
 </html>

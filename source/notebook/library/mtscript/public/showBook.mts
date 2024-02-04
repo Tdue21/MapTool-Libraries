@@ -9,9 +9,10 @@
 [h:asFrame  = if(json.length(macro.args) > 2, json.get(macro.args, 2), 0)]
 [h:ns       = dsnb.getNamespace()]
 [h:nb       = base64.decode(notebook)]
+[h:data     = json.set("{}", "action", action, "notebook", notebook)]
 
 [h:title = "Notebook - " + json.get(nb, "title")]
-[h:options = "width=800; height=600; temporary=1; noframe=0; input=1; value=" + notebook)]
+[h:options = "width=800; height=600; temporary=1; noframe=0; input=1; value=" + base64.encode(data))]
 
 [h,if(asFrame): 
     html.frame5(title, "lib://" + ns + "/notebook.html", options); 
