@@ -213,7 +213,7 @@ class Mocks {
             let book = await data.json();
             userData = {
                 action:"edit",
-                notebook:btoa(JSON.stringify(book[0]))
+                notebook:btoa(JSON.stringify(book[1]))
             }
         }
         return btoa(JSON.stringify(userData));

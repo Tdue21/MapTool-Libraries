@@ -30,8 +30,18 @@ createApp({
     },
 
     methods: {
+        async editNotebook(event) {
+            this.action = 'edit';
+        },
+        async deleteNotebook(event) {
+            this.action = 'delete';
+        },
         async saveNotebook(event) {
             this.action = 'show';
+        },
+        async addPage(event) {
+        },
+        async deletePage(event) {
         },
 
         async pageSelect(event) {

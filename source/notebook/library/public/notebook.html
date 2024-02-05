@@ -26,8 +26,8 @@
             </div>
 
             <div class="c3">
-                <img class="action" src="./images/edit.png" title="Edit this notebook">
-                <img class="action" src="./images/delete.png" title="Delete this notebook">
+                <img class="action" src="./images/edit.png" title="Edit this notebook" @click="editNotebook">
+                <img class="action" src="./images/delete.png" title="Delete this notebook" @click="deleteNotebook">
             </div>
         </div>
 
@@ -52,22 +52,23 @@
         <div class="edit">
             <label>
                 <span>Title</span>
-                <input type="text" :value="title">
+                <input type="text" :value="title" placeholder="Enter title of the notebook">
             </label>
 
             <label>
                 <span>Summary</span>
-                <input type="text" :value="summary">
+                <input type="text" :value="summary" placeholder="Write a summary of the notebook">
             </label>
 
             <label>
                 <span>Private</span>
-                <input type="checkbox" :value="private">
+                <input type="checkbox" :value="private"
+                    title="Check if the notebook should be private (GM may still see it)">
             </label>
 
             <label>
                 <span>Accent</span>
-                <toolcool-color-picker :color="accent"></toolcool-color-picker>
+                <toolcool-color-picker :color="accent" title="Select the accent colour for the notebook" />
             </label>
 
             <label>
@@ -77,19 +78,31 @@
                         {{page.name}}
                     </option>
                 </select>
+                &nbsp;
+                <img src="./images/add.png" style="width:16px" title="Add new page" @click="addPage">
+                &nbsp;
+                <img src="./images/delete.png" style="width:16px" title="Delete selected page" @click="deletePage">
             </label>
 
-            <div>
-                <label>
-                    <span>Page</span>
-                    <input type="text" :value="selectedPage.name">
-                </label>
-                <label>
-                    <span>Summary</span>
-                    <textarea>{{selectedPage.content}}</textarea>
-                </label>
+            <h3>Edit selected page</h3>
+
+            <label>
+                <span>Page Name</span>
+                <input type="text" :value="selectedPage.name">
+            </label>
+            <label style="height:calc(100% - 125px)">
+                <span>
+                    Summary
+                    &nbsp;
+                    <img src="./images/question.png" style="width:16px" title="Show syntax help">
+                </span>
+                <textarea>{{selectedPage.content}}</textarea>
+            </label>
+
+            <div class="buttonBar">
+                <button @click="saveNotebook">Save</button>
+                <button @click="saveNotebook">Cancel</button>
             </div>
-            <button @click="saveNotebook">Save</button>
         </div>
     </section>
 </body>
