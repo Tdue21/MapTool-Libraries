@@ -212,7 +212,7 @@ class Mocks {
             let data = await fetch("./data/userguide.json");
             let book = await data.json();
             userData = {
-                action:"edit",
+                action:"show",
                 notebook:btoa(JSON.stringify(book[1]))
             }
         }

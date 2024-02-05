@@ -4,7 +4,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            action:'show',
+            action: 'show',
             title: "This is the title",
             summary: "summary",
             owner: "Thomas",
@@ -25,27 +25,65 @@ createApp({
 
         doEdit() {
             return { display: this.action !== 'show' ? 'block' : 'none' }
-        }
+        },
 
+        summaryPage() {
+            return {
+                id: this.uuidv4(),
+                name: "Summary",
+                content: this.summary
+            }
+        }
     },
 
     methods: {
+
+        uuidv4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+                .replace(/[xy]/g, function (c) {
+                    const r = Math.random() * 16 | 0,
+                        v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+        },
+
         async editNotebook(event) {
+            this.pages = this.pages.slice(1);
             this.action = 'edit';
         },
+
         async deleteNotebook(event) {
             this.action = 'delete';
         },
+
         async saveNotebook(event) {
+            this.pages.splice(0, 0, this.summaryPage);
             this.action = 'show';
         },
+
         async addPage(event) {
+            let newPage = {
+                id: this.uuidv4(),
+                name: "New Page",
+                content: ""
+            }
+            this.pages.push(newPage);
+            this.selected = newPage.id;
+            this.pageSelect(null);
         },
+
         async deletePage(event) {
+            console.log(this.selectedPage);
         },
 
         async pageSelect(event) {
             console.log(this.selected);
+
+            if (this.selectedPage != null) {
+                let page = this.pages.find(x => x.id === this.selectedPage.id);
+                let index = this.pages.indexOf(page);
+                console.log(index);
+            }
             let page = this.pages.find(x => x.id === this.selected);
             this.selectedPage = page;
         },
@@ -91,17 +129,13 @@ createApp({
             this.colors = this.accentColors();
             this.currentPage = await MD.parse(notebook.summary);
 
-            this.pages.push({
-                id: btoa("Summary"),
-                name: "Summary",
-                content: notebook.summary
-            });
+            this.pages.push(this.summaryPage);
 
             for (let page of notebook.pages) {
 
                 console.log(page.name);
                 this.pages.push({
-                    id: btoa(page.name),
+                    id: this.uuidv4(),
                     name: page.name,
                     content: page.content,
                     uri: page.uri
