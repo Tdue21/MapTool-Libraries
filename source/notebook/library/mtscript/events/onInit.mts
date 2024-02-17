@@ -9,6 +9,7 @@
 [h:defineFunction(prefix+"getLibraryVersion",  "functions/getLibraryVersion@"+this)]
 [h:defineFunction(prefix+"getNamespace",       "functions/getNamespace@"+this)]
 [h:defineFunction(prefix+"getRecord",          "functions/getRecord@"+this)]
+[h:defineFunction(prefix+"saveBook",           "functions/saveBook@"+this)]
 
 [h:defineFunction(prefix+"showWelcome", "showWelcome@"+this)]
 [h:defineFunction(prefix+"showAbout",   "showAbout@"+this)]

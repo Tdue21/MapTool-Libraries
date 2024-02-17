@@ -1,7 +1,9 @@
 "use strict";
 
 const { createApp } = Vue;
+
 createApp({
+    
     data() {
         return {
             action: 'show',
@@ -14,6 +16,7 @@ createApp({
             currentPage: "<p>Ouch</p>",
             selected: null,
             selectedPage: {},
+            editPages: [],
             pages: []
         }
     },
@@ -38,26 +41,25 @@ createApp({
 
     methods: {
 
-        uuidv4() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
-                .replace(/[xy]/g, function (c) {
-                    const r = Math.random() * 16 | 0,
-                        v = c == 'x' ? r : (r & 0x3 | 0x8);
-                    return v.toString(16);
-                });
-        },
-
-        async editNotebook(event) {
-            this.pages = this.pages.slice(1);
-            this.action = 'edit';
-        },
-
-        async deleteNotebook(event) {
-            this.action = 'delete';
-        },
+        /* ********** Edit Book actions ********** */
 
         async saveNotebook(event) {
-            this.pages.splice(0, 0, this.summaryPage);
+            if(event.target.id === "SaveButton") {
+                this.pages = [];
+                this.pages.push(this.summaryPage);
+                this.editPages.forEach(element => this.pages.push(element));
+
+                let notebook = {
+                    title: this.title,
+                    owner: this.owner,
+                    accent: this.accent,
+                    readonly: this.readonly,
+                    pages: Array.from(this.editPages)
+                };
+
+                let data = btoa(JSON.stringify(notebook));
+                MT.saveBook(data);
+            }
             this.action = 'show';
         },
 
@@ -67,9 +69,9 @@ createApp({
                 name: "New Page",
                 content: ""
             }
-            this.pages.push(newPage);
+            this.editPages.push(newPage);
             this.selected = newPage.id;
-            this.pageSelect(null);
+            this.selectedPage = newPage;
         },
 
         async deletePage(event) {
@@ -77,15 +79,19 @@ createApp({
         },
 
         async pageSelect(event) {
-            console.log(this.selected);
-
-            if (this.selectedPage != null) {
-                let page = this.pages.find(x => x.id === this.selectedPage.id);
-                let index = this.pages.indexOf(page);
-                console.log(index);
-            }
             let page = this.pages.find(x => x.id === this.selected);
             this.selectedPage = page;
+        },
+
+        /* ********** Show Book actions ********** */
+
+        async editNotebook(event) {
+            this.editPages = this.pages.slice(1);
+            this.action = 'edit';
+        },
+
+        async deleteNotebook(event) {
+            this.action = 'delete';
         },
 
         async pageClick(event) {
@@ -98,13 +104,23 @@ createApp({
                 this.currentPage = await MD.parse(content);
             }
         },
+        
+        /* ********** Utility ********** */
+
+        uuidv4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+                .replace(/[xy]/g, function (c) {
+                    const r = Math.random() * 16 | 0,
+                        v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+        },
 
         accentColors(color) {
             let tc = tinycolor(color);
             let background = tc.toHexString();
             let hover = tc.darken(10).toHexString();
             let active = tc.darken(20).toHexString();
-
             let colorData = {
                 '--accent-bg': String(background),
                 '--accent-hover-bg': String(hover),
@@ -115,6 +131,8 @@ createApp({
             };
             return colorData;
         },
+
+        /* ********** Initialization ********** */
 
         async onInit() {
 
@@ -127,6 +145,7 @@ createApp({
             this.owner = notebook.owner;
             this.accent = notebook.accent ? notebook.accent : "#A8A5CA";
             this.colors = this.accentColors();
+            this.readonly = notebook.readonly;
             this.currentPage = await MD.parse(notebook.summary);
 
             this.pages.push(this.summaryPage);

@@ -64,6 +64,13 @@ class MT {
         }
     }
 
+    static async saveBook(data) {
+        if (typeof MapTool !== typeof undefined) {
+            await this.evaluateMacro(`[r:dsnb.saveBook("${data}")]`);
+        } else {
+            console.log(`MT.saveBook("${data}")`);
+        }
+    }
 
     static async getPlayerName() {
         return await this.evaluateMacro("[r:getPlayerName()]");
@@ -171,25 +178,6 @@ class MD {
         }
     }
 }
-
-
-// let doDebug = false;
-
-// This is a little bad, as it blocks the executing thread.
-// It's the only way I can think of to get the debugging value though.
-
-//let x = new XMLHttpRequest();
-//x.open("POST", "macro:EvaluateMacro@lib:" + defNs, false);
-//x.send("[r: dsnb.doDebug()]");
-//doDebug = Number(x.responseText) === 1;
-
-/*
-// Asynchronous getting doDebug value.
-(async () => {
-    const result = await MT.evaluateMacro("[r: dsnb.doDebug()]");
-    doDebug = Number(result) === 1;
-})();
-*/
 
 class Mocks {
     static async getUserData() {

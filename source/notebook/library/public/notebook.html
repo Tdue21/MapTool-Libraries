@@ -26,8 +26,10 @@
             </div>
 
             <div class="c3">
-                <img class="action" src="./images/edit.png" title="Edit this notebook" @click="editNotebook">
-                <img class="action" src="./images/delete.png" title="Delete this notebook" @click="deleteNotebook">
+                <img class="action" v-if="!readonly" src="./images/edit.png" title="Edit this notebook"
+                    @click="editNotebook">
+                <img class="action" v-if="!readonly" src="./images/delete.png" title="Delete this notebook"
+                    @click="deleteNotebook">
             </div>
         </div>
 
@@ -49,6 +51,7 @@
 
     <section id="edit" :style="doEdit">
         <h1>Edit Notebook</h1>
+        <div></div>
         <div class="edit">
             <label>
                 <span>Title</span>
@@ -74,7 +77,7 @@
             <label>
                 <span>Pages</span>
                 <select v-model="selected" @change="pageSelect">
-                    <option v-for="page in pages" :id="page.id" :value="page.id">
+                    <option v-for="page in editPages" :id="page.id" :value="page.id">
                         {{page.name}}
                     </option>
                 </select>
@@ -89,12 +92,12 @@
                 <img src="./images/question.png" style="width:16px" title="Show syntax help">
             </h3>
 
-            <input type="text" :value="selectedPage.name">
-            <textarea>{{selectedPage.content}}</textarea>
+            <input type="text" v-model="selectedPage.name">
+            <textarea v-model="selectedPage.content"></textarea>
 
             <div class="buttonBar">
-                <button @click="saveNotebook">Save</button>
-                <button @click="saveNotebook">Cancel</button>
+                <button id="SaveButton" @click="saveNotebook">Save</button>
+                <button id="CancelButton" @click="saveNotebook">Cancel</button>
             </div>
         </div>
     </section>

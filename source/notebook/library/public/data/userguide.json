@@ -31,7 +31,7 @@
         "owner": "net.dovesoft.notebook",
         "private": true,
         "accent": "#61003E",
-        "readonly": true,
+        "readonly": false,
         "pages": [
             {
                 "name": "first page",
