@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href=".\css\pins.css">
+    <script src="./js/vue.global-3.4.15.js"></script>
+    <title>Pins</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="viewer" v-if="viewing">
+            <div class="menu">
+                <h1>Pin Notes</h1>
+                <span>
+                    <a href="#">Create</a>|
+                    <a href="#">Edit</a>|
+                    <a href="#">Select</a>|
+                    <a href="#">Focus</a>
+                </span>
+                <div id="selection">
+                    <span>Selected Pin:&nbsp;</span>
+                    <select>
+                        <option selected></option>
+                        <option value="create">Create New Pin</option>
+                        <option value="pin1">Pin no. 1</option>
+                        <option value="pin2">Pin no. 2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="content">
+                <span>Hello world</span>
+            </div>
+        </div>
+
+        <div id="editor" v-if="!viewing">
+            <div class="menu">
+                <h1>Edit Pin</h1>
+                <span>
+                    <a href="#">Save</a>|
+                    <a href="#">Cancel</a>|
+                    <a href="#">Help</a>
+                </span>
+            </div>
+
+            <div class="content">
+                <textarea class="editor"></textarea>
+            </div>
+        </div>
+    </div>
+    <script>
+        "use strict";
+
+        const { createApp } = Vue;
+
+        createApp({
+
+            data() {
+                return {
+                    viewing:false,
+                    markDown: "",
+                    rawText:"",
+
+                }
+            },
+
+            computed: {
+                selected() {
+                    return true
+                }
+
+
+
+            },
+
+            methods: {
+                initialization() {
+
+                }
+
+            },
+
+            mounted() {
+
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

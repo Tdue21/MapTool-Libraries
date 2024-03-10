@@ -1,0 +1,16 @@
+{
+  "namespace": "org.maptool.thoma.Pins",
+  "gitUrl": "",
+  "licenseFile": "license.txt",
+  "shortDescription": "A short description of your add-on library",
+  "name": "Pins",
+  "version": "0.0.1",
+  "allowsUriAccess": true,
+  "description": "A longer description of your add-on library",
+  "license": "MIT/GPL/etc",
+  "readMeFile": "readme.md",
+  "authors": [
+    "thoma"
+  ],
+  "website": ""
+}

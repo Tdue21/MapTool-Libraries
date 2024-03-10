@@ -1,0 +1,16 @@
+{
+  "name": "tdue21's MapTool Utilities",
+  "authors": [
+    "tdue21"
+  ],
+  "gitUrl": "",
+  "website": "",
+  "shortDescription": "A short description of your add-on library",
+  "allowsUriAccess": true,
+  "namespace": "net.dovesoft.utilities",
+  "description": "A longer description of your add-on library",
+  "licenseFile": "license.txt",
+  "readMeFile": "readme.md",
+  "license": "MIT",
+  "version": "0.1.0"
+}

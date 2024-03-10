@@ -4,86 +4,27 @@ const defNs = "net.dovesoft.notebook";
 
 class MT {
 
-    static async showLibrary() {
-        if (typeof MapTool !== typeof undefined) {
-            await this.evaluateMacro("[h:dsnb.showLibrary()]");
-        } else {
-            console.log("MT.showLibrary()");
-        }
-    }
+    static async getUserData() { return MapTool.getUserData(); }
 
-    static async showBook(action, data, frame) {
-        if (typeof MapTool !== typeof undefined) {
-            await this.evaluateMacro(`[h:dsnb.showBook('${action}', '${data}', ${frame})]`);
-        } else {
-            console.log(`MT.showbook("${action}", "${data}", ${frame})`);
-        }
-    }
+    static async showLibrary() { await this.evaluateMacro("[h:dsnb.showLibrary()]"); }
 
-    static async showAbout() {
-        if (typeof MapTool !== typeof undefined) {
-            await this.evaluateMacro("[h:dsnb.showAbout()]");
-        } else {
-            console.log("MT.showAbout()");
-        }
-    }
+    static async showBook(action, data, frame) { await this.evaluateMacro(`[h:dsnb.showBook('${action}', '${data}', ${frame})]`); }
 
-    static async getLibraryVersion() {
-        if (typeof MapTool !== typeof undefined) {
-            return await this.evaluateMacro("[r:dsnb.getLibraryVersion()]");
-        } else {
-            console.log("MT.getLibraryVersion()");
-            return "0.1.2-mock";
-        }
-    }
+    static async showAbout() { await this.evaluateMacro("[h:dsnb.showAbout()]"); }
 
-    static async getUserData() {
-        if (typeof MapTool !== typeof undefined) {
-            return MapTool.getUserData();
-        } else {
-            console.log("MapTool.getUserData()")
-            return Mocks.getUserData();
-        }
-    }
+    static async getLibraryVersion() { return await this.evaluateMacro("[r:dsnb.getLibraryVersion()]"); }
 
-    static async getLibProperty(name, ns = defNs) {
-        if (typeof MapTool !== typeof undefined) {
-            return await this.evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`);
-        } else {
-            let data = await Mocks.getMockData("getLibProperty-" + name);
-            console.log(`getLibProperty("${name}", "${ns}")] = ${data}`);
-            return data;
-        }
-    }
+    static async getLibProperty(name, ns = defNs) { return await this.evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`); }
 
-    static async setLibProperty(name, value, ns = defNs) {
-        if (typeof MapTool !== typeof undefined) {
-            await this.evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`);
-        } else {
-            console.log(`MT.setLibProperty("${name}", "${value}", "${ns}")`);
-        }
-    }
+    static async setLibProperty(name, value, ns = defNs) { await this.evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`); }
 
-    static async saveBook(data) {
-        if (typeof MapTool !== typeof undefined) {
-            await this.evaluateMacro(`[r:dsnb.saveBook("${data}")]`);
-        } else {
-            console.log(`MT.saveBook("${data}")`);
-        }
-    }
+    static async saveBook(data) { await this.evaluateMacro(`[r:dsnb.saveBook("${data}")]`); }
 
-    static async getPlayerName() {
-        return await this.evaluateMacro("[r:getPlayerName()]");
-    }
+    static async getPlayerName() { return await this.evaluateMacro("[r:getPlayerName()]"); }
 
-    static async isGM() {
-        return Number(await this.evaluateMacro(`[r:isGM()]`)) == 1;
-    }
+    static async isGM() { return Number(await this.evaluateMacro(`[r:isGM()]`)) == 1; }
 
-    static async getInfo(topic) {
-        return await this.evaluateMacro(`[r:getInfo("${topic}")]`);
-    }
-
+    static async getInfo(topic) { return await this.evaluateMacro(`[r:getInfo("${topic}")]`); }
 
     static async debugLog(message) {
         try {
@@ -176,40 +117,5 @@ class MD {
         } catch (error) {
             console.log(error);
         }
-    }
-}
-
-class Mocks {
-    static async getUserData() {
-        console.log(document.location.pathname);
-        let userData = null;
-
-        if (document.location.pathname.includes("library.html")) {
-
-            let data = await fetch("./data/userguide.json");
-            let notebooks = await data.json();
-
-            userData = {
-                isGM: true,
-                playerName: "Gertrude",
-                asFrame: true,
-                notebooks: notebooks
-            };
-        } else if (document.location.pathname.includes("notebook.html")) {
-
-            let data = await fetch("./data/userguide.json");
-            let book = await data.json();
-            userData = {
-                action:"show",
-                notebook:btoa(JSON.stringify(book[1]))
-            }
-        }
-        return btoa(JSON.stringify(userData));
-    }
-
-    static async getMockData(dataId) {
-        let raw = await fetch("./data/mock-data.json");
-        let data = await raw.json();
-        return data[dataId];
     }
 }
