@@ -1,5 +1,16 @@
 "use strict";
 
+if(typeof MapTool === typeof undefined) {
+
+    window.fetch = async function(input, init) {
+        const response = `Input: ${input} - Init: ${JSON.stringify(init)}`;
+        console.log(response);
+        
+        return Promise.resolve(new Response(response));
+    }
+}
+
+/*
 if (typeof MapTool === typeof undefined) {
 
     console.log("No MapTool found!");
@@ -63,3 +74,4 @@ if (typeof MapTool === typeof undefined) {
         }
     };
 }
+*/

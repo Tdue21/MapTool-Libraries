@@ -6,25 +6,25 @@ class MT {
 
     static async getUserData() { return MapTool.getUserData(); }
 
-    static async showLibrary() { await this.evaluateMacro("[h:dsnb.showLibrary()]"); }
+    static async showLibrary() { await evaluateMacro("[h:dsnb.showLibrary()]"); }
 
-    static async showBook(action, data, frame) { await this.evaluateMacro(`[h:dsnb.showBook('${action}', '${data}', ${frame})]`); }
+    static async showBook(action, data, frame) { await evaluateMacro(`[h:dsnb.showBook('${action}', '${data}', ${frame})]`); }
 
-    static async showAbout() { await this.evaluateMacro("[h:dsnb.showAbout()]"); }
+    static async showAbout() { await evaluateMacro("[h:dsnb.showAbout()]"); }
 
-    static async getLibraryVersion() { return await this.evaluateMacro("[r:dsnb.getLibraryVersion()]"); }
+    static async getLibraryVersion() { return await evaluateMacro("[r:dsnb.getLibraryVersion()]"); }
 
-    static async getLibProperty(name, ns = defNs) { return await this.evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`); }
+    static async getLibProperty(name, ns = defNs) { return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`); }
 
-    static async setLibProperty(name, value, ns = defNs) { await this.evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`); }
+    static async setLibProperty(name, value, ns = defNs) { await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`); }
 
-    static async saveBook(data) { await this.evaluateMacro(`[r:dsnb.saveBook("${data}")]`); }
+    static async saveBook(data) { await evaluateMacro(`[r:dsnb.saveBook("${data}")]`); }
 
-    static async getPlayerName() { return await this.evaluateMacro("[r:getPlayerName()]"); }
+    static async getPlayerName() { return await evaluateMacro("[r:getPlayerName()]"); }
 
-    static async isGM() { return Number(await this.evaluateMacro(`[r:isGM()]`)) == 1; }
+    static async isGM() { return Number(await evaluateMacro(`[r:isGM()]`)) == 1; }
 
-    static async getInfo(topic) { return await this.evaluateMacro(`[r:getInfo("${topic}")]`); }
+    static async getInfo(topic) { return await evaluateMacro(`[r:getInfo("${topic}")]`); }
 
     static async debugLog(message) {
         try {
@@ -41,7 +41,7 @@ class MT {
             console.log("debugLog: " + error.stack);
         }
     }
-
+/*
     static async evaluateMacro(macro) {
         if (typeof MapTool !== typeof undefined) {
             await this.debugLog("MT.evaluateMacro: " + macro);
@@ -61,8 +61,9 @@ class MT {
             return macro;
         }
     }
-}
+*/
 
+}
 class MD {
 
     static async parse(data) {

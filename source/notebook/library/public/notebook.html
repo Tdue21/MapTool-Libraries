@@ -11,96 +11,273 @@
     <script src="./js/libraries/toolcool-color-picker-1.0.15.min.js"></script>
     <script src="./js/libraries/marked-11.1.1.umd.min.js"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
-    <script defer src="./js/notebook.js?cachelib=false"></script>
 </head>
 
-<body id="app">
-    <section id="show" :style="doShow">
+<body>
+    <div id="app">
+        <section id="show" :style="doShow">
 
-        <div class="header">
-            <img class="c1" src="./images/quill-paper.png">
+            <div class="header">
+                <img class="c1" src="./images/quill-paper.png">
 
-            <div class="c2" style="margin: 0px; padding: 0px;">
-                <h1>{{title}}</h1>
-                <span><b>By:</b>&nbsp;{{owner}}</span>
+                <div class="c2" style="margin: 0px; padding: 0px;">
+                    <h1>{{title}}</h1>
+                    <span><b>By:</b>&nbsp;{{owner}}</span>
+                </div>
+
+                <div class="c3">
+                    <img class="action" v-if="!readonly" src="./images/edit.png" title="Edit this notebook"
+                        @click="editNotebook">
+                    <img class="action" v-if="!readonly" src="./images/delete.png" title="Delete this notebook"
+                        @click="deleteNotebook">
+                </div>
             </div>
 
-            <div class="c3">
-                <img class="action" v-if="!readonly" src="./images/edit.png" title="Edit this notebook"
-                    @click="editNotebook">
-                <img class="action" v-if="!readonly" src="./images/delete.png" title="Delete this notebook"
-                    @click="deleteNotebook">
+            <div class="pages">
+                <div class="index">
+                    <h2>Pages</h2>
+                    <ul>
+                        <template v-for="page in pages">
+                            <li>
+                                <div :id="page.id" class="entry" @click="pageClick">{{page.name}}</div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+                <div class="content" v-html="currentPage" />
             </div>
-        </div>
+        </section>
 
-        <div class="pages">
-            <div class="index">
-                <h2>Pages</h2>
-                <ul>
-                    <template v-for="page in pages">
-                        <li>
-                            <div :id="page.id" class="entry" @click="pageClick">{{page.name}}</div>
-                        </li>
-                    </template>
-                </ul>
+        <section id="edit" :style="doEdit">
+            <h1>Edit Notebook</h1>
+            <div></div>
+            <div class="edit">
+                <label>
+                    <span>Title</span>
+                    <input type="text" :value="title" placeholder="Enter title of the notebook">
+                </label>
+
+                <label>
+                    <span>Summary</span>
+                    <input type="text" :value="summary" placeholder="Write a summary of the notebook">
+                </label>
+
+                <label>
+                    <span>Private</span>
+                    <input type="checkbox" :value="private"
+                        title="Check if the notebook should be private (GM may still see it)">
+                </label>
+
+                <label>
+                    <span>Accent</span>
+                    <toolcool-color-picker :color="accent" title="Select the accent colour for the notebook" />
+                </label>
+
+                <label>
+                    <span>Pages</span>
+                    <select v-model="selected" @change="pageSelect">
+                        <option v-for="page in editPages" :id="page.id" :value="page.id">
+                            {{page.name}}
+                        </option>
+                    </select>
+                    &nbsp;
+                    <img src="./images/add.png" style="width:16px" title="Add new page" @click="addPage">
+                    &nbsp;
+                    <img src="./images/delete.png" style="width:16px" title="Delete selected page" @click="deletePage">
+                </label>
+
+                <h3>
+                    Edit selected page
+                    <img src="./images/question.png" style="width:16px" title="Show syntax help">
+                </h3>
+
+                <input type="text" v-model="selectedPage.name">
+                <textarea v-model="selectedPage.content"></textarea>
+
+                <div class="buttonBar">
+                    <button id="SaveButton" @click="saveNotebook">Save</button>
+                    <button id="CancelButton" @click="saveNotebook">Cancel</button>
+                </div>
             </div>
+        </section>
+    </div>
 
-            <div class="content" v-html="currentPage" />
-        </div>
-    </section>
+    <script>
+        "use strict";
 
-    <section id="edit" :style="doEdit">
-        <h1>Edit Notebook</h1>
-        <div></div>
-        <div class="edit">
-            <label>
-                <span>Title</span>
-                <input type="text" :value="title" placeholder="Enter title of the notebook">
-            </label>
+        const { createApp } = Vue;
 
-            <label>
-                <span>Summary</span>
-                <input type="text" :value="summary" placeholder="Write a summary of the notebook">
-            </label>
+        createApp({
 
-            <label>
-                <span>Private</span>
-                <input type="checkbox" :value="private"
-                    title="Check if the notebook should be private (GM may still see it)">
-            </label>
+            data() {
+                return {
+                    action: 'show',
+                    title: "This is the title",
+                    summary: "summary",
+                    owner: "Thomas",
+                    private: false,
+                    readonly: false,
+                    accent: '#A8A5CA',
+                    currentPage: "<p>Ouch</p>",
+                    selected: null,
+                    selectedPage: {},
+                    editPages: [],
+                    pages: []
+                }
+            },
 
-            <label>
-                <span>Accent</span>
-                <toolcool-color-picker :color="accent" title="Select the accent colour for the notebook" />
-            </label>
+            computed: {
+                doShow() {
+                    return { display: this.action === 'show' ? 'block' : 'none' }
+                },
 
-            <label>
-                <span>Pages</span>
-                <select v-model="selected" @change="pageSelect">
-                    <option v-for="page in editPages" :id="page.id" :value="page.id">
-                        {{page.name}}
-                    </option>
-                </select>
-                &nbsp;
-                <img src="./images/add.png" style="width:16px" title="Add new page" @click="addPage">
-                &nbsp;
-                <img src="./images/delete.png" style="width:16px" title="Delete selected page" @click="deletePage">
-            </label>
+                doEdit() {
+                    return { display: this.action !== 'show' ? 'block' : 'none' }
+                },
 
-            <h3>
-                Edit selected page
-                <img src="./images/question.png" style="width:16px" title="Show syntax help">
-            </h3>
+                summaryPage() {
+                    return {
+                        id: this.uuidv4(),
+                        name: "Summary",
+                        content: this.summary
+                    }
+                }
+            },
 
-            <input type="text" v-model="selectedPage.name">
-            <textarea v-model="selectedPage.content"></textarea>
+            methods: {
 
-            <div class="buttonBar">
-                <button id="SaveButton" @click="saveNotebook">Save</button>
-                <button id="CancelButton" @click="saveNotebook">Cancel</button>
-            </div>
-        </div>
-    </section>
+                /* ********** Edit Book actions ********** */
+
+                async saveNotebook(event) {
+                    if (event.target.id === "SaveButton") {
+                        this.pages = [];
+                        this.pages.push(this.summaryPage);
+                        this.editPages.forEach(element => this.pages.push(element));
+
+                        let notebook = {
+                            title: this.title,
+                            owner: this.owner,
+                            accent: this.accent,
+                            readonly: this.readonly,
+                            pages: Array.from(this.editPages)
+                        };
+
+                        let data = btoa(JSON.stringify(notebook));
+                        MT.saveBook(data);
+                    }
+                    this.action = 'show';
+                },
+
+                async addPage(event) {
+                    let newPage = {
+                        id: this.uuidv4(),
+                        name: "New Page",
+                        content: ""
+                    }
+                    this.editPages.push(newPage);
+                    this.selected = newPage.id;
+                    this.selectedPage = newPage;
+                },
+
+                async deletePage(event) {
+                    console.log(this.selectedPage);
+                },
+
+                async pageSelect(event) {
+                    let page = this.pages.find(x => x.id === this.selected);
+                    this.selectedPage = page;
+                },
+
+                /* ********** Show Book actions ********** */
+
+                async editNotebook(event) {
+                    this.editPages = this.pages.slice(1);
+                    this.action = 'edit';
+                },
+
+                async deleteNotebook(event) {
+                    this.action = 'delete';
+                },
+
+                async pageClick(event) {
+                    let page = this.pages.find(x => x.id === event.target.id);
+                    if (page.content) {
+                        this.currentPage = await MD.parse(page.content)
+                    } else {
+                        let rawdata = await fetch(page.uri);
+                        let content = await rawdata.text();
+                        this.currentPage = await MD.parse(content);
+                    }
+                },
+
+                /* ********** Utility ********** */
+
+                uuidv4() {
+                    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+                        .replace(/[xy]/g, function (c) {
+                            const r = Math.random() * 16 | 0,
+                                v = c == 'x' ? r : (r & 0x3 | 0x8);
+                            return v.toString(16);
+                        });
+                },
+
+                accentColors(color) {
+                    let tc = tinycolor(color);
+                    let background = tc.toHexString();
+                    let hover = tc.darken(10).toHexString();
+                    let active = tc.darken(20).toHexString();
+                    let colorData = {
+                        '--accent-bg': String(background),
+                        '--accent-hover-bg': String(hover),
+                        '--accent-active-bg': String(active),
+                        '--accent-fg': tc.isLight() ? 'black' : 'white',
+                        '--accent-hover-fg': tinycolor(hover).isLight() ? 'black' : 'white',
+                        '--accent-active-fg': tinycolor(active).isLight() ? 'black' : 'white'
+                    };
+                    return colorData;
+                },
+
+                /* ********** Initialization ********** */
+
+                async onInit() {
+
+                    const rawdata = await MT.getUserData();
+                    let userData = JSON.parse(atob(rawdata));
+                    this.action = userData.action;
+                    let notebook = JSON.parse(atob(userData.notebook));
+
+                    this.title = notebook.title;
+                    this.owner = notebook.owner;
+                    this.accent = notebook.accent ? notebook.accent : "#A8A5CA";
+                    this.colors = this.accentColors();
+                    this.readonly = notebook.readonly;
+                    this.currentPage = await MD.parse(notebook.summary);
+
+                    this.pages.push(this.summaryPage);
+
+                    for (let page of notebook.pages) {
+
+                        console.log(page.name);
+                        this.pages.push({
+                            id: this.uuidv4(),
+                            name: page.name,
+                            content: page.content,
+                            uri: page.uri
+                        })
+                    }
+
+                    let colors = this.accentColors(this.accent);
+                    for (const key of Object.keys(colors)) {
+                        document.documentElement.style.setProperty(key, colors[key]);
+                    }
+                }
+            },
+            mounted() {
+                this.onInit();
+            }
+        }).mount('#app');
+    </script>
 </body>
 
 </html>

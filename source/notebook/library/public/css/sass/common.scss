@@ -1,0 +1,199 @@
+$color_1: rgb(51, 51, 51);
+$color_2: #000000;
+$font-family_1: var(--body-font);
+$font-family_2: var(--header-font);
+$background-color_1: #ffffff;
+$background-color_2: #bbb;
+$background-color_3: #fce77f;
+$background-color_4: rgb(200, 200, 200);
+
+@import "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap";
+
+/* --body-font: 'Atkinson Hyperlegible', sans-serif; */
+/*
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    text-align: left;
+    border-radius: 3px;
+    padding: 4px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -20px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+*/
+
+:root {
+	--body-font: 'Roboto', sans-serif;
+	--header-font: 'Alegreya Sans SC', sans-serif;
+}
+html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+body {
+	font-size: 14px;
+	font-family: $font-family_1;
+	color: $color_1;
+	line-height: 1.5;
+	background-color: $background-color_1;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+table {
+	caption {
+		font-family: $font-family_2;
+		font-size: 1.5em;
+		font-variant: small-caps;
+		position: relative;
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
+		font-weight: bolder;
+	}
+}
+h1 {
+	font-family: $font-family_2;
+	font-variant: small-caps;
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-weight: bolder;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.8em;
+	border-bottom: 1px solid rgb(200, 200, 200);
+}
+h2 {
+	font-family: $font-family_2;
+	font-variant: small-caps;
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-weight: bolder;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.6em;
+	border-bottom: 1px solid rgb(200, 200, 200);
+}
+h3 {
+	font-family: $font-family_2;
+	font-variant: small-caps;
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-weight: bolder;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.5em;
+}
+h4 {
+	font-family: $font-family_2;
+	font-variant: small-caps;
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-weight: bolder;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.4em;
+}
+h5 {
+	font-family: $font-family_2;
+	font-variant: small-caps;
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-weight: bolder;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.2em;
+}
+h6 {
+	font-family: $font-family_2;
+	font-variant: small-caps;
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-weight: bolder;
+	padding: 0px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.1em;
+}
+button {
+	width: 100px;
+}
+input[type="text"] {
+	margin: 0px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 0px;
+}
+textarea {
+	margin: 0px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 0px;
+}
+.language-div {
+	padding: 5px;
+	margin: 10px;
+	background-color: $background-color_2;
+	border: 1px solid #767676;
+}
+p {
+	padding: 3px;
+	margin: 3px;
+	text-indent: 0px;
+}
+blockquote {
+	margin: 0 15px;
+	border-left: 8px solid #917902;
+	border-right: 8px solid #917902;
+	padding: 0 15px;
+	color: $color_2;
+	background-color: $background-color_3;
+	blockquote {
+		padding-right: 0;
+	}
+}
+hr {
+	.softline {
+		height: 1px;
+		padding: 0;
+		margin: 16px 0;
+		background-color: $background-color_4;
+		border: 0 none;
+		overflow: hidden;
+		box-sizing: content-box;
+	}
+}
