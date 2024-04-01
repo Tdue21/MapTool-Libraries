@@ -44,8 +44,9 @@
                 "5e",
                 "ddbimport",
                 "notebook",
+                "pins",
                 "trinity-continuum",
-                "Utilities"
+                "utilities"
             ]
         },
         {
