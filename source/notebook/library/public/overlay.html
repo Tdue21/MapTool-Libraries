@@ -4,8 +4,8 @@
 <head>
     <link rel="stylesheet" href="./css/overlay.css?cachelib=false">
 
-    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js"></script> -->
-    <script src="./js/libraries/vue.global-3.4.15.js"></script>
+    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js?cachelib=false"></script> -->
+    <script src="./js/libraries/vue.global-3.4.15.js?cachelib=false"></script>
     <script src="./js/maptool.js?cachelib=false"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -17,17 +17,17 @@
             <div id="overlay" class="overlay">
                 <div id="main">
                     <div data-tooltip="Open library">
-                        <img id="quill" src="./images/quill-paper.png?cachelib=false" @click="onClick">
+                        <img id="quill" src="./images/quill-paper.png?cachelib=false" @click="onQuillClick">
                     </div>
                 </div>
 
                 <div id="options">
                     <div data-tooltip="Add new book">
-                        <img id="add" src="./images/add.png?cachelib=false" @click="onClick">
+                        <img id="add" src="./images/add.png?cachelib=false" @click="onAddBookClick">
                     </div>
 
                     <div data-tooltip="About MapTool Notebooks">
-                        <img id="about" src="./images/question.png?cachelib=false" @click="onClick">
+                        <img id="about" src="./images/question.png?cachelib=false" @click="onAboutClick">
                     </div>
                 </div>
             </div>
@@ -46,19 +46,27 @@
             },
 
             methods: {
-                async onClick(event) {
+                async onQuillClick(event) {
                     try {
-                        let id = event.target.id;
-
-                        if (id === "quill") {
-                            await MT.showLibrary();
-                        } else if (id === "add") {
-                            await MT.showBook('edit', '', this.asFrame);
-                        } else if (id === "about") {
-                            await MT.showAbout();
-                        }
+                        await MT.showLibrary();
                     } catch (error) {
-                        console.log("### overlay: " + error.stack);
+                        console.log("### overlay::onQuillClick: " + error.stack);
+                    }
+                },
+
+                async onAddBookClick(event) {
+                    try {
+                        await MT.showBook('edit', '', this.asFrame);
+                    } catch (error) {
+                        console.log("### overlay::onAddBookClick: " + error.stack);
+                    }
+                },
+
+                async onAboutClick(event) {
+                    try {
+                        await MT.showAbout();
+                    } catch (error) {
+                        console.log("### overlay::onAboutClick: " + error.stack);
                     }
                 },
 
@@ -66,7 +74,7 @@
                     try {
                         this.asFrame = await MT.getLibProperty("asFrame");
                     } catch (error) {
-                        console.log("### overlay: " + error.stack);
+                        console.log("### overlay::onInit: " + error.stack);
                     }
                 }
             },

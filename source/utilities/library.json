@@ -5,12 +5,12 @@
   ],
   "gitUrl": "",
   "website": "",
-  "shortDescription": "A short description of your add-on library",
+  "shortDescription": "A MapTool add-on library of utilities.",
   "allowsUriAccess": true,
-  "namespace": "net.dovesoft.utilities",
-  "description": "A longer description of your add-on library",
+  "namespace": "dovesoft.utilities",
+  "description": "This is a MapTool add-on library containing several useful utilities. Among others, an easy way to enable debug logging for macros and executing macros from html5 javascript.",
   "licenseFile": "license.txt",
   "readMeFile": "readme.md",
   "license": "MIT",
-  "version": "0.0.1"
+  "version": "0.1.0"
 }

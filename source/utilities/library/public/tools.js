@@ -1,9 +1,10 @@
-const utilDefNs = "net.dovesoft.utilities";
-
-
+/**
+ * 
+ * @param {*} message 
+ */
 async function debugLog(message) {
     try {
-        let uri = `macro:doDebug@lib:${utilDefNs}`;
+        let uri = `macro:doDebug@lib:dovesoft.utilities`;
         let r = await fetch(uri, { method: "POST", body: null });
         let result = await r.text();
 
@@ -11,22 +12,76 @@ async function debugLog(message) {
             console.log(`[DEBUG] ${message}`);
         }
     } catch (error) {
-        console.log(`${utilDefNs}.debugLog("${message}"): ${error.stack}`);
+        console.log(`dovesoft.utilities.debugLog("${message}"): ${error.stack}`);
     }
 }
 
+/**
+ * 
+ * @param {*} macro 
+ * @returns 
+ */
 async function evaluateMacro(macro) {
     try {
-        let uri = `macro:EvaluateMacro@lib:${utilDefNs}`;
+        let uri = `macro:EvaluateMacro@lib:dovesoft.utilities`;
         let r = await fetch(uri, { method: "POST", body: macro });
         let result = await r.text();
         return result;
 
     } catch (error) {
-        console.log(`${utilDefNs}.evaluateMacro("${macro}"): ${error.stack}`);
+        console.log(`dovesoft.utilities.evaluateMacro("${macro}"): ${error.stack}`);
     }
 }
 
+/**
+ * 
+ * @param {*} name 
+ * @param {*} libName 
+ * @returns 
+ */
+async function getLibProperty(name, libName) { 
+    return await evaluateMacro(`[r:getLibProperty("${name}", "${libName}")]`); 
+}
+
+/**
+ * 
+ * @param {*} name 
+ * @param {*} value 
+ * @param {*} libName 
+ */
+async function setLibProperty(name, value, libName) { 
+    await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${libName}")]`); 
+}
+
+/**
+ * 
+ * @returns 
+ */
+async function getPlayerName() { 
+    return await evaluateMacro("[r:getPlayerName()]"); 
+}
+
+/**
+ * 
+ * @returns 
+ */
+async function isGM() { 
+    return Number(await evaluateMacro(`[r:isGM()]`)) == 1; 
+}
+
+/**
+ * 
+ * @param {*} topic 
+ * @returns 
+ */
+async function getInfo(topic) { 
+    return await evaluateMacro(`[r:getInfo("${topic}")]`); 
+}
+
+/**
+ * 
+ * @returns 
+ */
 function uuidv4() {
     try {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
@@ -36,22 +91,6 @@ function uuidv4() {
                 return v.toString(16);
             });
     } catch (error) {
-        console.log(`${utilDefNs}.uuidv4(): ${error.stack}`);
+        console.log(`dovesoft.utilities.uuidv4(): ${error.stack}`);
     }
-}
-
-
-class MTUtils {
-
-    static async getUserData() { return MapTool.getUserData(); }
-
-    static async getLibProperty(name, ns = defNs) { return await evaluateMacro(`[r:getLibProperty("${name}", "${ns}")]`); }
-
-    static async setLibProperty(name, value, ns = defNs) { await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${ns}")]`); }
-
-    static async getPlayerName() { return await evaluateMacro("[r:getPlayerName()]"); }
-
-    static async isGM() { return Number(await evaluateMacro(`[r:isGM()]`)) == 1; }
-
-    static async getInfo(topic) { return await evaluateMacro(`[r:getInfo("${topic}")]`); }
 }

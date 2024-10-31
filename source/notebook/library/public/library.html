@@ -6,9 +6,10 @@
     <link rel="stylesheet" type="text/css" href="./css/tooltip.css?cachelib=false">
     <link rel="stylesheet" type="text/css" href="./css/library.css?cachelib=false">
 
-    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js"></script> -->
-    <script src="./js/libraries/vue.global-3.4.15.js"></script>
-    <script src="./js/maptool.js?cachelib=false"></script>
+    <!-- <script src="./js/libraries/vue.global.prod-3.4.15.js?cachelib=false"></script> -->
+    <script src="./js/maptool-mocks.js"></script>
+    <script src="./js/libraries/vue.global-3.4.15.js?cachelib=false"></script>
+    <script src=".js/maptool.js?cachelib=false"></script>
 </head>
 
 <body>
@@ -59,16 +60,24 @@
                         let data = btoa(JSON.stringify(book.data));
                         await MT.showBook('show', data, this.asFrame);
                     } catch (error) {
-                        console.log("### library: " + error.stack);
+                        console.log("### library::openBook: " + error.stack);
                     }
                 },
 
                 async newBook() {
-                    await MT.showBook('edit', '', this.asFrame);
+                    try {
+                        await MT.showBook('edit', '', this.asFrame);
+                    } catch (error) {
+                        console.log("### library::newBook: " + error.stack);
+                    }
                 },
 
                 async checkChanged(event) {
-                    await MT.setLibProperty("asFrame", this.asFrame ? 1 : 0);
+                    try {
+                        await MT.setLibProperty("asFrame", this.asFrame ? 1 : 0);
+                    } catch (error) {
+                        console.log("### library::checkChanged: " + error.stack);
+                    }
                 },
 
                 async onInit() {
@@ -93,7 +102,7 @@
                             }
                         }
                     } catch (error) {
-                        console.log("### library: " + error.stack);
+                        console.log("### library::onInit: " + error.stack);
                     }
                 }
             },

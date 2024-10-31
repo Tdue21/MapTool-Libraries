@@ -1,8 +1,20 @@
 "use strict";
 
-console.log("Inside MapTool");
-
 const defNs = "net.dovesoft.notebook";
+
+console.log("Inside browser");
+
+"use strict";
+
+if(typeof MapTool === typeof undefined) {
+
+    window.fetch = async function(input, init) {
+        const response = `Input: ${input} - Init: ${JSON.stringify(init)}`;
+        console.log(response);
+        
+        return Promise.resolve(new Response(response));
+    }
+}
 
 class MT {
 
