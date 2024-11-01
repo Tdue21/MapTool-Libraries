@@ -60,7 +60,7 @@ WebView used for `dialog5`, `frame5` and `overlay` functions in MapTool.
 
 Access them by including this line in the `<head>` section of your html: 
 ```html
-<script src=lib://dovesoft.utilities/tools.js?cachelib=false"></script>
+<script src="lib://dovesoft.utilities/tools.js?cachelib=false"></script>
 ```
 
 ### evaluateMacro(macro)
@@ -73,13 +73,15 @@ This function can be used to execute a MapTool macro from Javascript code in a `
 This is an async function, so must be called like this: 
 
 ```js
-<script>
+<script async>
     "use strict";
 
-    let data = await evaluateMacro(`[r:getTokens("json")]`);
-    foreach(let token of data) {
-        // Do something with the tokens returned
-    }
+    (async () => {
+        let data = await evaluateMacro(`[r:getTokens("json")]`);
+        foreach(let token of data) {
+            // Do something with the tokens returned
+        }
+    })();
 </script>
 ```
 

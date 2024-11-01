@@ -39,8 +39,8 @@ async function evaluateMacro(macro) {
  * @param {*} libName 
  * @returns 
  */
-async function getLibProperty(name, libName) { 
-    return await evaluateMacro(`[r:getLibProperty("${name}", "${libName}")]`); 
+async function getLibProperty(name, libName) {
+    return await evaluateMacro(`[r:getLibProperty("${name}", "${libName}")]`);
 }
 
 /**
@@ -49,24 +49,24 @@ async function getLibProperty(name, libName) {
  * @param {*} value 
  * @param {*} libName 
  */
-async function setLibProperty(name, value, libName) { 
-    await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${libName}")]`); 
+async function setLibProperty(name, value, libName) {
+    await evaluateMacro(`[r:setLibProperty("${name}", "${value}", "${libName}")]`);
 }
 
 /**
  * 
  * @returns 
  */
-async function getPlayerName() { 
-    return await evaluateMacro("[r:getPlayerName()]"); 
+async function getPlayerName() {
+    return await evaluateMacro("[r:getPlayerName()]");
 }
 
 /**
  * 
  * @returns 
  */
-async function isGM() { 
-    return Number(await evaluateMacro(`[r:isGM()]`)) == 1; 
+async function isGM() {
+    return Number(await evaluateMacro(`[r:isGM()]`)) == 1;
 }
 
 /**
@@ -74,8 +74,8 @@ async function isGM() {
  * @param {*} topic 
  * @returns 
  */
-async function getInfo(topic) { 
-    return await evaluateMacro(`[r:getInfo("${topic}")]`); 
+async function getInfo(topic) {
+    return await evaluateMacro(`[r:getInfo("${topic}")]`);
 }
 
 /**

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="lib://dovesoft.utilities/tools.js?cachelib=false"></script>
+</head>
+
+<body>
+    <textArea id="data" style="width:100%;margin:0px;padding:0px;height:100%;font-family: monospace;"></textarea>
+</body>
+
+<script async>
+    "use strict";
+
+    (async () => {
+        try {
+            let data = await getInfo("client");
+            let info = JSON.parse(data);
+            let text = document.getElementById("data");
+            text.value = JSON.stringify(info, null, 4);
+        } catch (error) {
+            console.log(error);
+        }
+    })();
+</script>
+
+</html>
